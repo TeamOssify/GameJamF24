@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\StateManager.cs" />
+    <None Include="Assets\Shaders\Unlit.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.50f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

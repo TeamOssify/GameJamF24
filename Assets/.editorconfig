@@ -10,7 +10,9 @@ tab_width = 4
 max_line_length = 240
 
 # Microsoft .NET properties
+csharp_indent_braces = false
 csharp_new_line_before_members_in_object_initializers = false
+csharp_new_line_before_open_brace = anonymous_types,object_collection_array_initializers
 csharp_preferred_modifier_order = public, private, protected, internal, file, new, static, abstract, virtual, sealed, readonly, override, extern, unsafe, volatile, async, required:suggestion
 csharp_style_prefer_utf8_string_literals = true:suggestion
 csharp_style_var_elsewhere = true:suggestion
@@ -62,7 +64,7 @@ dotnet_naming_symbols.private_constants_symbols.required_modifiers = const
 dotnet_naming_symbols.private_constants_symbols.resharper_applicable_kinds = constant_field
 dotnet_naming_symbols.private_constants_symbols.resharper_required_modifiers = any
 dotnet_naming_symbols.unity_serialized_field_symbols.applicable_accessibilities = *
-dotnet_naming_symbols.unity_serialized_field_symbols.applicable_kinds =
+dotnet_naming_symbols.unity_serialized_field_symbols.applicable_kinds = 
 dotnet_naming_symbols.unity_serialized_field_symbols.resharper_applicable_kinds = unity_serialised_field
 dotnet_naming_symbols.unity_serialized_field_symbols.resharper_required_modifiers = instance
 dotnet_style_parentheses_in_arithmetic_binary_operators = never_if_unnecessary:suggestion
