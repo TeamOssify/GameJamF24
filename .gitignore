@@ -473,3 +473,5 @@ $RECYCLE.BIN/
 
 **/.idea
 .vsconfig
+
+Library/*
