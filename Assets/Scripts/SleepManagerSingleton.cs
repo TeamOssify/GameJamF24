@@ -2,22 +2,23 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = nameof(SleepManagerScriptableObject), menuName = "ScriptableObjects/Sleep Manager")]
-public sealed class SleepManagerScriptableObject : ScriptableObject {
+public sealed class SleepManagerSingleton : Singleton<SleepManagerSingleton> {
     [SerializeField]
     private int maxSleep = 100;
 
     [SerializeField]
-    private int minSleep = 0;
+    private int minSleep;
 
     [NonSerialized]
     public UnityEvent<MetricChangedArgs> SleepChanged;
 
+    public int MinSleep => minSleep;
+
     public decimal Sleep { get; private set; }
 
     private void OnEnable() {
-        Sleep = maxSleep;
         SleepChanged ??= new UnityEvent<MetricChangedArgs>();
+        Sleep = maxSleep;
     }
 
     public void ReduceSanity(decimal amount) {

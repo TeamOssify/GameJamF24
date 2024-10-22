@@ -2,22 +2,23 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = nameof(HealthManagerScriptableObject), menuName = "ScriptableObjects/Health Manager")]
-public sealed class HealthManagerScriptableObject : ScriptableObject {
+public sealed class HealthManagerSingleton : Singleton<HealthManagerSingleton> {
     [SerializeField]
     private int maxHealth = 100;
 
     [SerializeField]
-    private int minHealth = 0;
+    private int minHealth;
 
     [NonSerialized]
     public UnityEvent<MetricChangedArgs> HealthChanged;
 
+    public int MinHealth => minHealth;
+
     public decimal Health { get; private set; }
 
     private void OnEnable() {
-        Health = maxHealth;
         HealthChanged ??= new UnityEvent<MetricChangedArgs>();
+        Health = maxHealth;
     }
 
     public void Damage(decimal amount) {

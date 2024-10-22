@@ -10,22 +10,22 @@ public sealed class TimeManagerScriptableObject : ScriptableObject {
 
     [SerializeField]
     [Range(0, 59)]
-    private int startingMinute = 0;
+    private int startingMinute;
 
     [SerializeField]
     [Range(0, 59)]
-    private int startingSecond = 0;
+    private int startingSecond;
+
+    [NonSerialized]
+    public UnityEvent<TimeSpan> TimeChanged;
 
     private TimeSpan StartingTime => new(startingHour, startingMinute, startingSecond);
 
     public TimeSpan CurrentTimeOfDay { get; private set; }
 
-    [NonSerialized]
-    public UnityEvent<TimeSpan> TimeChanged;
-
     private void OnEnable() {
-        CurrentTimeOfDay = StartingTime;
         TimeChanged ??= new UnityEvent<TimeSpan>();
+        CurrentTimeOfDay = StartingTime;
     }
 
     public void AdvanceTimeOfDay(TimeSpan deltaTime) {

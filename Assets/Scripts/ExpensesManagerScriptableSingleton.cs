@@ -1,20 +1,19 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = nameof(ExpensesManagerScriptableObject), menuName = "ScriptableObjects/Expenses Manager")]
-public sealed class ExpensesManagerScriptableObject : ScriptableObject {
+public sealed class ExpensesManagerScriptableSingleton : Singleton<ExpensesManagerScriptableSingleton> {
     private List<Expense> _expenses;
-    public IReadOnlyList<Expense> Expenses => _expenses;
 
     [NonSerialized]
     public UnityEvent<MetricChangedArgs> TotalExpensesChanged;
 
+    public IReadOnlyList<Expense> Expenses => _expenses;
+
     private void OnEnable() {
-        _expenses = new List<Expense>();
         TotalExpensesChanged ??= new UnityEvent<MetricChangedArgs>();
+        _expenses = new List<Expense>();
     }
 
     public void ClearExpenses() {

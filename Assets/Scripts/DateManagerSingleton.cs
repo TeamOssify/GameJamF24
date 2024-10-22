@@ -2,31 +2,32 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = nameof(DateManagerScriptableObject), menuName = "ScriptableObjects/Date Manager")]
-public sealed class DateManagerScriptableObject : ScriptableObject {
+public sealed class DateManagerSingleton : Singleton<DateManagerSingleton> {
     [SerializeField]
     private DayOfWeek startingDay = DayOfWeek.Sunday;
-
-    public int CurrentDate { get; private set; }
 
     [NonSerialized]
     public UnityEvent<DateChangedArgs> DayChanged;
 
+    public int CurrentDate { get; private set; }
+
+    public DayOfWeek CurrentDayOfWeek => (DayOfWeek)(CurrentDate % 7);
+
     private void OnEnable() {
-        CurrentDate = (int)startingDay;
         DayChanged ??= new UnityEvent<DateChangedArgs>();
+        CurrentDate = (int)startingDay;
     }
 
     public void AdvanceDate() {
         CurrentDate++;
 
-        OnDateChanged(CurrentDate, (DayOfWeek)(CurrentDate % 7));
+        OnDateChanged(CurrentDate, CurrentDayOfWeek);
     }
 
     public void SetDate(int date) {
         CurrentDate = date;
 
-        OnDateChanged(CurrentDate, (DayOfWeek)(CurrentDate % 7));
+        OnDateChanged(CurrentDate, CurrentDayOfWeek);
     }
 
     private void OnDateChanged(int date, DayOfWeek dayOfWeek) {

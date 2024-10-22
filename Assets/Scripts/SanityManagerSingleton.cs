@@ -2,22 +2,23 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = nameof(SanityManagerScriptableObject), menuName = "ScriptableObjects/Sanity Manager")]
-public sealed class SanityManagerScriptableObject : ScriptableObject {
+public sealed class SanityManagerSingleton : Singleton<SanityManagerSingleton> {
     [SerializeField]
     private int maxSanity = 100;
 
     [SerializeField]
-    private int minSanity = 0;
+    private int minSanity;
 
     [NonSerialized]
     public UnityEvent<MetricChangedArgs> SanityChanged;
 
+    public int MinSanity => minSanity;
+
     public decimal Sanity { get; private set; }
 
     private void OnEnable() {
-        Sanity = maxSanity;
         SanityChanged ??= new UnityEvent<MetricChangedArgs>();
+        Sanity = maxSanity;
     }
 
     public void ReduceSanity(decimal amount) {
