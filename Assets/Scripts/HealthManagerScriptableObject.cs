@@ -20,6 +20,11 @@ public class HealthManagerScriptableObject : ScriptableObject {
     }
 
     public void Damage(decimal amount) {
+        if (amount < 0) {
+            Debug.LogWarning("Tried to damage by a negative amount!");
+            return;
+        }
+
         var oldHealth = Health;
 
         Health -= amount;
@@ -31,6 +36,11 @@ public class HealthManagerScriptableObject : ScriptableObject {
     }
 
     public void Heal(decimal amount) {
+        if (amount < 0) {
+            Debug.LogWarning("Tried to heal by a negative amount!");
+            return;
+        }
+
         var oldHealth = Health;
 
         Health += amount;

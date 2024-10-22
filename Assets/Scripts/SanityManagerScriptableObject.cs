@@ -20,6 +20,11 @@ public class SanityManagerScriptableObject : ScriptableObject {
     }
 
     public void ReduceSanity(decimal amount) {
+        if (amount < 0) {
+            Debug.LogWarning("Tried to reduce sanity by a negative amount!");
+            return;
+        }
+
         var oldSanity = Sanity;
 
         Sanity -= amount;
@@ -31,6 +36,11 @@ public class SanityManagerScriptableObject : ScriptableObject {
     }
 
     public void IncreaseSanity(decimal amount) {
+        if (amount < 0) {
+            Debug.LogWarning("Tried to increase sanity by a negative amount!");
+            return;
+        }
+
         var oldSanity = Sanity;
 
         Sanity += amount;

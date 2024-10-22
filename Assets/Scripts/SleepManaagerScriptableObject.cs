@@ -20,6 +20,11 @@ public class SleepManaagerScriptableObject : ScriptableObject {
     }
 
     public void ReduceSanity(decimal amount) {
+        if (amount < 0) {
+            Debug.LogWarning("Tried to reduce sleep by a negative amount!");
+            return;
+        }
+
         var oldSleep = Sleep;
 
         Sleep -= amount;
@@ -31,6 +36,11 @@ public class SleepManaagerScriptableObject : ScriptableObject {
     }
 
     public void IncreaseSanity(decimal amount) {
+        if (amount < 0) {
+            Debug.LogWarning("Tried to increase sleep by a negative amount!");
+            return;
+        }
+
         var oldSleep = Sleep;
 
         Sleep += amount;
