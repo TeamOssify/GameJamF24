@@ -5,10 +5,10 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = nameof(HealthManagerScriptableObject), menuName = "ScriptableObjects/Health Manager")]
 public sealed class HealthManagerScriptableObject : ScriptableObject {
     [SerializeField]
-    private readonly decimal _maxHealth = 100;
+    private int maxHealth = 100;
 
     [SerializeField]
-    private readonly decimal _minHealth = 0;
+    private int minHealth = 0;
 
     [NonSerialized]
     public UnityEvent<MetricChangedArgs> HealthChanged;
@@ -16,7 +16,7 @@ public sealed class HealthManagerScriptableObject : ScriptableObject {
     public decimal Health { get; private set; }
 
     private void OnEnable() {
-        Health = _maxHealth;
+        Health = maxHealth;
         HealthChanged ??= new UnityEvent<MetricChangedArgs>();
     }
 
@@ -29,8 +29,8 @@ public sealed class HealthManagerScriptableObject : ScriptableObject {
         var oldHealth = Health;
 
         Health -= amount;
-        if (Health < _minHealth) {
-            Health = _minHealth;
+        if (Health < minHealth) {
+            Health = minHealth;
         }
 
         OnHealthChanged(oldHealth, Health);
@@ -45,8 +45,8 @@ public sealed class HealthManagerScriptableObject : ScriptableObject {
         var oldHealth = Health;
 
         Health += amount;
-        if (Health > _maxHealth) {
-            Health = _maxHealth;
+        if (Health > maxHealth) {
+            Health = maxHealth;
         }
 
         OnHealthChanged(oldHealth, Health);

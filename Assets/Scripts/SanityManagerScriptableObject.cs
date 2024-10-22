@@ -5,10 +5,10 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = nameof(SanityManagerScriptableObject), menuName = "ScriptableObjects/Sanity Manager")]
 public sealed class SanityManagerScriptableObject : ScriptableObject {
     [SerializeField]
-    private readonly decimal _maxSanity = 100;
+    private int maxSanity = 100;
 
     [SerializeField]
-    private readonly decimal _minSanity = 0;
+    private int minSanity = 0;
 
     [NonSerialized]
     public UnityEvent<MetricChangedArgs> SanityChanged;
@@ -16,7 +16,7 @@ public sealed class SanityManagerScriptableObject : ScriptableObject {
     public decimal Sanity { get; private set; }
 
     private void OnEnable() {
-        Sanity = _maxSanity;
+        Sanity = maxSanity;
         SanityChanged ??= new UnityEvent<MetricChangedArgs>();
     }
 
@@ -29,8 +29,8 @@ public sealed class SanityManagerScriptableObject : ScriptableObject {
         var oldSanity = Sanity;
 
         Sanity -= amount;
-        if (Sanity < _minSanity) {
-            Sanity = _minSanity;
+        if (Sanity < minSanity) {
+            Sanity = minSanity;
         }
 
         OnSanityChanged(oldSanity, Sanity);
@@ -45,8 +45,8 @@ public sealed class SanityManagerScriptableObject : ScriptableObject {
         var oldSanity = Sanity;
 
         Sanity += amount;
-        if (Sanity > _maxSanity) {
-            Sanity = _maxSanity;
+        if (Sanity > maxSanity) {
+            Sanity = maxSanity;
         }
 
         OnSanityChanged(oldSanity, Sanity);

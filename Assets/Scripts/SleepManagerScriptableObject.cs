@@ -5,10 +5,10 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = nameof(SleepManagerScriptableObject), menuName = "ScriptableObjects/Sleep Manager")]
 public sealed class SleepManagerScriptableObject : ScriptableObject {
     [SerializeField]
-    private readonly decimal _maxSleep = 100;
+    private int maxSleep = 100;
 
     [SerializeField]
-    private readonly decimal _minSleep = 0;
+    private int minSleep = 0;
 
     [NonSerialized]
     public UnityEvent<MetricChangedArgs> SleepChanged;
@@ -16,7 +16,7 @@ public sealed class SleepManagerScriptableObject : ScriptableObject {
     public decimal Sleep { get; private set; }
 
     private void OnEnable() {
-        Sleep = _maxSleep;
+        Sleep = maxSleep;
         SleepChanged ??= new UnityEvent<MetricChangedArgs>();
     }
 
@@ -29,8 +29,8 @@ public sealed class SleepManagerScriptableObject : ScriptableObject {
         var oldSleep = Sleep;
 
         Sleep -= amount;
-        if (Sleep < _minSleep) {
-            Sleep = _minSleep;
+        if (Sleep < minSleep) {
+            Sleep = minSleep;
         }
 
         OnSleepChanged(oldSleep, Sleep);
@@ -45,8 +45,8 @@ public sealed class SleepManagerScriptableObject : ScriptableObject {
         var oldSleep = Sleep;
 
         Sleep += amount;
-        if (Sleep > _maxSleep) {
-            Sleep = _maxSleep;
+        if (Sleep > maxSleep) {
+            Sleep = maxSleep;
         }
 
         OnSleepChanged(oldSleep, Sleep);

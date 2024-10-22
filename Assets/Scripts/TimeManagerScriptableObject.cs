@@ -5,7 +5,18 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = nameof(TimeManagerScriptableObject), menuName = "ScriptableObjects/Time Manager")]
 public sealed class TimeManagerScriptableObject : ScriptableObject {
     [SerializeField]
-    private readonly TimeSpan _startingTime = new(6, 0, 0);
+    [Range(0, 23)]
+    private int startingHour = 6;
+
+    [SerializeField]
+    [Range(0, 59)]
+    private int startingMinute = 0;
+
+    [SerializeField]
+    [Range(0, 59)]
+    private int startingSecond = 0;
+
+    private TimeSpan StartingTime => new(startingHour, startingMinute, startingSecond);
 
     public TimeSpan CurrentTimeOfDay { get; private set; }
 
@@ -13,7 +24,7 @@ public sealed class TimeManagerScriptableObject : ScriptableObject {
     public UnityEvent<TimeSpan> TimeChanged;
 
     private void OnEnable() {
-        CurrentTimeOfDay = _startingTime;
+        CurrentTimeOfDay = StartingTime;
         TimeChanged ??= new UnityEvent<TimeSpan>();
     }
 
