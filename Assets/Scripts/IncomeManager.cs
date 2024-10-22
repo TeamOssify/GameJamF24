@@ -16,6 +16,10 @@ public sealed class IncomeManager : Singleton<IncomeManager> {
         DateManager.Instance.DayChanged.AddListener(OnDateChanged);
     }
 
+    private void OnDisable() {
+        DateManager.Instance.DayChanged.RemoveListener(OnDateChanged);
+    }
+
     private void OnDateChanged(DateChangedArgs e) {
         var income = CheckIncomeSources(e.Date);
         OnIncome(income);
