@@ -5,15 +5,14 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class ExpensesManagerScriptableObject : ScriptableObject {
-    private readonly List<Expense> _expenses = new();
+    private List<Expense> _expenses;
+    public IReadOnlyList<Expense> Expenses => _expenses;
 
     [NonSerialized]
     public UnityEvent<MetricChangedArgs> TotalExpensesChanged;
 
-    public IReadOnlyList<Expense> Expenses => _expenses;
-
     private void OnEnable() {
-        ClearExpenses();
+        _expenses = new List<Expense>();
         TotalExpensesChanged ??= new UnityEvent<MetricChangedArgs>();
     }
 
