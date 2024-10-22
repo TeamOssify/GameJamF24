@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Singletons\ExpensesManager.cs" />
     <Compile Include="Assets\Scripts\Singletons\EventArgs\DateChangedArgs.cs" />
     <Compile Include="Assets\Scripts\Singletons\EventArgs\MentalStateChangedArgs.cs" />
+    <Compile Include="Assets\Scripts\UIHandlers\MoneyUI.cs" />
     <Compile Include="Assets\Scripts\Singletons\SanityManager.cs" />
     <None Include="Assets\Shaders\Unlit.shader" />
     <Reference Include="UnityEngine">
