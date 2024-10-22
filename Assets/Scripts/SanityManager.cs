@@ -4,9 +4,11 @@ using UnityEngine.Events;
 
 public sealed class SanityManager : Singleton<SanityManager> {
     [SerializeField]
+    [Min(0)]
     private int maxSanity = 100;
 
     [SerializeField]
+    [Min(0)]
     private int minSanity;
 
     [NonSerialized]
@@ -23,7 +25,7 @@ public sealed class SanityManager : Singleton<SanityManager> {
 
     public void ReduceSanity(decimal amount) {
         if (amount < 0) {
-            Debug.LogWarning("Tried to reduce sanity by a negative amount!");
+            Debug.LogWarningFormat("Tried to reduce sanity by a negative amount! ({0})", amount);
             return;
         }
 
@@ -39,7 +41,7 @@ public sealed class SanityManager : Singleton<SanityManager> {
 
     public void IncreaseSanity(decimal amount) {
         if (amount < 0) {
-            Debug.LogWarning("Tried to increase sanity by a negative amount!");
+            Debug.LogWarningFormat("Tried to increase sanity by a negative amount! ({0})", amount);
             return;
         }
 
