@@ -4,9 +4,11 @@ using UnityEngine.Events;
 
 public sealed class SanityManager : Singleton<SanityManager> {
     [SerializeField]
+    [Min(0)]
     private int maxSanity = 100;
 
     [SerializeField]
+    [Min(0)]
     private int minSanity;
 
     [NonSerialized]

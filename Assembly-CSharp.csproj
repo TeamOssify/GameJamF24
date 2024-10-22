@@ -50,9 +50,12 @@
     <Compile Include="Assets\Scripts\BackgroundMusicManager.cs" />
     <Compile Include="Assets\Scripts\SleepManager.cs" />
     <Compile Include="Assets\Scripts\SanityManager.cs" />
+    <Compile Include="Assets\Scripts\Enums.cs" />
+    <Compile Include="Assets\Scripts\MentalStateChangedArgs.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
     <Compile Include="Assets\Scripts\FailureStateManager.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\MentalStateManager.cs" />
     <Compile Include="Assets\Scripts\LocationHandler.cs" />
     <Compile Include="Assets\Scripts\BankAccountManager.cs" />
     <Compile Include="Assets\Scripts\TimeManager.cs" />
