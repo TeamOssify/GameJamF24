@@ -48,9 +48,12 @@
     <Compile Include="Assets\Scripts\WeekManagerScriptableObject.cs" />
     <Compile Include="Assets\Scripts\SanityManagerScriptableObject.cs" />
     <Compile Include="Assets\Scripts\LocationHandler.cs" />
+    <Compile Include="Assets\Scripts\DateManagerScriptableObject.cs" />
     <Compile Include="Assets\Scripts\StateManagerScriptableObject.cs" />
     <Compile Include="Assets\Scripts\HealthManagerScriptableObject.cs" />
+    <Compile Include="Assets\Scripts\DateChangedArgs.cs" />
     <Compile Include="Assets\Scripts\SleepManaagerScriptableObject.cs" />
+    <Compile Include="Assets\Scripts\TimeManagerScriptableObject.cs" />
     <Compile Include="Assets\Scripts\ExpensesManagerScriptableObject.cs" />
     <Compile Include="Assets\Scripts\MetricChangedArgs.cs" />
     <None Include="Assets\Shaders\Unlit.shader" />
