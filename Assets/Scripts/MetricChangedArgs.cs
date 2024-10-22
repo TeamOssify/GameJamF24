@@ -1,4 +1,4 @@
-public record MetricChangedArgs {
+public sealed record MetricChangedArgs {
     public MetricChangedArgs(decimal oldValue, decimal newValue) {
         OldValue = oldValue;
         NewValue = newValue;

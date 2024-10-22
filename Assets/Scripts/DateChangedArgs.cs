@@ -1,6 +1,6 @@
 using System;
 
-public record DateChangedArgs {
+public sealed record DateChangedArgs {
     public DateChangedArgs(int date, DayOfWeek dayOfWeek) {
         Date = date;
         DayOfWeek = dayOfWeek;

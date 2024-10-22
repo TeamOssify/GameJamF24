@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ExpensesManagerScriptableObject : ScriptableObject {
+public sealed class ExpensesManagerScriptableObject : ScriptableObject {
     private List<Expense> _expenses;
     public IReadOnlyList<Expense> Expenses => _expenses;
 
@@ -36,7 +36,7 @@ public class ExpensesManagerScriptableObject : ScriptableObject {
         return _expenses.Sum(x => x.Cost);
     }
 
-    protected virtual void OnTotalExpensesChanged(decimal oldTotal, decimal newTotal) {
+    private void OnTotalExpensesChanged(decimal oldTotal, decimal newTotal) {
         if (oldTotal != newTotal) {
             TotalExpensesChanged?.Invoke(new MetricChangedArgs(oldTotal, newTotal));
         }

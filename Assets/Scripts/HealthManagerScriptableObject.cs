@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class HealthManagerScriptableObject : ScriptableObject {
+public sealed class HealthManagerScriptableObject : ScriptableObject {
     [SerializeField]
     private readonly decimal _maxHealth = 100;
 
@@ -51,7 +51,7 @@ public class HealthManagerScriptableObject : ScriptableObject {
         OnHealthChanged(oldHealth, Health);
     }
 
-    protected virtual void OnHealthChanged(decimal oldHealth, decimal newHealth) {
+    private void OnHealthChanged(decimal oldHealth, decimal newHealth) {
         if (oldHealth != newHealth) {
             HealthChanged?.Invoke(new MetricChangedArgs(oldHealth, newHealth));
         }

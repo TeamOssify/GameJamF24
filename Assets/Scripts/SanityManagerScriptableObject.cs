@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class SanityManagerScriptableObject : ScriptableObject {
+public sealed class SanityManagerScriptableObject : ScriptableObject {
     [SerializeField]
     private readonly decimal _maxSanity = 100;
 
@@ -51,7 +51,7 @@ public class SanityManagerScriptableObject : ScriptableObject {
         OnSanityChanged(oldSanity, Sanity);
     }
 
-    protected virtual void OnSanityChanged(decimal oldSanity, decimal newSanity) {
+    private void OnSanityChanged(decimal oldSanity, decimal newSanity) {
         if (oldSanity != newSanity) {
             SanityChanged?.Invoke(new MetricChangedArgs(oldSanity, newSanity));
         }

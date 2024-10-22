@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class DateManagerScriptableObject : ScriptableObject {
+public sealed class DateManagerScriptableObject : ScriptableObject {
     [SerializeField]
     private DayOfWeek startingDay = DayOfWeek.Sunday;
 
@@ -28,7 +28,7 @@ public class DateManagerScriptableObject : ScriptableObject {
         OnDateChanged(CurrentDate, (DayOfWeek)(CurrentDate % 7));
     }
 
-    protected virtual void OnDateChanged(int date, DayOfWeek dayOfWeek) {
+    private void OnDateChanged(int date, DayOfWeek dayOfWeek) {
         DayChanged?.Invoke(new DateChangedArgs(date, dayOfWeek));
     }
 }

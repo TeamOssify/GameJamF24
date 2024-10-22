@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class SleepManaagerScriptableObject : ScriptableObject {
+public sealed class SleepManaagerScriptableObject : ScriptableObject {
     [SerializeField]
     private readonly decimal _maxSleep = 100;
 
@@ -51,7 +51,7 @@ public class SleepManaagerScriptableObject : ScriptableObject {
         OnSleepChanged(oldSleep, Sleep);
     }
 
-    protected virtual void OnSleepChanged(decimal oldSleep, decimal newSleep) {
+    private void OnSleepChanged(decimal oldSleep, decimal newSleep) {
         if (oldSleep != newSleep) {
             SleepChanged?.Invoke(new MetricChangedArgs(oldSleep, newSleep));
         }

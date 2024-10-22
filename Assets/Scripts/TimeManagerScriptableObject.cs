@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TimeManagerScriptableObject : ScriptableObject {
+public sealed class TimeManagerScriptableObject : ScriptableObject {
     [SerializeField]
     private readonly TimeSpan _startingTime = new(6, 0, 0);
 
@@ -40,7 +40,7 @@ public class TimeManagerScriptableObject : ScriptableObject {
         OnTimeChanged(CurrentTimeOfDay);
     }
 
-    protected virtual void OnTimeChanged(TimeSpan e) {
+    private void OnTimeChanged(TimeSpan e) {
         TimeChanged?.Invoke(e);
     }
 }
