@@ -59,6 +59,7 @@
     <Compile Include="Assets\Scripts\DateChangedArgs.cs" />
     <Compile Include="Assets\Scripts\AudioSourceExtensions.cs" />
     <Compile Include="Assets\Scripts\DateManager.cs" />
+    <Compile Include="Assets\Scripts\SoundEffectManager.cs" />
     <Compile Include="Assets\Scripts\MetricChangedArgs.cs" />
     <Compile Include="Assets\Scripts\ExpensesManager.cs" />
     <None Include="Assets\Shaders\Unlit.shader" />
