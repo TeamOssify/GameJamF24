@@ -45,7 +45,13 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.50f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\StateManager.cs" />
+    <Compile Include="Assets\Scripts\WeekManagerScriptableObject.cs" />
+    <Compile Include="Assets\Scripts\SanityManagerScriptableObject.cs" />
+    <Compile Include="Assets\Scripts\StateManagerScriptableObject.cs" />
+    <Compile Include="Assets\Scripts\HealthManagerScriptableObject.cs" />
+    <Compile Include="Assets\Scripts\SleepManaagerScriptableObject.cs" />
+    <Compile Include="Assets\Scripts\ExpensesManagerScriptableObject.cs" />
+    <Compile Include="Assets\Scripts\MetricChangedArgs.cs" />
     <None Include="Assets\Shaders\Unlit.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.50f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
