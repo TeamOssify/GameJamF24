@@ -32,7 +32,7 @@ public class SleepManaagerScriptableObject : ScriptableObject {
             Sleep = _minSleep;
         }
 
-        OnSleepChanged(new MetricChangedArgs(oldSleep, Sleep));
+        OnSleepChanged(oldSleep, Sleep);
     }
 
     public void IncreaseSanity(decimal amount) {
@@ -48,12 +48,12 @@ public class SleepManaagerScriptableObject : ScriptableObject {
             Sleep = _maxSleep;
         }
 
-        OnSleepChanged(new MetricChangedArgs(oldSleep, Sleep));
+        OnSleepChanged(oldSleep, Sleep);
     }
 
-    protected virtual void OnSleepChanged(MetricChangedArgs e) {
-        if (e.OldValue != e.NewValue) {
-            SleepChanged?.Invoke(e);
+    protected virtual void OnSleepChanged(decimal oldSleep, decimal newSleep) {
+        if (oldSleep != newSleep) {
+            SleepChanged?.Invoke(new MetricChangedArgs(oldSleep, newSleep));
         }
     }
 }

@@ -32,7 +32,7 @@ public class HealthManagerScriptableObject : ScriptableObject {
             Health = _minHealth;
         }
 
-        OnHealthChanged(new MetricChangedArgs(oldHealth, Health));
+        OnHealthChanged(oldHealth, Health);
     }
 
     public void Heal(decimal amount) {
@@ -48,12 +48,12 @@ public class HealthManagerScriptableObject : ScriptableObject {
             Health = _maxHealth;
         }
 
-        OnHealthChanged(new MetricChangedArgs(oldHealth, Health));
+        OnHealthChanged(oldHealth, Health);
     }
 
-    protected virtual void OnHealthChanged(MetricChangedArgs e) {
-        if (e.OldValue != e.NewValue) {
-            HealthChanged?.Invoke(e);
+    protected virtual void OnHealthChanged(decimal oldHealth, decimal newHealth) {
+        if (oldHealth != newHealth) {
+            HealthChanged?.Invoke(new MetricChangedArgs(oldHealth, newHealth));
         }
     }
 }

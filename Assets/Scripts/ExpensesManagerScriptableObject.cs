@@ -21,7 +21,7 @@ public class ExpensesManagerScriptableObject : ScriptableObject {
         _expenses.Clear();
         var newTotal = CalculateTotal();
 
-        OnTotalExpensesChanged(new MetricChangedArgs(oldTotal, newTotal));
+        OnTotalExpensesChanged(oldTotal, newTotal);
     }
 
     public void AddExpense(string expenseName, decimal cost) {
@@ -29,16 +29,16 @@ public class ExpensesManagerScriptableObject : ScriptableObject {
         _expenses.Add(new Expense(expenseName, cost));
         var newTotal = CalculateTotal();
 
-        OnTotalExpensesChanged(new MetricChangedArgs(oldTotal, newTotal));
+        OnTotalExpensesChanged(oldTotal, newTotal);
     }
 
     public decimal CalculateTotal() {
         return _expenses.Sum(x => x.Cost);
     }
 
-    protected virtual void OnTotalExpensesChanged(MetricChangedArgs e) {
-        if (e.OldValue != e.NewValue) {
-            TotalExpensesChanged?.Invoke(e);
+    protected virtual void OnTotalExpensesChanged(decimal oldTotal, decimal newTotal) {
+        if (oldTotal != newTotal) {
+            TotalExpensesChanged?.Invoke(new MetricChangedArgs(oldTotal, newTotal));
         }
     }
 

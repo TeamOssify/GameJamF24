@@ -32,7 +32,7 @@ public class SanityManagerScriptableObject : ScriptableObject {
             Sanity = _minSanity;
         }
 
-        OnSanityChanged(new MetricChangedArgs(oldSanity, Sanity));
+        OnSanityChanged(oldSanity, Sanity);
     }
 
     public void IncreaseSanity(decimal amount) {
@@ -48,12 +48,12 @@ public class SanityManagerScriptableObject : ScriptableObject {
             Sanity = _maxSanity;
         }
 
-        OnSanityChanged(new MetricChangedArgs(oldSanity, Sanity));
+        OnSanityChanged(oldSanity, Sanity);
     }
 
-    protected virtual void OnSanityChanged(MetricChangedArgs e) {
-        if (e.OldValue != e.NewValue) {
-            SanityChanged?.Invoke(e);
+    protected virtual void OnSanityChanged(decimal oldSanity, decimal newSanity) {
+        if (oldSanity != newSanity) {
+            SanityChanged?.Invoke(new MetricChangedArgs(oldSanity, newSanity));
         }
     }
 }

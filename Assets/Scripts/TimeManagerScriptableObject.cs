@@ -17,7 +17,21 @@ public class TimeManagerScriptableObject : ScriptableObject {
     }
 
     public void AdvanceTimeOfDay(TimeSpan deltaTime) {
+        if (deltaTime.Ticks < 1) {
+            return; // Zero or negative time was passed.
+        }
+
         CurrentTimeOfDay += deltaTime;
+
+        while (CurrentTimeOfDay.Days > 0) {
+            CurrentTimeOfDay -= TimeSpan.FromDays(1);
+        }
+
+        OnTimeChanged(CurrentTimeOfDay);
+    }
+
+    public void SetTimeOfDay(TimeSpan time) {
+        CurrentTimeOfDay = time;
 
         while (CurrentTimeOfDay.Days > 0) {
             CurrentTimeOfDay -= TimeSpan.FromDays(1);
