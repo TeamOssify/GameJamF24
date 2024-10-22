@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public sealed class FailureStateManagerSingleton : Singleton<FailureStateManagerSingleton> {
+public sealed class FailureStateManager : Singleton<FailureStateManager> {
     [SerializeField]
     [Tooltip("How many days of low sanity means failure. 0 = At the start of the next day.")]
     [Min(0)]
@@ -22,11 +22,11 @@ public sealed class FailureStateManagerSingleton : Singleton<FailureStateManager
 
     private void OnEnable() {
         GameOver ??= new UnityEvent<string>();
-        DateManagerSingleton.Instance.DayChanged.AddListener(OnDateChanged);
+        DateManager.Instance.DayChanged.AddListener(OnDateChanged);
     }
 
     private void OnDisable() {
-        DateManagerSingleton.Instance.DayChanged.RemoveListener(OnDateChanged);
+        DateManager.Instance.DayChanged.RemoveListener(OnDateChanged);
     }
 
     private void OnDateChanged(DateChangedArgs e) {
@@ -35,9 +35,9 @@ public sealed class FailureStateManagerSingleton : Singleton<FailureStateManager
     }
 
     public void UpdateFailureTrackers() {
-        var currentDay = DateManagerSingleton.Instance.CurrentDate;
+        var currentDay = DateManager.Instance.CurrentDate;
 
-        var sanityManager = SanityManagerSingleton.Instance;
+        var sanityManager = SanityManager.Instance;
         if (sanityManager.Sanity <= sanityManager.MinSanity) {
             if (_ranOutOfSanityDay == -1) {
                 _ranOutOfSanityDay = currentDay;
@@ -47,7 +47,7 @@ public sealed class FailureStateManagerSingleton : Singleton<FailureStateManager
             _ranOutOfSanityDay = -1;
         }
 
-        var sleepManager = SleepManagerSingleton.Instance;
+        var sleepManager = SleepManager.Instance;
         if (sleepManager.Sleep <= sleepManager.MinSleep) {
             if (_ranOutOfSleepDay == -1) {
                 _ranOutOfSleepDay = currentDay;
@@ -59,13 +59,13 @@ public sealed class FailureStateManagerSingleton : Singleton<FailureStateManager
     }
 
     public void CheckFailure() {
-        var healthManager = HealthManagerSingleton.Instance;
+        var healthManager = HealthManager.Instance;
         if (healthManager.Health == healthManager.MinHealth) {
             OnGameOver("Ran out of health!");
             return;
         }
 
-        var currentDay = DateManagerSingleton.Instance.CurrentDate;
+        var currentDay = DateManager.Instance.CurrentDate;
         if (currentDay - _ranOutOfSanityDay >= lowSanityTooManyDaysFailure) {
             OnGameOver("Ran out of sanity!");
             return;

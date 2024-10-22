@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public sealed class SanityManagerSingleton : Singleton<SanityManagerSingleton> {
+public sealed class SanityManager : Singleton<SanityManager> {
     [SerializeField]
     private int maxSanity = 100;
 

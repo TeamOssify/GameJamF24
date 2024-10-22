@@ -2,8 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = nameof(TimeManagerScriptableObject), menuName = "ScriptableObjects/Time Manager")]
-public sealed class TimeManagerScriptableObject : ScriptableObject {
+public sealed class TimeManager : Singleton<TimeManager> {
     [SerializeField]
     [Range(0, 23)]
     private int startingHour = 6;

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public sealed class BankAccountManagerSingleton : Singleton<BankAccountManagerSingleton> {
+public sealed class BankAccountManager : Singleton<BankAccountManager> {
     [SerializeField]
     [Min(0)]
     private double initialBalance;

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine.Events;
 
-public sealed class IncomeManagerSingleton : Singleton<IncomeManagerSingleton> {
+public sealed class IncomeManager : Singleton<IncomeManager> {
     private List<IncomeSource> _incomeSources;
 
     [NonSerialized]
@@ -13,7 +13,7 @@ public sealed class IncomeManagerSingleton : Singleton<IncomeManagerSingleton> {
     private void OnEnable() {
         Income ??= new UnityEvent<decimal>();
         _incomeSources = new List<IncomeSource>();
-        DateManagerSingleton.Instance.DayChanged.AddListener(OnDateChanged);
+        DateManager.Instance.DayChanged.AddListener(OnDateChanged);
     }
 
     private void OnDateChanged(DateChangedArgs e) {

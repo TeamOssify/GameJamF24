@@ -33,10 +33,10 @@ public sealed class MainMenu : MonoBehaviour {
 
     private float _glitchAmount;
 
-    private bool _glitchRunning = false;
+    private bool _glitchRunning;
 
     private void Start() {
-        BackgroundMusicManagerSingleton.Instance.ChangeBgmImmediate(musicClean);
+        BackgroundMusicManager.Instance.ChangeBgmImmediate(musicClean);
     }
 
     private void Update() {
@@ -47,7 +47,7 @@ public sealed class MainMenu : MonoBehaviour {
         _glitchAmount = Mathf.Max(_glitchAmount - Time.deltaTime, 0);
 
         if (_glitchAmount == 0) {
-            _glitchAmount = (Random.value / glitchChance) * 2;
+            _glitchAmount = Random.value / glitchChance * 2;
 
             var bgm = Random.value > glitchCrushedMusicChance
                 ? musicScuffed
@@ -63,12 +63,12 @@ public sealed class MainMenu : MonoBehaviour {
     private IEnumerator RunGlitch(AudioClip oldBgm, AudioClip newBgm) {
         // TODO: Add visual changes to go along with music changes
 
-        BackgroundMusicManagerSingleton.Instance.ChangeBgmImmediate(newBgm);
+        BackgroundMusicManager.Instance.ChangeBgmImmediate(newBgm);
 
         var glitchLength = Random.Range(glitchMinDuration, glitchMaxDuration);
         yield return new WaitForSeconds(glitchLength);
 
-        BackgroundMusicManagerSingleton.Instance.ChangeBgmImmediate(oldBgm);
+        BackgroundMusicManager.Instance.ChangeBgmImmediate(oldBgm);
 
         _glitchRunning = false;
     }

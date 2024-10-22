@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public sealed class BackgroundMusicManagerSingleton : Singleton<BackgroundMusicManagerSingleton> {
+public sealed class BackgroundMusicManager : Singleton<BackgroundMusicManager> {
     [SerializeField]
     [Tooltip("The time in seconds it takes for the BGM to fade in or out when switching tracks.")]
     [Min(0)]

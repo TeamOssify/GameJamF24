@@ -45,22 +45,22 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.50f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\SanityManagerSingleton.cs" />
-    <Compile Include="Assets\Scripts\IncomeManagerSingleton.cs" />
-    <Compile Include="Assets\Scripts\BackgroundMusicManagerSingleton.cs" />
-    <Compile Include="Assets\Scripts\DateManagerSingleton.cs" />
-    <Compile Include="Assets\Scripts\BankAccountManagerSingleton.cs" />
-    <Compile Include="Assets\Scripts\FailureStateManagerSingleton.cs" />
+    <Compile Include="Assets\Scripts\HealthManager.cs" />
+    <Compile Include="Assets\Scripts\IncomeManager.cs" />
+    <Compile Include="Assets\Scripts\BackgroundMusicManager.cs" />
+    <Compile Include="Assets\Scripts\SleepManager.cs" />
+    <Compile Include="Assets\Scripts\SanityManager.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
+    <Compile Include="Assets\Scripts\FailureStateManager.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\LocationHandler.cs" />
+    <Compile Include="Assets\Scripts\BankAccountManager.cs" />
+    <Compile Include="Assets\Scripts\TimeManager.cs" />
     <Compile Include="Assets\Scripts\DateChangedArgs.cs" />
-    <Compile Include="Assets\Scripts\HealthManagerSingleton.cs" />
     <Compile Include="Assets\Scripts\AudioSourceExtensions.cs" />
-    <Compile Include="Assets\Scripts\TimeManagerScriptableObject.cs" />
-    <Compile Include="Assets\Scripts\ExpensesManagerScriptableSingleton.cs" />
-    <Compile Include="Assets\Scripts\SleepManagerSingleton.cs" />
+    <Compile Include="Assets\Scripts\DateManager.cs" />
     <Compile Include="Assets\Scripts\MetricChangedArgs.cs" />
+    <Compile Include="Assets\Scripts\ExpensesManager.cs" />
     <None Include="Assets\Shaders\Unlit.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.50f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

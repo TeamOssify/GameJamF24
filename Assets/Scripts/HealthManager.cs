@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public sealed class HealthManagerSingleton : Singleton<HealthManagerSingleton> {
+public sealed class HealthManager : Singleton<HealthManager> {
     [SerializeField]
     private int maxHealth = 100;
 

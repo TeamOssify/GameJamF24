@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public sealed class SleepManagerSingleton : Singleton<SleepManagerSingleton> {
+public sealed class SleepManager : Singleton<SleepManager> {
     [SerializeField]
     private int maxSleep = 100;
 
