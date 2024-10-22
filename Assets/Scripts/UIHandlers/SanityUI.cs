@@ -1,21 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SanityUI : MonoBehaviour {
     public Slider sanitySlider;
 
-
-    void Start() {
+    private void Start() {
         var sanityManager = SanityManager.Instance;
-        sanitySlider.maxValue = (float)sanityManager.MaxSanity;
+        sanitySlider.maxValue = sanityManager.MaxSanity;
+        sanitySlider.minValue = sanityManager.MinSanity;
         sanitySlider.value = (float)sanityManager.Sanity;
 
         sanityManager.SanityChanged.AddListener(OnSanityChanged);
     }
 
-    void OnDestroy() {
+    private void OnDestroy() {
         SanityManager.Instance.SanityChanged.RemoveListener(OnSanityChanged);
     }
 

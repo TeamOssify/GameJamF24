@@ -1,21 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SleepUI : MonoBehaviour {
     public Slider sleepSlider;
 
-
-    void Start() {
+    private void Start() {
         var sleepManager = SleepManager.Instance;
-        sleepSlider.maxValue = (float)sleepManager.MaxSleep;
+        sleepSlider.maxValue = sleepManager.MaxSleep;
+        sleepSlider.minValue = sleepManager.MinSleep;
         sleepSlider.value = (float)sleepManager.Sleep;
 
         sleepManager.SleepChanged.AddListener(OnSleepChanged);
     }
 
-    void OnDestroy() {
+    private void OnDestroy() {
         SleepManager.Instance.SleepChanged.RemoveListener(OnSleepChanged);
     }
 
