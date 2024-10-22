@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
+[CreateAssetMenu(fileName = nameof(SanityManagerScriptableObject), menuName = "ScriptableObjects/Sanity Manager")]
 public sealed class SanityManagerScriptableObject : ScriptableObject {
     [SerializeField]
     private readonly decimal _maxSanity = 100;

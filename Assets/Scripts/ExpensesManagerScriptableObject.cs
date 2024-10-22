@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 
+[CreateAssetMenu(fileName = nameof(ExpensesManagerScriptableObject), menuName = "ScriptableObjects/Expenses Manager")]
 public sealed class ExpensesManagerScriptableObject : ScriptableObject {
     private List<Expense> _expenses;
     public IReadOnlyList<Expense> Expenses => _expenses;

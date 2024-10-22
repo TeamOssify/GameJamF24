@@ -50,7 +50,7 @@
     <Compile Include="Assets\Scripts\DateManagerScriptableObject.cs" />
     <Compile Include="Assets\Scripts\HealthManagerScriptableObject.cs" />
     <Compile Include="Assets\Scripts\DateChangedArgs.cs" />
-    <Compile Include="Assets\Scripts\SleepManaagerScriptableObject.cs" />
+    <Compile Include="Assets\Scripts\SleepManagerScriptableObject.cs" />
     <Compile Include="Assets\Scripts\TimeManagerScriptableObject.cs" />
     <Compile Include="Assets\Scripts\ExpensesManagerScriptableObject.cs" />
     <Compile Include="Assets\Scripts\MetricChangedArgs.cs" />

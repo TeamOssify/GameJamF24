@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
+[CreateAssetMenu(fileName = nameof(DateManagerScriptableObject), menuName = "ScriptableObjects/Date Manager")]
 public sealed class DateManagerScriptableObject : ScriptableObject {
     [SerializeField]
     private DayOfWeek startingDay = DayOfWeek.Sunday;

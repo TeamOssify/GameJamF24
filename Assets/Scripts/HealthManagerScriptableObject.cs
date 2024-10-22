@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
+[CreateAssetMenu(fileName = nameof(HealthManagerScriptableObject), menuName = "ScriptableObjects/Health Manager")]
 public sealed class HealthManagerScriptableObject : ScriptableObject {
     [SerializeField]
     private readonly decimal _maxHealth = 100;

@@ -2,6 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
+[CreateAssetMenu(fileName = nameof(TimeManagerScriptableObject), menuName = "ScriptableObjects/Time Manager")]
 public sealed class TimeManagerScriptableObject : ScriptableObject {
     [SerializeField]
     private readonly TimeSpan _startingTime = new(6, 0, 0);

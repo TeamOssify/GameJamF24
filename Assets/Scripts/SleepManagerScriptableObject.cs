@@ -2,7 +2,8 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public sealed class SleepManaagerScriptableObject : ScriptableObject {
+[CreateAssetMenu(fileName = nameof(SleepManagerScriptableObject), menuName = "ScriptableObjects/Sleep Manager")]
+public sealed class SleepManagerScriptableObject : ScriptableObject {
     [SerializeField]
     private readonly decimal _maxSleep = 100;
 
