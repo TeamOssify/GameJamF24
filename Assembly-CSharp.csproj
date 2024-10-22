@@ -52,6 +52,7 @@
     <Compile Include="Assets\Scripts\BankAccountManagerSingleton.cs" />
     <Compile Include="Assets\Scripts\FailureStateManagerSingleton.cs" />
     <Compile Include="Assets\Scripts\Singleton.cs" />
+    <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\LocationHandler.cs" />
     <Compile Include="Assets\Scripts\DateChangedArgs.cs" />
     <Compile Include="Assets\Scripts\HealthManagerSingleton.cs" />
