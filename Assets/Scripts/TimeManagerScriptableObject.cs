@@ -29,24 +29,34 @@ public sealed class TimeManagerScriptableObject : ScriptableObject {
     }
 
     public void AdvanceTimeOfDay(TimeSpan deltaTime) {
-        if (deltaTime.Ticks < 1) {
-            return; // Zero or negative time was passed.
+        if (deltaTime.Ticks < 0) {
+            Debug.LogWarning("Tried to advance the time of day by a negative time!");
+            return;
+        }
+
+        if (deltaTime == TimeSpan.Zero) {
+            return;
         }
 
         CurrentTimeOfDay += deltaTime;
 
-        while (CurrentTimeOfDay.Days > 0) {
-            CurrentTimeOfDay -= TimeSpan.FromDays(1);
+        if (CurrentTimeOfDay.Days > 0) {
+            CurrentTimeOfDay -= TimeSpan.FromDays(CurrentTimeOfDay.Days);
         }
 
         OnTimeChanged(CurrentTimeOfDay);
     }
 
     public void SetTimeOfDay(TimeSpan time) {
+        if (time.Ticks < 0) {
+            Debug.LogWarning("Tried to set the time of day to a negative time!");
+            return;
+        }
+
         CurrentTimeOfDay = time;
 
-        while (CurrentTimeOfDay.Days > 0) {
-            CurrentTimeOfDay -= TimeSpan.FromDays(1);
+        if (CurrentTimeOfDay.Days > 0) {
+            CurrentTimeOfDay -= TimeSpan.FromDays(CurrentTimeOfDay.Days);
         }
 
         OnTimeChanged(CurrentTimeOfDay);
