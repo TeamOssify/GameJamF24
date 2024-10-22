@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\SanityManagerSingleton.cs" />
     <Compile Include="Assets\Scripts\IncomeManagerSingleton.cs" />
+    <Compile Include="Assets\Scripts\BackgroundMusicManagerSingleton.cs" />
     <Compile Include="Assets\Scripts\DateManagerSingleton.cs" />
     <Compile Include="Assets\Scripts\BankAccountManagerSingleton.cs" />
     <Compile Include="Assets\Scripts\FailureStateManagerSingleton.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="Assets\Scripts\LocationHandler.cs" />
     <Compile Include="Assets\Scripts\DateChangedArgs.cs" />
     <Compile Include="Assets\Scripts\HealthManagerSingleton.cs" />
+    <Compile Include="Assets\Scripts\AudioSourceExtensions.cs" />
     <Compile Include="Assets\Scripts\TimeManagerScriptableObject.cs" />
     <Compile Include="Assets\Scripts\ExpensesManagerScriptableSingleton.cs" />
     <Compile Include="Assets\Scripts\SleepManagerSingleton.cs" />
