@@ -15,6 +15,7 @@ public sealed class SanityManager : Singleton<SanityManager> {
     public UnityEvent<MetricChangedArgs> SanityChanged;
 
     public int MinSanity => minSanity;
+    public int MaxSanity => maxSanity;
 
     public decimal Sanity { get; private set; }
 

@@ -13,6 +13,7 @@ public sealed class SleepManager : Singleton<SleepManager> {
     public UnityEvent<MetricChangedArgs> SleepChanged;
 
     public int MinSleep => minSleep;
+    public int MaxSleep => maxSleep;
 
     public decimal Sleep { get; private set; }
 
