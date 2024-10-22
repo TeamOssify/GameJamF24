@@ -3,13 +3,13 @@ using UnityEngine;
 
 public sealed class MainMenu : MonoBehaviour {
     [SerializeField]
-    private AudioClip musicClean;
+    private AudioClip musicSane;
 
     [SerializeField]
-    private AudioClip musicScuffed;
+    private AudioClip musicAnxious;
 
     [SerializeField]
-    private AudioClip musicCrushed;
+    private AudioClip musicInsane;
 
     [SerializeField]
     [Tooltip("The change that a glitch occurs roughly every second. More than 1 glitch cannot occur at once.")]
@@ -27,16 +27,16 @@ public sealed class MainMenu : MonoBehaviour {
     private float glitchMaxDuration = 3f;
 
     [SerializeField]
-    [Tooltip("The chance that the crushed music plays instead of the scuffed music.")]
+    [Tooltip("The chance that the insane music plays instead of the anxious music.")]
     [Range(0.01f, 1)]
-    private float glitchCrushedMusicChance = 0.3f;
+    private float glitchInsaneMusicChance = 0.3f;
 
     private float _glitchAmount;
 
     private bool _glitchRunning;
 
     private void Start() {
-        BackgroundMusicManager.Instance.ChangeBgmImmediate(musicClean);
+        BackgroundMusicManager.Instance.ChangeBgmImmediate(musicSane);
     }
 
     private void Update() {
@@ -49,13 +49,13 @@ public sealed class MainMenu : MonoBehaviour {
         if (_glitchAmount == 0) {
             _glitchAmount = Random.value / glitchChance * 2;
 
-            var bgm = Random.value > glitchCrushedMusicChance
-                ? musicScuffed
-                : musicCrushed;
+            var bgm = Random.value > glitchInsaneMusicChance
+                ? musicAnxious
+                : musicInsane;
 
             if (!_glitchRunning) {
                 _glitchRunning = true;
-                StartCoroutine(RunGlitch(musicClean, bgm));
+                StartCoroutine(RunGlitch(musicSane, bgm));
             }
         }
     }
