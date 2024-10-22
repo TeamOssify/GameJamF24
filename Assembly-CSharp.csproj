@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\WeekManagerScriptableObject.cs" />
     <Compile Include="Assets\Scripts\SanityManagerScriptableObject.cs" />
+    <Compile Include="Assets\Scripts\LocationHandler.cs" />
     <Compile Include="Assets\Scripts\StateManagerScriptableObject.cs" />
     <Compile Include="Assets\Scripts\HealthManagerScriptableObject.cs" />
     <Compile Include="Assets\Scripts\SleepManaagerScriptableObject.cs" />
