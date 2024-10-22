@@ -13,6 +13,7 @@ public sealed class HealthManager : Singleton<HealthManager> {
     public UnityEvent<MetricChangedArgs> HealthChanged;
 
     public int MinHealth => minHealth;
+    public int MaxHealth => maxHealth;
 
     public decimal Health { get; private set; }
 
