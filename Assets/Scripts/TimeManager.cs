@@ -29,7 +29,7 @@ public sealed class TimeManager : Singleton<TimeManager> {
 
     public void AdvanceTimeOfDay(TimeSpan deltaTime) {
         if (deltaTime.Ticks < 0) {
-            Debug.LogWarning("Tried to advance the time of day by a negative time!");
+            Debug.LogWarningFormat("Tried to advance the time of day by a negative time! ({0})", deltaTime);
             return;
         }
 
@@ -48,7 +48,7 @@ public sealed class TimeManager : Singleton<TimeManager> {
 
     public void SetTimeOfDay(TimeSpan time) {
         if (time.Ticks < 0) {
-            Debug.LogWarning("Tried to set the time of day to a negative time!");
+            Debug.LogWarningFormat("Tried to set the time of day to a negative time! ({0})", time);
             return;
         }
 

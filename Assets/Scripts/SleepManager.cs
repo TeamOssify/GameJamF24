@@ -23,7 +23,7 @@ public sealed class SleepManager : Singleton<SleepManager> {
 
     public void ReduceSanity(decimal amount) {
         if (amount < 0) {
-            Debug.LogWarning("Tried to reduce sleep by a negative amount!");
+            Debug.LogWarningFormat("Tried to reduce sleep by a negative amount! ({0})", amount);
             return;
         }
 
@@ -39,7 +39,7 @@ public sealed class SleepManager : Singleton<SleepManager> {
 
     public void IncreaseSanity(decimal amount) {
         if (amount < 0) {
-            Debug.LogWarning("Tried to increase sleep by a negative amount!");
+            Debug.LogWarningFormat("Tried to increase sleep by a negative amount! ({0})", amount);
             return;
         }
 

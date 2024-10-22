@@ -23,7 +23,7 @@ public sealed class HealthManager : Singleton<HealthManager> {
 
     public void Damage(decimal amount) {
         if (amount < 0) {
-            Debug.LogWarning("Tried to damage by a negative amount!");
+            Debug.LogWarningFormat("Tried to damage by a negative amount! ({0})", amount);
             return;
         }
 
@@ -39,7 +39,7 @@ public sealed class HealthManager : Singleton<HealthManager> {
 
     public void Heal(decimal amount) {
         if (amount < 0) {
-            Debug.LogWarning("Tried to heal by a negative amount!");
+            Debug.LogWarningFormat("Tried to heal by a negative amount! ({0})", amount);
             return;
         }
 
