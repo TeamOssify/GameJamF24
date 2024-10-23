@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\Singletons\Singleton.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\LocationHandler.cs" />
     <Compile Include="Assets\Scripts\Singletons\FailureStateManager.cs" />
+    <Compile Include="Assets\Scripts\UIHandlers\DontDestroyTag.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\SanityUI.cs" />
     <Compile Include="Assets\Scripts\Singletons\EventArgs\MetricChangedArgs.cs" />
     <Compile Include="Assets\Scripts\Singletons\SoundEffectManager.cs" />
