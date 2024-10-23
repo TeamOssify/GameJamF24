@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 68456414}
   - component: {fileID: 68456413}
   - component: {fileID: 68456416}
+  - component: {fileID: 68456417}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -259,6 +260,18 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &68456417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 68456412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffc2541cb512d5749b8c6cccc7c9cc79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &456839153
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,6 +515,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: LocationMap
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 68456417}
+        m_TargetAssemblyTypeName: EventManager, Assembly-CSharp
+        m_MethodName: RandomEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &965191015
