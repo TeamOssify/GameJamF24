@@ -1,9 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventManager : MonoBehaviour
-{
+public class EventManager : MonoBehaviour {
     public struct Event {
         public string Name;
         public int Chance;
@@ -30,13 +30,13 @@ public class EventManager : MonoBehaviour
 
     public void RandomEvent() {
         Debug.Log("Random Event has been attempt");
-        int rng = Random.Range(1, 100);
+        int rng = UnityEngine.Random.Range(1, 100);
         Debug.Log($"Rng 1 is: " + rng);
         //Chance of an event to happen
         if (rng <= 50) {
             //if no event is chosen nothing can happen
             Event chosen = new Event("", 100, 0, 0, 0, 0);
-            rng = Random.Range(1, 100);
+            rng = UnityEngine.Random.Range(1, 100);
             Debug.Log($"Rng 2 is: " + rng);
             //Decides what event hapens
             for (int i = 0; i < randomEvents.Length; i++) {
@@ -53,20 +53,21 @@ public class EventManager : MonoBehaviour
 
     public void DoEvent(Event input) {
         Debug.Log($"" + input.Name + " has happened");
+        TimeManager.Instance.AdvanceTimeOfDay(TimeSpan.FromMinutes(input.TimeChange));
         if (input.HealthChange < 0) {
-            HealthManager.Instance.Damage(input.HealthChange);
+            HealthManager.Instance.Damage(input.HealthChange * -1);
         }
         if (input.HealthChange > 0) {
             HealthManager.Instance.Heal(input.HealthChange);
         }
         if (input.SanityChange < 0) {
-            SanityManager.Instance.ReduceSanity(input.SanityChange);
+            SanityManager.Instance.ReduceSanity(input.SanityChange * -1);
         }
         if (input.SanityChange > 0) {
             SanityManager.Instance.IncreaseSanity(input.SanityChange);
         }
         if (input.MoneyChange < 0) {
-            BankAccountManager.Instance.RemoveFunds(input.MoneyChange);
+            BankAccountManager.Instance.RemoveFunds(input.MoneyChange * -1);
         }
         if (input.MoneyChange > 0) {
             BankAccountManager.Instance.AddFunds(input.MoneyChange);
