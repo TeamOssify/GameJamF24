@@ -627,6 +627,7 @@ MonoBehaviour:
   glitchInsaneMusicChance: 0.3
   glitchAmount: 0
   glitchRunning: 0
+  locationManager: {fileID: 11400000, guid: 39f98e1879cef184cbcb4b198f8a8384, type: 2}
 --- !u!4 &1839877145
 Transform:
   m_ObjectHideFlags: 0
@@ -733,7 +734,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MainGame
+          m_StringArgument: LocationMap
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1980594681

@@ -10,7 +10,7 @@ public class LocationManager : ScriptableObject {
 
     private static string GetSceneName(Location location) {
         return location switch {
-            Location.Map => "MainGame",
+            Location.Map => "LocationMap",
             Location.House => "HouseLocation",
             Location.Work => "WorkLocation",
             Location.Club => "ClubLocation",
