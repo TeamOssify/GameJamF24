@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Locations\LocationManager.cs" />
     <Compile Include="Assets\Scripts\Locations\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\SanityUI.cs" />
+    <Compile Include="Assets\Scripts\UIHandlers\ClockUI.cs" />
     <Compile Include="Assets\Scripts\Singletons\EventArgs\MetricChangedArgs.cs" />
     <Compile Include="Assets\Scripts\Singletons\SoundEffectManager.cs" />
     <Compile Include="Assets\Scripts\Singletons\ExpensesManager.cs" />
