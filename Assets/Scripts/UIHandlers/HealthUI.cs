@@ -12,6 +12,7 @@ public class HealthUI : MonoBehaviour {
 
         healthManager.HealthChanged.AddListener(OnHealthChanged);
     }
+
     private void Update() {
         var healthManager = HealthManager.Instance;
         healthManager.Damage(healthManager.healthDrain);

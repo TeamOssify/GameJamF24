@@ -14,7 +14,7 @@ public class LocationManager : ScriptableObject {
             Location.House => "HouseLocation",
             Location.Work => "WorkLocation",
             Location.Club => "ClubLocation",
-            _ => throw new ArgumentOutOfRangeException(nameof(location), location, null)
+            _ => throw new ArgumentOutOfRangeException(nameof(location), location, null),
         };
     }
 

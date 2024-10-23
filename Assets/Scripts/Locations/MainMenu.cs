@@ -42,9 +42,11 @@ public sealed class MainMenu : MonoBehaviour {
     [SerializeField]
     private LocationManager locationManager;
 
+    private void Awake() {
+        InitManagers();
+    }
+
     private void Start() {
-        // For some reason, the BGM manager needs to be created separately before we can play any bgm.
-        _ = BackgroundMusicManager.Instance;
         BackgroundMusicManager.Instance.ChangeBgmImmediate(musicSane);
 
         glitchAmount = GetRandomGlitchAmount();
@@ -52,6 +54,21 @@ public sealed class MainMenu : MonoBehaviour {
 
     private void Update() {
         CheckGlitchChance();
+    }
+
+    private void InitManagers() {
+        // This sucks, but it's what we're working with.
+        _ = BackgroundMusicManager.Instance;
+        _ = BankAccountManager.Instance;
+        _ = DateManager.Instance;
+        _ = ExpensesManager.Instance;
+        _ = FailureStateManager.Instance;
+        _ = HealthManager.Instance;
+        _ = IncomeManager.Instance;
+        _ = MentalStateManager.Instance;
+        _ = SanityManager.Instance;
+        _ = SoundEffectManager.Instance;
+        _ = TimeManager.Instance;
     }
 
     private void CheckGlitchChance() {

@@ -7,16 +7,14 @@ public sealed class BankAccountManager : Singleton<BankAccountManager> {
     [Min(0)]
     private double initialBalance;
 
-    private decimal _balance;
-
-    public decimal Balance => _balance;
-
     [NonSerialized]
     public UnityEvent<MetricChangedArgs> BalanceChanged;
 
+    public decimal Balance { get; private set; }
+
     private void OnEnable() {
         BalanceChanged ??= new UnityEvent<MetricChangedArgs>();
-        _balance = (decimal)initialBalance;
+        Balance = (decimal)initialBalance;
     }
 
     public void AddFunds(decimal amount) {
@@ -25,10 +23,10 @@ public sealed class BankAccountManager : Singleton<BankAccountManager> {
             return;
         }
 
-        var oldBalance = _balance;
-        _balance += amount;
+        var oldBalance = Balance;
+        Balance += amount;
 
-        OnBalanceChanged(oldBalance, _balance);
+        OnBalanceChanged(oldBalance, Balance);
     }
 
     public void RemoveFunds(decimal amount) {
@@ -37,10 +35,10 @@ public sealed class BankAccountManager : Singleton<BankAccountManager> {
             return;
         }
 
-        var oldBalance = _balance;
-        _balance -= amount;
+        var oldBalance = Balance;
+        Balance -= amount;
 
-        OnBalanceChanged(oldBalance, _balance);
+        OnBalanceChanged(oldBalance, Balance);
     }
 
     public void OnBalanceChanged(decimal oldBalance, decimal newBalance) {

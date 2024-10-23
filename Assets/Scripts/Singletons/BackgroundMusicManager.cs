@@ -5,7 +5,7 @@ public sealed class BackgroundMusicManager : Singleton<BackgroundMusicManager> {
     [SerializeField]
     [Tooltip("The time in seconds it takes for the BGM to fade in or out when switching tracks.")]
     [Min(0)]
-    private float bgmFadeTime = 2f;
+    private float bgmFadeTime = 1f;
 
     private AudioSource _audioSource;
 

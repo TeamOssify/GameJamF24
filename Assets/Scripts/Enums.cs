@@ -8,5 +8,5 @@ public enum Location {
     Map,
     House,
     Work,
-    Club
+    Club,
 }
