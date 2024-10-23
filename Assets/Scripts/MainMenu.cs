@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public sealed class MainMenu : MonoBehaviour {
     [SerializeField]
@@ -39,6 +38,9 @@ public sealed class MainMenu : MonoBehaviour {
     [SerializeField]
     [Tooltip("FOR DEBUGGING ONLY - DO NOT EDIT.")]
     private bool glitchRunning;
+
+    [SerializeField]
+    private LocationManager locationManager;
 
     private void Start() {
         // For some reason, the BGM manager needs to be created separately before we can play any bgm.
@@ -87,6 +89,6 @@ public sealed class MainMenu : MonoBehaviour {
     }
 
     public void StartGame(string sceneName) {
-        SceneManager.LoadSceneAsync(sceneName);
+        locationManager.ChangeScene(sceneName);
     }
 }
