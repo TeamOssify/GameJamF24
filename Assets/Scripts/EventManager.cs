@@ -22,11 +22,12 @@ public class EventManager : MonoBehaviour {
         }
     }
 
-    public Event[] randomEvents = {new Event("friend", 60, 30, 0, 10, 0),
-                                   new Event("robery", 20, 120, -10, -10, -50),
-                                   new Event("beggar", 50, 1, 0, 5, -1),
-                                   new Event("truck", 10, 360, -80, -50, -10000)
-                                   };
+    public Event[] randomEvents = {
+        new Event("friend", 60, 30, 0, 10, 0),
+        new Event("robery", 20, 120, -10, -10, -50),
+        new Event("beggar", 50, 1, 0, 5, -1),
+        new Event("truck", 10, 360, -80, -50, -10000)
+    };
 
     public void RandomEvent() {
         Debug.Log("Random Event has been attempt");
