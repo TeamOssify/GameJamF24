@@ -25,8 +25,8 @@ public sealed class IncomeManager : Singleton<IncomeManager> {
         BankAccountManager.Instance.AddFunds(income);
     }
 
-    private decimal CheckIncomeSources(int date) {
-        decimal income = 0;
+    private float CheckIncomeSources(int date) {
+        float income = 0;
         var dirty = false;
 
         for (var i = 0; i < _incomeSources.Count; i++) {
@@ -45,7 +45,7 @@ public sealed class IncomeManager : Singleton<IncomeManager> {
         return income;
     }
 
-    public void AddFutureIncomeSource(int date, decimal amount) {
+    public void AddFutureIncomeSource(int date, float amount) {
         _incomeSources.Add(new IncomeSource(date, amount));
         OnIncomeSourcesChanged();
     }
@@ -55,12 +55,12 @@ public sealed class IncomeManager : Singleton<IncomeManager> {
     }
 
     public sealed record IncomeSource {
-        public IncomeSource(int date, decimal amount) {
+        public IncomeSource(int date, float amount) {
             Date = date;
             Amount = amount;
         }
 
         public int Date { get; }
-        public decimal Amount { get; }
+        public float Amount { get; }
     }
 }

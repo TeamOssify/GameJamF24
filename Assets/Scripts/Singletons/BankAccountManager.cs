@@ -5,19 +5,19 @@ using UnityEngine.Events;
 public sealed class BankAccountManager : Singleton<BankAccountManager> {
     [SerializeField]
     [Min(0)]
-    private double initialBalance;
+    private float initialBalance;
 
     [NonSerialized]
     public UnityEvent<MetricChangedArgs> BalanceChanged;
 
-    public decimal Balance { get; private set; }
+    public float Balance { get; private set; }
 
     private void OnEnable() {
         BalanceChanged ??= new UnityEvent<MetricChangedArgs>();
-        Balance = (decimal)initialBalance;
+        Balance = initialBalance;
     }
 
-    public void AddFunds(decimal amount) {
+    public void AddFunds(float amount) {
         if (amount < 0) {
             Debug.LogWarningFormat("Tried to add negative funds! ({0})", amount);
             return;
@@ -29,7 +29,7 @@ public sealed class BankAccountManager : Singleton<BankAccountManager> {
         OnBalanceChanged(oldBalance, Balance);
     }
 
-    public void RemoveFunds(decimal amount) {
+    public void RemoveFunds(float amount) {
         if (amount < 0) {
             Debug.LogWarningFormat("Tried to remove negative funds! ({0})", amount);
             return;
@@ -41,7 +41,7 @@ public sealed class BankAccountManager : Singleton<BankAccountManager> {
         OnBalanceChanged(oldBalance, Balance);
     }
 
-    public void OnBalanceChanged(decimal oldBalance, decimal newBalance) {
+    public void OnBalanceChanged(float oldBalance, float newBalance) {
         if (oldBalance != newBalance) {
             BalanceChanged?.Invoke(new MetricChangedArgs(oldBalance, newBalance));
         }

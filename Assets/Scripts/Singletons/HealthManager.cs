@@ -18,14 +18,14 @@ public sealed class HealthManager : Singleton<HealthManager> {
     public int MinHealth => minHealth;
     public int MaxHealth => maxHealth;
 
-    public decimal Health { get; private set; }
+    public float Health { get; private set; }
 
     private void OnEnable() {
         HealthChanged ??= new UnityEvent<MetricChangedArgs>();
         Health = maxHealth;
     }
 
-    public void Damage(decimal amount) {
+    public void Damage(float amount) {
         if (amount < 0) {
             Debug.LogWarningFormat("Tried to damage by a negative amount! ({0})", amount);
             return;
@@ -41,7 +41,7 @@ public sealed class HealthManager : Singleton<HealthManager> {
         OnHealthChanged(oldHealth, Health);
     }
 
-    public void Heal(decimal amount) {
+    public void Heal(float amount) {
         if (amount < 0) {
             Debug.LogWarningFormat("Tried to heal by a negative amount! ({0})", amount);
             return;
@@ -57,7 +57,7 @@ public sealed class HealthManager : Singleton<HealthManager> {
         OnHealthChanged(oldHealth, Health);
     }
 
-    private void OnHealthChanged(decimal oldHealth, decimal newHealth) {
+    private void OnHealthChanged(float oldHealth, float newHealth) {
         if (oldHealth != newHealth) {
             HealthChanged?.Invoke(new MetricChangedArgs(oldHealth, newHealth));
         }

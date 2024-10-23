@@ -18,14 +18,14 @@ public sealed class SleepManager : Singleton<SleepManager> {
     public int MinSleep => minSleep;
     public int MaxSleep => maxSleep;
 
-    public decimal Sleep { get; private set; }
+    public float Sleep { get; private set; }
 
     private void OnEnable() {
         SleepChanged ??= new UnityEvent<MetricChangedArgs>();
         Sleep = maxSleep;
     }
 
-    public void ReduceSleep(decimal amount) {
+    public void ReduceSleep(float amount) {
         if (amount < 0) {
             Debug.LogWarningFormat("Tried to reduce sleep by a negative amount! ({0})", amount);
             return;
@@ -41,7 +41,7 @@ public sealed class SleepManager : Singleton<SleepManager> {
         OnSleepChanged(oldSleep, Sleep);
     }
 
-    public void IncreaseSleep(decimal amount) {
+    public void IncreaseSleep(float amount) {
         if (amount < 0) {
             Debug.LogWarningFormat("Tried to increase sleep by a negative amount! ({0})", amount);
             return;
@@ -57,7 +57,7 @@ public sealed class SleepManager : Singleton<SleepManager> {
         OnSleepChanged(oldSleep, Sleep);
     }
 
-    private void OnSleepChanged(decimal oldSleep, decimal newSleep) {
+    private void OnSleepChanged(float oldSleep, float newSleep) {
         if (oldSleep != newSleep) {
             SleepChanged?.Invoke(new MetricChangedArgs(oldSleep, newSleep));
         }

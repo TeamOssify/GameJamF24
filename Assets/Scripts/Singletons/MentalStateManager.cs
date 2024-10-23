@@ -25,7 +25,7 @@ public sealed class MentalStateManager : Singleton<MentalStateManager> {
         ComputeMentalState(e.NewValue);
     }
 
-    private void ComputeMentalState(decimal sanity) {
+    private void ComputeMentalState(float sanity) {
         var oldMentalState = CurrentMentalState;
 
         if (sanity < insaneThreshold) {

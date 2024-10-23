@@ -5,35 +5,35 @@ using UnityEngine.Events;
 public sealed class SanityManager : Singleton<SanityManager> {
     [SerializeField]
     [Min(0)]
-    private int maxSanity = 100000;
+    private float maxSanity = 100000;
 
     [SerializeField]
     [Min(0)]
-    private int minSanity;
+    private float minSanity;
 
     [NonSerialized]
     public UnityEvent<MetricChangedArgs> SanityChanged;
 
     //How much sanity drains every frame
-    public int sanityDrain = 2;
+    public float sanityDrain = 2;
 
-    public int MinSanity => minSanity;
-    public int MaxSanity => maxSanity;
+    public float MinSanity => minSanity;
+    public float MaxSanity => maxSanity;
 
-    public decimal Sanity { get; private set; }
+    public float Sanity { get; private set; }
 
     private void OnEnable() {
         SanityChanged ??= new UnityEvent<MetricChangedArgs>();
         Sanity = maxSanity;
     }
 
-    public void ReduceSanity(decimal amount) {
+    public void ReduceSanity(float amount) {
         if (amount < 0) {
             Debug.LogWarningFormat("Tried to reduce sanity by a negative amount! ({0})", amount);
             return;
         }
 
-        var oldSanity = Sanity;
+        float oldSanity = Sanity;
 
         Sanity -= amount;
         if (Sanity < minSanity) {
@@ -43,13 +43,13 @@ public sealed class SanityManager : Singleton<SanityManager> {
         OnSanityChanged(oldSanity, Sanity);
     }
 
-    public void IncreaseSanity(decimal amount) {
+    public void IncreaseSanity(float amount) {
         if (amount < 0) {
             Debug.LogWarningFormat("Tried to increase sanity by a negative amount! ({0})", amount);
             return;
         }
 
-        var oldSanity = Sanity;
+        float oldSanity = Sanity;
 
         Sanity += amount;
         if (Sanity > maxSanity) {
@@ -59,7 +59,7 @@ public sealed class SanityManager : Singleton<SanityManager> {
         OnSanityChanged(oldSanity, Sanity);
     }
 
-    private void OnSanityChanged(decimal oldSanity, decimal newSanity) {
+    private void OnSanityChanged(float oldSanity, float newSanity) {
         if (oldSanity != newSanity) {
             SanityChanged?.Invoke(new MetricChangedArgs(oldSanity, newSanity));
         }

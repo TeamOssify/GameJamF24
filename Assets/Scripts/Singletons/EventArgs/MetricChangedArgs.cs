@@ -1,9 +1,9 @@
 public sealed record MetricChangedArgs {
-    public MetricChangedArgs(decimal oldValue, decimal newValue) {
+    public MetricChangedArgs(float oldValue, float newValue) {
         OldValue = oldValue;
         NewValue = newValue;
     }
 
-    public decimal OldValue { get; }
-    public decimal NewValue { get; }
+    public float OldValue { get; }
+    public float NewValue { get; }
 }

@@ -24,7 +24,7 @@ public sealed class ExpensesManager : Singleton<ExpensesManager> {
         OnTotalExpensesChanged(oldTotal, newTotal);
     }
 
-    public void AddExpense(string expenseName, decimal cost) {
+    public void AddExpense(string expenseName, float cost) {
         var oldTotal = CalculateTotal();
         _expenses.Add(new Expense(expenseName, cost));
         var newTotal = CalculateTotal();
@@ -32,23 +32,23 @@ public sealed class ExpensesManager : Singleton<ExpensesManager> {
         OnTotalExpensesChanged(oldTotal, newTotal);
     }
 
-    public decimal CalculateTotal() {
+    public float CalculateTotal() {
         return _expenses.Sum(x => x.Cost);
     }
 
-    private void OnTotalExpensesChanged(decimal oldTotal, decimal newTotal) {
+    private void OnTotalExpensesChanged(float oldTotal, float newTotal) {
         if (oldTotal != newTotal) {
             TotalExpensesChanged?.Invoke(new MetricChangedArgs(oldTotal, newTotal));
         }
     }
 
     public record Expense {
-        public Expense(string name, decimal cost) {
+        public Expense(string name, float cost) {
             Name = name;
             Cost = cost;
         }
 
         public string Name { get; }
-        public decimal Cost { get; }
+        public float Cost { get; }
     }
 }

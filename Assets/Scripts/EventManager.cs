@@ -2,19 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EventManager : MonoBehaviour {
+
+    const double MAX_SANITY = 100000;
     public struct Event {
         public string Name;
+        public double SanityReq;
         public int Chance;
         public int TimeChange;
         public int HealthChange;
         public int SanityChange;
         public int MoneyChange;
 
-        public Event(string name, int chance, int timeChange, int healthChange, int sanityChange, int moneyChange) {
+        public Event(string name, double SanityReq, int chance, int timeChange, int healthChange, int sanityChange, int moneyChange) {
             this.Name = name;
             this.Chance = chance;
+            this.SanityReq = MAX_SANITY * SanityReq;
             this.TimeChange = timeChange;
             this.HealthChange = healthChange;
             this.SanityChange = sanityChange;
@@ -22,11 +27,32 @@ public class EventManager : MonoBehaviour {
         }
     }
 
-    public Event[] randomEvents = {
-        new Event("friend", 60, 30, 0, 10, 0),
-        new Event("robery", 20, 120, -10, -10, -50),
-        new Event("beggar", 50, 1, 0, 5, -1),
-        new Event("truck", 10, 360, -80, -50, -10000)
+    public Event[] mapRandomEvents = {
+        new Event("map1", 0.9, 60, 30, 0, 10, 0),
+        new Event("map2", 0.9, 20, 120, -10, -10, -50),
+        new Event("map3", 0.9, 50, 1, 0, 5, -1),
+        new Event("map4", 0.9, 10, 360, -80, -50, -10000)
+    };
+
+    public Event[] houseRandomEvents = {
+        new Event("house1", 0.9, 60, 30, 0, 10, 0),
+        new Event("house2", 0.9, 20, 120, -10, -10, -50),
+        new Event("house3", 0.9, 50, 1, 0, 5, -1),
+        new Event("house4", 0.9, 10, 360, -80, -50, -10000)
+    };
+
+    public Event[] workRandomEvents = {
+        new Event("work1", 0.9, 60, 30, 0, 10, 0),
+        new Event("work2", 0.9, 20, 120, -10, -10, -50),
+        new Event("work3", 0.9, 50, 1, 0, 5, -1),
+        new Event("work4", 0.9, 10, 360, -80, -50, -10000)
+    };
+
+    public Event[] clubRandomEvents = {
+        new Event("club1", 0.9, 60, 30, 0, 10, 0),
+        new Event("club2", 0.9, 20, 120, -10, -10, -50),
+        new Event("club3", 0.9, 50, 1, 0, 5, -1),
+        new Event("club4", 0.9, 10, 360, -80, -50, -10000)
     };
 
     public void RandomEvent() {
@@ -35,13 +61,31 @@ public class EventManager : MonoBehaviour {
         Debug.Log($"Rng 1 is: " + rng);
         //Chance of an event to happen
         if (rng <= 50) {
+            //selects which scene to choose from
+            Event[] randomEvents = mapRandomEvents;
+            Scene scene = SceneManager.GetActiveScene();
+            switch (scene.name) {
+                case "HouseLocation":
+                    randomEvents = mapRandomEvents;
+                    break;
+                case "WorkLocation":
+                    randomEvents = workRandomEvents;
+                    break;
+                case "ClubLocation":
+                    randomEvents = clubRandomEvents;
+                    break;
+                default:
+                    randomEvents = mapRandomEvents;
+                    break;
+            }
             //if no event is chosen nothing can happen
-            Event chosen = new Event("", 100, 0, 0, 0, 0);
+            Event chosen = new Event("", 1, 100, 0, 0, 0, 0);
             rng = UnityEngine.Random.Range(1, 100);
             Debug.Log($"Rng 2 is: " + rng);
             //Decides what event hapens
             for (int i = 0; i < randomEvents.Length; i++) {
-                if (randomEvents[i].Chance > rng && randomEvents[i].Chance < chosen.Chance) {
+                  //Current sanity is greater than the requirement for the even   
+                if (SanityManager.Instance.Sanity >= randomEvents[i].SanityReq && rng <= randomEvents[i].Chance && randomEvents[i].Chance < chosen.Chance) {
                     chosen = randomEvents[i];
                 }
             }
