@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public sealed class SanityManager : Singleton<SanityManager> {
     [SerializeField]
     [Min(0)]
-    private int maxSanity = 100;
+    private int maxSanity = 100000;
 
     [SerializeField]
     [Min(0)]
@@ -13,6 +13,9 @@ public sealed class SanityManager : Singleton<SanityManager> {
 
     [NonSerialized]
     public UnityEvent<MetricChangedArgs> SanityChanged;
+
+    //How much sanity drains every frame
+    public int sanityDrain = 2;
 
     public int MinSanity => minSanity;
     public int MaxSanity => maxSanity;

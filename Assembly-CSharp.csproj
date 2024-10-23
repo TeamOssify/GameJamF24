@@ -69,12 +69,12 @@
     <Compile Include="Assets\Scripts\Singletons\IncomeManager.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Singletons\BackgroundMusicManager.cs" />
-    <Compile Include="Assets\Scripts\LocationHandler.cs" />
     <Compile Include="Assets\Scripts\Singletons\HealthManager.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\HealthUI.cs" />
     <Compile Include="Assets\Scripts\Singletons\TimeManager.cs" />
     <Compile Include="Assets\Scripts\Extensions\AudioSourceExtensions.cs" />
     <Compile Include="Assets\Scripts\Singletons\Singleton.cs" />
+    <Compile Include="Assets\Scripts\UIHandlers\LocationHandler.cs" />
     <Compile Include="Assets\Scripts\Singletons\FailureStateManager.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\SanityUI.cs" />
     <Compile Include="Assets\Scripts\Singletons\EventArgs\MetricChangedArgs.cs" />

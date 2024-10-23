@@ -13,6 +13,11 @@ public class SleepUI : MonoBehaviour {
         sleepManager.SleepChanged.AddListener(OnSleepChanged);
     }
 
+    private void Update() {
+        var sleepManager = SleepManager.Instance;
+        sleepManager.ReduceSleep(sleepManager.sleepDrain);
+    }
+
     private void OnDestroy() {
         SleepManager.Instance.SleepChanged.RemoveListener(OnSleepChanged);
     }

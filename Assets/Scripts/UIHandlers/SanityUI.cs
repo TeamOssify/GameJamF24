@@ -12,6 +12,11 @@ public class SanityUI : MonoBehaviour {
 
         sanityManager.SanityChanged.AddListener(OnSanityChanged);
     }
+    
+    private void Update() {
+        var sanityManager = SanityManager.Instance;
+        sanityManager.ReduceSanity(sanityManager.sanityDrain);
+    }
 
     private void OnDestroy() {
         SanityManager.Instance.SanityChanged.RemoveListener(OnSanityChanged);

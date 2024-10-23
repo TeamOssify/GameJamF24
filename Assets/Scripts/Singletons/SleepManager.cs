@@ -4,13 +4,16 @@ using UnityEngine.Events;
 
 public sealed class SleepManager : Singleton<SleepManager> {
     [SerializeField]
-    private int maxSleep = 100;
+    private int maxSleep = 100000;
 
     [SerializeField]
     private int minSleep;
 
     [NonSerialized]
     public UnityEvent<MetricChangedArgs> SleepChanged;
+
+    //Sleep drain per frame
+    public int sleepDrain = 2;
 
     public int MinSleep => minSleep;
     public int MaxSleep => maxSleep;
@@ -22,7 +25,7 @@ public sealed class SleepManager : Singleton<SleepManager> {
         Sleep = maxSleep;
     }
 
-    public void ReduceSanity(decimal amount) {
+    public void ReduceSleep(decimal amount) {
         if (amount < 0) {
             Debug.LogWarningFormat("Tried to reduce sleep by a negative amount! ({0})", amount);
             return;
@@ -38,7 +41,7 @@ public sealed class SleepManager : Singleton<SleepManager> {
         OnSleepChanged(oldSleep, Sleep);
     }
 
-    public void IncreaseSanity(decimal amount) {
+    public void IncreaseSleep(decimal amount) {
         if (amount < 0) {
             Debug.LogWarningFormat("Tried to increase sleep by a negative amount! ({0})", amount);
             return;
