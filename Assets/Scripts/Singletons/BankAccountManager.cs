@@ -9,6 +9,8 @@ public sealed class BankAccountManager : Singleton<BankAccountManager> {
 
     private decimal _balance;
 
+    public decimal Balance => _balance;
+
     [NonSerialized]
     public UnityEvent<MetricChangedArgs> BalanceChanged;
 

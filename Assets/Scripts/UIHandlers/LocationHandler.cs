@@ -7,7 +7,6 @@ public class LocationHandler : MonoBehaviour {
 
     void Start() {
         _currentScene = SceneManager.GetActiveScene().name;
-        Debug.Log($"Starting");
     }
 
     public void ChangeScene(string sceneName) {
@@ -18,7 +17,6 @@ public class LocationHandler : MonoBehaviour {
         if (SceneManager.GetActiveScene().name != null) {
 
             SceneManager.LoadSceneAsync(_mapScene);
-            Debug.Log($"Returning to: " + _mapScene);
 
         }
     }
