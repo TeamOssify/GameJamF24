@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 68456414}
   - component: {fileID: 68456413}
   - component: {fileID: 68456416}
-  - component: {fileID: 68456417}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -260,18 +259,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!114 &68456417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 68456412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f3f447f439cd274586d75d668359e35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &456839153
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,16 +492,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 68456417}
-        m_TargetAssemblyTypeName: LocationHandler, Assembly-CSharp
-        m_MethodName: Back
-        m_Mode: 1
+      - m_Target: {fileID: 11400000, guid: 39f98e1879cef184cbcb4b198f8a8384, type: 2}
+        m_TargetAssemblyTypeName: LocationManager, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: LocationMap
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &965191015
