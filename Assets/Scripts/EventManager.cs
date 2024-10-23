@@ -32,15 +32,19 @@ public class EventManager : MonoBehaviour
         Debug.Log("Random Event has been attempt");
         int rng = Random.Range(1, 100);
         Debug.Log($"Rng 1 is: " + rng);
+        //Chance of an event to happen
         if (rng <= 50) {
+            //if no event is chosen nothing can happen
             Event chosen = new Event("", 100, 0, 0, 0, 0);
             rng = Random.Range(1, 100);
             Debug.Log($"Rng 2 is: " + rng);
+            //Decides what event hapens
             for (int i = 0; i < randomEvents.Length; i++) {
                 if (randomEvents[i].Chance > rng && randomEvents[i].Chance < chosen.Chance) {
                     chosen = randomEvents[i];
                 }
             }
+            //if an event is chosen it then happens
             if (chosen.Name != "") {
                 DoEvent(chosen);
             }
