@@ -1,8 +1,15 @@
+using System;
 using UnityEngine;
 
 public abstract class LocationBase : MonoBehaviour {
     [SerializeField]
     protected GeneralMusicScriptableObject generalMusic;
+
+    [SerializeField]
+    private AudioClip musicSaneOverride;
+
+    [SerializeField]
+    private AudioClip musicAnxiousOverride;
 
     private void Awake() {
         MentalStateManager.Instance.MentalStateChanged.AddListener(OnMentalStateChanged);
@@ -20,8 +27,13 @@ public abstract class LocationBase : MonoBehaviour {
         UpdateMusic();
     }
 
-    protected virtual AudioClip GetMusicForMentalState() {
-        return generalMusic.GetMusicForMentalState();
+    protected AudioClip GetMusicForMentalState() {
+        return MentalStateManager.Instance.CurrentMentalState switch {
+            MentalState.Sane => musicSaneOverride ?? generalMusic.MusicSane,
+            MentalState.Anxious => musicAnxiousOverride ?? generalMusic.MusicAnxious,
+            MentalState.Insane => generalMusic.MusicInsane,
+            _ => throw new ArgumentOutOfRangeException(),
+        };
     }
 
     protected void UpdateMusic() {

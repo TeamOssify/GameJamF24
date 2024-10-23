@@ -774,8 +774,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generalMusic: {fileID: 11400000, guid: 2add742076e92c94e924dc4118f92f02, type: 2}
-  clubMusicSane: {fileID: 8300000, guid: 0bb4fce9c4a675d49b4a82a5333c46b0, type: 3}
-  clubMusicAnxious: {fileID: 8300000, guid: ad3e842eddd22704da9eed2a4faabcc9, type: 3}
+  musicSaneOverride: {fileID: 8300000, guid: 0bb4fce9c4a675d49b4a82a5333c46b0, type: 3}
+  musicAnxiousOverride: {fileID: 8300000, guid: ad3e842eddd22704da9eed2a4faabcc9, type: 3}
 --- !u!1 &1086649489
 GameObject:
   m_ObjectHideFlags: 0

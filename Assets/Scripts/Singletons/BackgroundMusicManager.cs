@@ -29,6 +29,7 @@ public sealed class BackgroundMusicManager : Singleton<BackgroundMusicManager> {
         if (_audioSource.isPlaying) {
             _isFading = true;
             yield return _audioSource.FadeOutToStop(bgmFadeTime / 2);
+
             _isFading = false;
         }
 
@@ -37,6 +38,7 @@ public sealed class BackgroundMusicManager : Singleton<BackgroundMusicManager> {
         _audioSource.clip = clip;
         _isFading = true;
         yield return _audioSource.FadeIn(bgmFadeTime / 2);
+
         _isFading = false;
     }
 
@@ -45,6 +47,7 @@ public sealed class BackgroundMusicManager : Singleton<BackgroundMusicManager> {
 
         _isFading = true;
         yield return _audioSource.FadeIn(bgmFadeTime);
+
         _isFading = false;
     }
 
@@ -53,13 +56,15 @@ public sealed class BackgroundMusicManager : Singleton<BackgroundMusicManager> {
 
         _isFading = true;
         yield return _audioSource.FadeOutToStop(bgmFadeTime);
+
         _isFading = false;
     }
 
     /// <summary>
     /// Changes the BGM immediately and resets the playback position
     /// </summary>
-    /// /// <remarks>
+    /// ///
+    /// <remarks>
     /// Do not use when the BGM may be fading between tracks.
     /// </remarks>
     public void ChangeBgmImmediate(AudioClip clip) {
