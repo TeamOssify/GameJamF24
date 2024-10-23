@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public sealed class MainMenu : MonoBehaviour {
     [SerializeField]
@@ -71,5 +72,9 @@ public sealed class MainMenu : MonoBehaviour {
         BackgroundMusicManager.Instance.ChangeBgmImmediate(oldBgm);
 
         _glitchRunning = false;
+    }
+
+    public void StartGame(string sceneName) {
+        SceneManager.LoadSceneAsync(sceneName);
     }
 }
