@@ -3,13 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class LocationHandler : MonoBehaviour {
     private string _currentScene;
-
+    private string _mapScene = "MainGame";
+   
     void Start() {
-        _currentScene = SceneManager.GetActiveScene().name;
+        _currentScene = _mapScene;
         SceneManager.LoadSceneAsync(4, LoadSceneMode.Additive);
     }
 
     public void ChangeScene(string sceneName) {
+        
 
         if (_currentScene != null) {
             SceneManager.UnloadSceneAsync(_currentScene);
@@ -17,8 +19,19 @@ public class LocationHandler : MonoBehaviour {
         }
 
         Debug.Log($"Loading scene: {sceneName}");
-        SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(sceneName);
 
         _currentScene = sceneName;
+    }
+
+    public void Back() {
+        if (SceneManager.GetActiveScene().name != null) {
+            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
+
+            SceneManager.LoadSceneAsync(_mapScene);
+            Debug.Log($"Returning to:" + _mapScene);
+        }
+
+
     }
 }
