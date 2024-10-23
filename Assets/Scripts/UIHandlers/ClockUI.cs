@@ -15,7 +15,6 @@ public class ClockUI : MonoBehaviour {
 
     private void Update() {
         TimeSpan currentTime = TimeManager.Instance.CurrentTimeOfDay;
-        //Debug.Log($"current time: " + currentTime);
         float hours = (float)currentTime.TotalHours % 12;
         float minutes = (float)currentTime.TotalMinutes % 60;
 

@@ -41,6 +41,7 @@ public sealed class TimeManager : Singleton<TimeManager> {
 
         if (CurrentTimeOfDay.Days > 0) {
             CurrentTimeOfDay -= TimeSpan.FromDays(CurrentTimeOfDay.Days);
+            DateManager.Instance.AdvanceDate();
         }
 
         OnTimeChanged(CurrentTimeOfDay);
@@ -56,6 +57,7 @@ public sealed class TimeManager : Singleton<TimeManager> {
 
         if (CurrentTimeOfDay.Days > 0) {
             CurrentTimeOfDay -= TimeSpan.FromDays(CurrentTimeOfDay.Days);
+            DateManager.Instance.AdvanceDate();
         }
 
         OnTimeChanged(CurrentTimeOfDay);
