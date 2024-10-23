@@ -63,13 +63,13 @@
     <Compile Include="Assets\Scripts\Singletons\DateManager.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\SleepUI.cs" />
     <Compile Include="Assets\Scripts\Singletons\SleepManager.cs" />
+    <Compile Include="Assets\Scripts\LocationManager.cs" />
     <Compile Include="Assets\Scripts\Singletons\BankAccountManager.cs" />
     <Compile Include="Assets\Scripts\Singletons\MentalStateManager.cs" />
     <Compile Include="Assets\Scripts\Enums.cs" />
     <Compile Include="Assets\Scripts\Singletons\IncomeManager.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\Singletons\BackgroundMusicManager.cs" />
-    <Compile Include="Assets\Scripts\LocationHandler.cs" />
     <Compile Include="Assets\Scripts\Singletons\HealthManager.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\HealthUI.cs" />
     <Compile Include="Assets\Scripts\Singletons\TimeManager.cs" />
@@ -80,6 +80,7 @@
     <Compile Include="Assets\Scripts\Singletons\EventArgs\MetricChangedArgs.cs" />
     <Compile Include="Assets\Scripts\Singletons\SoundEffectManager.cs" />
     <Compile Include="Assets\Scripts\Singletons\ExpensesManager.cs" />
+    <Compile Include="Assets\Scripts\Singletons\DontDestroySingleton.cs" />
     <Compile Include="Assets\Scripts\Singletons\EventArgs\DateChangedArgs.cs" />
     <Compile Include="Assets\Scripts\Singletons\EventArgs\MentalStateChangedArgs.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\MoneyUI.cs" />

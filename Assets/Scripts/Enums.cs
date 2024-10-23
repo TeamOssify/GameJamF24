@@ -3,3 +3,10 @@ public enum MentalState {
     Anxious,
     Insane,
 }
+
+public enum Location {
+    Map,
+    House,
+    Work,
+    Club
+}
