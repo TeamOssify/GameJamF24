@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public sealed class HealthManagerSingleton : Singleton<HealthManagerSingleton> {
+public sealed class HealthManager : Singleton<HealthManager> {
     [SerializeField]
     private int maxHealth = 100;
 
@@ -13,6 +13,7 @@ public sealed class HealthManagerSingleton : Singleton<HealthManagerSingleton> {
     public UnityEvent<MetricChangedArgs> HealthChanged;
 
     public int MinHealth => minHealth;
+    public int MaxHealth => maxHealth;
 
     public decimal Health { get; private set; }
 
@@ -23,7 +24,7 @@ public sealed class HealthManagerSingleton : Singleton<HealthManagerSingleton> {
 
     public void Damage(decimal amount) {
         if (amount < 0) {
-            Debug.LogWarning("Tried to damage by a negative amount!");
+            Debug.LogWarningFormat("Tried to damage by a negative amount! ({0})", amount);
             return;
         }
 
@@ -39,7 +40,7 @@ public sealed class HealthManagerSingleton : Singleton<HealthManagerSingleton> {
 
     public void Heal(decimal amount) {
         if (amount < 0) {
-            Debug.LogWarning("Tried to heal by a negative amount!");
+            Debug.LogWarningFormat("Tried to heal by a negative amount! ({0})", amount);
             return;
         }
 

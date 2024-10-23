@@ -2,47 +2,56 @@ using System;
 using System.Collections.Generic;
 using UnityEngine.Events;
 
-public sealed class IncomeManagerSingleton : Singleton<IncomeManagerSingleton> {
+public sealed class IncomeManager : Singleton<IncomeManager> {
     private List<IncomeSource> _incomeSources;
 
     [NonSerialized]
-    public UnityEvent<decimal> Income;
+    public UnityEvent IncomeSourcesChanged;
 
     public IReadOnlyList<IncomeSource> IncomeSources => _incomeSources;
 
     private void OnEnable() {
-        Income ??= new UnityEvent<decimal>();
+        IncomeSourcesChanged ??= new UnityEvent();
         _incomeSources = new List<IncomeSource>();
-        DateManagerSingleton.Instance.DayChanged.AddListener(OnDateChanged);
+        DateManager.Instance.DayChanged.AddListener(OnDateChanged);
+    }
+
+    private void OnDisable() {
+        DateManager.Instance.DayChanged.RemoveListener(OnDateChanged);
     }
 
     private void OnDateChanged(DateChangedArgs e) {
         var income = CheckIncomeSources(e.Date);
-        OnIncome(income);
+        BankAccountManager.Instance.AddFunds(income);
     }
 
-    public decimal CheckIncomeSources(int date) {
+    private decimal CheckIncomeSources(int date) {
         decimal income = 0;
+        var dirty = false;
 
         for (var i = 0; i < _incomeSources.Count; i++) {
             var incomeSource = _incomeSources[i];
             if (incomeSource.Date == date) {
                 _incomeSources.RemoveAt(i);
                 income += incomeSource.Amount;
+                dirty = true;
             }
+        }
+
+        if (dirty) {
+            OnIncomeSourcesChanged();
         }
 
         return income;
     }
 
-    public void AddIncomeSource(int date, decimal amount) {
+    public void AddFutureIncomeSource(int date, decimal amount) {
         _incomeSources.Add(new IncomeSource(date, amount));
+        OnIncomeSourcesChanged();
     }
 
-    private void OnIncome(decimal amount) {
-        if (amount != 0) {
-            Income?.Invoke(amount);
-        }
+    private void OnIncomeSourcesChanged() {
+        IncomeSourcesChanged?.Invoke();
     }
 
     public sealed record IncomeSource {

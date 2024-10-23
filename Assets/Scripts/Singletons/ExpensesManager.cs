@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.Events;
 
-public sealed class ExpensesManagerScriptableSingleton : Singleton<ExpensesManagerScriptableSingleton> {
+public sealed class ExpensesManager : Singleton<ExpensesManager> {
     private List<Expense> _expenses;
 
     [NonSerialized]

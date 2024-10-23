@@ -93,6 +93,7 @@ resharper_place_field_attribute_on_same_line = false
 resharper_place_simple_anonymousmethod_on_single_line = false
 resharper_trailing_comma_in_multiline_lists = true
 resharper_use_indent_from_vs = false
+resharper_xmldoc_indent_text = ZeroIndent
 
 # ReSharper inspection severities
 resharper_arrange_attributes_highlighting = hint

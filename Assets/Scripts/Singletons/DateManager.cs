@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public sealed class DateManagerSingleton : Singleton<DateManagerSingleton> {
+public sealed class DateManager : Singleton<DateManager> {
     [SerializeField]
     private DayOfWeek startingDay = DayOfWeek.Sunday;
 

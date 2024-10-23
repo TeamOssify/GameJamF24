@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-public sealed class BankAccountManagerSingleton : Singleton<BankAccountManagerSingleton> {
+public sealed class BankAccountManager : Singleton<BankAccountManager> {
     [SerializeField]
     [Min(0)]
     private double initialBalance;
@@ -19,7 +19,7 @@ public sealed class BankAccountManagerSingleton : Singleton<BankAccountManagerSi
 
     public void AddFunds(decimal amount) {
         if (amount < 0) {
-            Debug.LogWarning("Tried to add negative funds!");
+            Debug.LogWarningFormat("Tried to add negative funds! ({0})", amount);
             return;
         }
 
@@ -31,7 +31,7 @@ public sealed class BankAccountManagerSingleton : Singleton<BankAccountManagerSi
 
     public void RemoveFunds(decimal amount) {
         if (amount < 0) {
-            Debug.LogWarning("Tried to remove negative funds!");
+            Debug.LogWarningFormat("Tried to remove negative funds! ({0})", amount);
             return;
         }
 
