@@ -8,7 +8,7 @@ public abstract class Singleton<T> : MonoBehaviour where T : Component {
             if (!_instance) {
                 var obj = new GameObject {
                     name = typeof(T).Name,
-                    hideFlags = HideFlags.DontSave
+                    hideFlags = HideFlags.DontSave,
                 };
 
                 _instance = obj.AddComponent<T>();
