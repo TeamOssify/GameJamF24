@@ -19,25 +19,33 @@ public sealed class MainMenu : MonoBehaviour {
 
     [SerializeField]
     [Tooltip("The minimum duration of a glitch in seconds.")]
-    [Range(0.1f, 10)]
-    private float glitchMinDuration = 0.2f;
+    [Range(0.1f, 25)]
+    private float glitchMinDuration = 0.5f;
 
     [SerializeField]
     [Tooltip("The max duration of a glitch in seconds.")]
-    [Range(0.1f, 10)]
-    private float glitchMaxDuration = 3f;
+    [Range(0.1f, 25)]
+    private float glitchMaxDuration = 5f;
 
     [SerializeField]
     [Tooltip("The chance that the insane music plays instead of the anxious music.")]
     [Range(0.01f, 1)]
     private float glitchInsaneMusicChance = 0.3f;
 
-    private float _glitchAmount;
+    [SerializeField]
+    [Tooltip("FOR DEBUGGING ONLY - DO NOT EDIT.")]
+    private float glitchAmount;
 
-    private bool _glitchRunning;
+    [SerializeField]
+    [Tooltip("FOR DEBUGGING ONLY - DO NOT EDIT.")]
+    private bool glitchRunning;
 
     private void Start() {
+        // For some reason, the BGM manager needs to be created separately before we can play any bgm.
+        _ = BackgroundMusicManager.Instance;
         BackgroundMusicManager.Instance.ChangeBgmImmediate(musicSane);
+
+        glitchAmount = GetRandomGlitchAmount();
     }
 
     private void Update() {
@@ -45,33 +53,37 @@ public sealed class MainMenu : MonoBehaviour {
     }
 
     private void CheckGlitchChance() {
-        _glitchAmount = Mathf.Max(_glitchAmount - Time.deltaTime, 0);
+        glitchAmount = Mathf.Max(glitchAmount - Time.deltaTime, 0);
 
-        if (_glitchAmount == 0) {
-            _glitchAmount = Random.value / glitchChance * 2;
+        if (glitchAmount == 0) {
+            glitchAmount = GetRandomGlitchAmount();
 
             var bgm = Random.value > glitchInsaneMusicChance
                 ? musicAnxious
                 : musicInsane;
 
-            if (!_glitchRunning) {
-                _glitchRunning = true;
+            if (!glitchRunning) {
+                glitchRunning = true;
                 StartCoroutine(RunGlitch(musicSane, bgm));
             }
         }
     }
 
+    private float GetRandomGlitchAmount() {
+        return Random.value / glitchChance * 2;
+    }
+
     private IEnumerator RunGlitch(AudioClip oldBgm, AudioClip newBgm) {
         // TODO: Add visual changes to go along with music changes
 
-        BackgroundMusicManager.Instance.ChangeBgmImmediate(newBgm);
+        BackgroundMusicManager.Instance.ReplaceBgmImmediate(newBgm);
 
         var glitchLength = Random.Range(glitchMinDuration, glitchMaxDuration);
         yield return new WaitForSeconds(glitchLength);
 
-        BackgroundMusicManager.Instance.ChangeBgmImmediate(oldBgm);
+        BackgroundMusicManager.Instance.ReplaceBgmImmediate(oldBgm);
 
-        _glitchRunning = false;
+        glitchRunning = false;
     }
 
     public void StartGame(string sceneName) {

@@ -27,6 +27,7 @@ public sealed class BackgroundMusicManager : Singleton<BackgroundMusicManager> {
     /// Changes the BGM immediately and resets the playback position
     /// </summary>
     public void ChangeBgmImmediate(AudioClip clip) {
+        _audioSource.Stop();
         _audioSource.clip = clip;
         _audioSource.Play();
     }
@@ -35,8 +36,13 @@ public sealed class BackgroundMusicManager : Singleton<BackgroundMusicManager> {
     /// Changes the BGM immediately, but keeps playback position
     /// </summary>
     public void ReplaceBgmImmediate(AudioClip clip) {
-        // TODO: Does this reset AudioSource.time to 0?
+        var offset = _audioSource.time;
         _audioSource.clip = clip;
+        _audioSource.time = offset;
+
+        if (!_audioSource.isPlaying) {
+            _audioSource.Play();
+        }
     }
 
     public void PauseBgm() {

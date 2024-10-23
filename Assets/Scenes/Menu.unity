@@ -622,9 +622,11 @@ MonoBehaviour:
   musicAnxious: {fileID: 8300000, guid: 89e707dc91eefee438c868fc4017fc75, type: 3}
   musicInsane: {fileID: 8300000, guid: 13c03962f90c2fb4bb2f2fac967e1cd2, type: 3}
   glitchChance: 0.1
-  glitchMinDuration: 0.2
-  glitchMaxDuration: 3
+  glitchMinDuration: 0.5
+  glitchMaxDuration: 5
   glitchInsaneMusicChance: 0.3
+  glitchAmount: 0
+  glitchRunning: 0
 --- !u!4 &1839877145
 Transform:
   m_ObjectHideFlags: 0
