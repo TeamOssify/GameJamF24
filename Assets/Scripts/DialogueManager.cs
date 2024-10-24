@@ -26,7 +26,11 @@ public class DialogueManager : MonoBehaviour
     }
 
     public void nextText() {
-        textField.text = line[lineNum];
-        lineNum++;
+        if (lineNum < line.Count) {
+            textField.text = line[lineNum];
+            lineNum++;
+        } else {
+            textField.text = "";
+        }
     }
 }
