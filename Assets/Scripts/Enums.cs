@@ -9,6 +9,7 @@ public enum Location {
     House,
     Work,
     Club,
+    Hospital,
 }
 
 public enum TimeOfDay {

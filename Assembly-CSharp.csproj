@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\Enums.cs" />
     <Compile Include="Assets\Scripts\Locations\LocationBase.cs" />
     <Compile Include="Assets\Scripts\Singletons\IncomeManager.cs" />
+    <Compile Include="Assets\Scripts\Locations\HospitalLocation.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\DaysUI.cs" />
     <Compile Include="Assets\Scripts\Singletons\BackgroundMusicManager.cs" />
     <Compile Include="Assets\Scripts\Locations\LocationMap.cs" />
