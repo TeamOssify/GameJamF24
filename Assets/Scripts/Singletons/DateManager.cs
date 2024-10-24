@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public sealed class DateManager : Singleton<DateManager> {
     [SerializeField]
-    private DayOfWeek startingDay = DayOfWeek.Sunday;
+    private DayOfWeek startingDay = DayOfWeek.Monday;
 
     [NonSerialized]
     public UnityEvent<DateChangedArgs> DayChanged;

@@ -12,6 +12,16 @@ public enum Location {
     Hospital,
 }
 
+public enum DayOfWeek {
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday,
+    Sunday,
+}
+
 public enum TimeOfDay {
     Morning,
     Noon,
