@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 584333546}
   - component: {fileID: 584333545}
   m_Layer: 5
-  m_Name: Title
+  m_Name: Title Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -636,8 +636,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed915d49fe5fb04695036665df0a465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SummaryText: {fileID: 1426928491}
-  Title: {fileID: 584333545}
+  summaryText: {fileID: 1426928491}
+  title: {fileID: 584333545}
+  locationManager: {fileID: 11400000, guid: 39f98e1879cef184cbcb4b198f8a8384, type: 2}
 --- !u!1 &730662663
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,7 +831,7 @@ GameObject:
   - component: {fileID: 1426928492}
   - component: {fileID: 1426928491}
   m_Layer: 5
-  m_Name: Summary
+  m_Name: Summary Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1032,7 +1033,7 @@ GameObject:
   - component: {fileID: 1860414208}
   - component: {fileID: 1860414207}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Continue Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

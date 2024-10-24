@@ -2,13 +2,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthUI : MonoBehaviour {
-    public Slider healthSlider;
+    [SerializeField]
+    private Slider healthSlider;
 
     private void Start() {
         var healthManager = HealthManager.Instance;
         healthSlider.maxValue = healthManager.MaxHealth;
         healthSlider.minValue = healthManager.MinHealth;
-        healthSlider.value = (float)healthManager.Health;
+        healthSlider.value = healthManager.Health;
 
         healthManager.HealthChanged.AddListener(OnHealthChanged);
     }
@@ -23,6 +24,6 @@ public class HealthUI : MonoBehaviour {
     }
 
     private void OnHealthChanged(MetricChangedArgs args) {
-        healthSlider.value = (float)args.NewValue;
+        healthSlider.value = args.NewValue;
     }
 }
