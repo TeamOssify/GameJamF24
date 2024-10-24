@@ -41,6 +41,4 @@ public abstract class LocationBase : MonoBehaviour {
             _ => throw new ArgumentOutOfRangeException(),
         };
     }
-
-
 }

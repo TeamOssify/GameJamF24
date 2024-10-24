@@ -4,40 +4,16 @@ using UnityEngine.UI;
 
 public abstract class MultiArtLocation : LocationBase {
     [SerializeField]
-    private Sprite morningSaneSprite;
+    private Sprite morningSaneSprite, morningAnxiousSprite, morningInsaneSprite;
 
     [SerializeField]
-    private Sprite morningAnxiousSprite;
+    private Sprite noonSaneSprite, noonAnxiousSprite, noonInsaneSprite;
 
     [SerializeField]
-    private Sprite morningInsaneSprite;
+    private Sprite eveningSaneSprite, eveningAnxiousSprite, eveningInsaneSprite;
 
     [SerializeField]
-    private Sprite noonSaneSprite;
-
-    [SerializeField]
-    private Sprite noonAnxiousSprite;
-
-    [SerializeField]
-    private Sprite noonInsaneSprite;
-
-    [SerializeField]
-    private Sprite eveningSaneSprite;
-
-    [SerializeField]
-    private Sprite eveningAnxiousSprite;
-
-    [SerializeField]
-    private Sprite eveningInsaneSprite;
-
-    [SerializeField]
-    private Sprite nightSaneSprite;
-
-    [SerializeField]
-    private Sprite nightAnxiousSprite;
-
-    [SerializeField]
-    private Sprite nightInsaneSprite;
+    private Sprite nightSaneSprite, nightAnxiousSprite, nightInsaneSprite;
 
     [SerializeField]
     private GameObject locationArt;
@@ -52,15 +28,20 @@ public abstract class MultiArtLocation : LocationBase {
     }
 
     protected new virtual void Start() {
+        base.Start();
+
         UpdateBackground();
     }
 
     protected new virtual void OnDestroy() {
+        base.OnDestroy();
+
         TimeManager.Instance.TimeOfDayChanged.RemoveListener(OnTimeOfDayChanged);
     }
 
     protected new virtual void OnMentalStateChanged(MentalStateChangedArgs e) {
         base.OnMentalStateChanged(e);
+
         UpdateBackground();
     }
 
