@@ -45,8 +45,6 @@ public sealed class MainMenu : MonoBehaviour {
 
     private Image _layoutArtImage;
 
-    private GameObject _startGameButton, _showCreditsButton, _leaveCreditsButton;
-
     private void Awake() {
         InitManagers();
         _layoutArtImage = layoutArt.GetComponent<Image>();
