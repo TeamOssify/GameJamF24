@@ -1,15 +1,16 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public sealed class MainMenu : MonoBehaviour {
     [SerializeField]
-    private AudioClip musicSane;
+    private AudioClip musicSane, musicAnxious, musicInsane;
 
     [SerializeField]
-    private AudioClip musicAnxious;
+    private Sprite saneSprite, anxiousSprite, insaneSprite;
 
     [SerializeField]
-    private AudioClip musicInsane;
+    private GameObject layoutArt;
 
     [SerializeField]
     [Tooltip("The change that a glitch occurs roughly every second. More than 1 glitch cannot occur at once.")]
@@ -27,9 +28,9 @@ public sealed class MainMenu : MonoBehaviour {
     private float glitchMaxDuration = 5f;
 
     [SerializeField]
-    [Tooltip("The chance that the insane music plays instead of the anxious music.")]
+    [Tooltip("The chance that an insane glitch happens instead of an anxious glitch.")]
     [Range(0.01f, 1)]
-    private float glitchInsaneMusicChance = 0.3f;
+    private float glitchInsaneChance = 0.3f;
 
     [SerializeField]
     [Tooltip("FOR DEBUGGING ONLY - DO NOT EDIT.")]
@@ -42,8 +43,13 @@ public sealed class MainMenu : MonoBehaviour {
     [SerializeField]
     private LocationManager locationManager;
 
+    private Image _layoutArtImage;
+
+    private GameObject _startGameButton, _showCreditsButton, _leaveCreditsButton;
+
     private void Awake() {
         InitManagers();
+        _layoutArtImage = layoutArt.GetComponent<Image>();
     }
 
     private void Start() {
@@ -77,13 +83,18 @@ public sealed class MainMenu : MonoBehaviour {
         if (glitchAmount == 0) {
             glitchAmount = GetRandomGlitchAmount();
 
-            var bgm = Random.value > glitchInsaneMusicChance
+            var rng = Random.value;
+            var bgm = rng > glitchInsaneChance
                 ? musicAnxious
                 : musicInsane;
 
+            var background = rng > glitchInsaneChance
+                ? anxiousSprite
+                : insaneSprite;
+
             if (!glitchRunning) {
                 glitchRunning = true;
-                StartCoroutine(RunGlitch(musicSane, bgm));
+                StartCoroutine(RunGlitch(musicSane, bgm, _layoutArtImage.sprite, background));
             }
         }
     }
@@ -92,15 +103,15 @@ public sealed class MainMenu : MonoBehaviour {
         return Random.value / glitchChance * 2;
     }
 
-    private IEnumerator RunGlitch(AudioClip oldBgm, AudioClip newBgm) {
-        // TODO: Add visual changes to go along with music changes
-
+    private IEnumerator RunGlitch(AudioClip oldBgm, AudioClip newBgm, Sprite oldSprite, Sprite newSprite) {
         BackgroundMusicManager.Instance.ReplaceBgmImmediate(newBgm);
+        _layoutArtImage.sprite = newSprite;
 
         var glitchLength = Random.Range(glitchMinDuration, glitchMaxDuration);
         yield return new WaitForSeconds(glitchLength);
 
         BackgroundMusicManager.Instance.ReplaceBgmImmediate(oldBgm);
+        _layoutArtImage.sprite = oldSprite;
 
         glitchRunning = false;
     }
