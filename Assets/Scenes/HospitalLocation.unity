@@ -477,8 +477,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 1cee4b6ca948e80418bb7ba4ba865ed9, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -924,18 +924,18 @@ MonoBehaviour:
   generalMusic: {fileID: 11400000, guid: 2add742076e92c94e924dc4118f92f02, type: 2}
   musicSaneOverride: {fileID: 0}
   musicAnxiousOverride: {fileID: 0}
-  morningSaneSprite: {fileID: 0}
-  morningAnxiousSprite: {fileID: 0}
-  morningInsaneSprite: {fileID: 0}
-  noonSaneSprite: {fileID: 0}
-  noonAnxiousSprite: {fileID: 0}
-  noonInsaneSprite: {fileID: 0}
-  eveningSaneSprite: {fileID: 0}
-  eveningAnxiousSprite: {fileID: 0}
-  eveningInsaneSprite: {fileID: 0}
-  nightSaneSprite: {fileID: 0}
-  nightAnxiousSprite: {fileID: 0}
-  nightInsaneSprite: {fileID: 0}
+  morningSaneSprite: {fileID: 21300000, guid: 1cee4b6ca948e80418bb7ba4ba865ed9, type: 3}
+  morningAnxiousSprite: {fileID: 21300000, guid: 4297da25824508849a2c7d5787743843, type: 3}
+  morningInsaneSprite: {fileID: 21300000, guid: fcc2ffeea569e7c45bd6adf9c1a645d9, type: 3}
+  noonSaneSprite: {fileID: 21300000, guid: 1cee4b6ca948e80418bb7ba4ba865ed9, type: 3}
+  noonAnxiousSprite: {fileID: 21300000, guid: 4297da25824508849a2c7d5787743843, type: 3}
+  noonInsaneSprite: {fileID: 21300000, guid: fcc2ffeea569e7c45bd6adf9c1a645d9, type: 3}
+  eveningSaneSprite: {fileID: 21300000, guid: 1cee4b6ca948e80418bb7ba4ba865ed9, type: 3}
+  eveningAnxiousSprite: {fileID: 21300000, guid: 4297da25824508849a2c7d5787743843, type: 3}
+  eveningInsaneSprite: {fileID: 21300000, guid: fcc2ffeea569e7c45bd6adf9c1a645d9, type: 3}
+  nightSaneSprite: {fileID: 21300000, guid: 1cee4b6ca948e80418bb7ba4ba865ed9, type: 3}
+  nightAnxiousSprite: {fileID: 21300000, guid: 4297da25824508849a2c7d5787743843, type: 3}
+  nightInsaneSprite: {fileID: 21300000, guid: fcc2ffeea569e7c45bd6adf9c1a645d9, type: 3}
   locationArt: {fileID: 456839153}
 --- !u!1 &1547462085
 GameObject:
