@@ -13,11 +13,11 @@ public class ClockUI : MonoBehaviour {
 
     private void Start() {
         InvokeRepeating(nameof(IncrementPassiveTime), 0f, 1f); //increment every 1 second
-        UpdateClockNumbers(MentalStateManager.Instance.CurrentMentalState);
     }
 
     private void OnEnable() {
         MentalStateManager.Instance.MentalStateChanged.AddListener(OnMentalStateChanged);
+        UpdateClockNumbers(MentalStateManager.Instance.CurrentMentalState);
     }
 
     private void OnDisable() {
