@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using UnityEngine.Events;
 
 public sealed class ExpensesManager : Singleton<ExpensesManager> {
@@ -37,7 +38,7 @@ public sealed class ExpensesManager : Singleton<ExpensesManager> {
     }
 
     private void OnTotalExpensesChanged(float oldTotal, float newTotal) {
-        if (oldTotal != newTotal) {
+        if (!Mathf.Approximately(oldTotal, newTotal)) {
             TotalExpensesChanged?.Invoke(new MetricChangedArgs(oldTotal, newTotal));
         }
     }

@@ -58,7 +58,7 @@ public sealed class SleepManager : Singleton<SleepManager> {
     }
 
     private void OnSleepChanged(float oldSleep, float newSleep) {
-        if (oldSleep != newSleep) {
+        if (!Mathf.Approximately(oldSleep, newSleep)) {
             SleepChanged?.Invoke(new MetricChangedArgs(oldSleep, newSleep));
         }
     }

@@ -58,7 +58,7 @@ public sealed class HealthManager : Singleton<HealthManager> {
     }
 
     private void OnHealthChanged(float oldHealth, float newHealth) {
-        if (oldHealth != newHealth) {
+        if (!Mathf.Approximately(oldHealth, newHealth)) {
             HealthChanged?.Invoke(new MetricChangedArgs(oldHealth, newHealth));
         }
     }

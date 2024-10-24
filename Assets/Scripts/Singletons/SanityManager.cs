@@ -60,7 +60,7 @@ public sealed class SanityManager : Singleton<SanityManager> {
     }
 
     private void OnSanityChanged(float oldSanity, float newSanity) {
-        if (oldSanity != newSanity) {
+        if (!Mathf.Approximately(oldSanity, newSanity)) {
             SanityChanged?.Invoke(new MetricChangedArgs(oldSanity, newSanity));
         }
     }

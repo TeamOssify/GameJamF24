@@ -42,7 +42,7 @@ public sealed class BankAccountManager : Singleton<BankAccountManager> {
     }
 
     public void OnBalanceChanged(float oldBalance, float newBalance) {
-        if (oldBalance != newBalance) {
+        if (!Mathf.Approximately(oldBalance, newBalance)) {
             BalanceChanged?.Invoke(new MetricChangedArgs(oldBalance, newBalance));
         }
     }
