@@ -2,13 +2,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class SleepUI : MonoBehaviour {
-    public Slider sleepSlider;
+    [SerializeField]
+    private Slider sleepSlider;
 
     private void Start() {
         var sleepManager = SleepManager.Instance;
         sleepSlider.maxValue = sleepManager.MaxSleep;
         sleepSlider.minValue = sleepManager.MinSleep;
-        sleepSlider.value = (float)sleepManager.Sleep;
+        sleepSlider.value = sleepManager.Sleep;
 
         sleepManager.SleepChanged.AddListener(OnSleepChanged);
     }
@@ -23,6 +24,6 @@ public class SleepUI : MonoBehaviour {
     }
 
     private void OnSleepChanged(MetricChangedArgs args) {
-        sleepSlider.value = (float)args.NewValue;
+        sleepSlider.value = args.NewValue;
     }
 }

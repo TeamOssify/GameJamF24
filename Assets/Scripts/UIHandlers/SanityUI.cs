@@ -2,13 +2,14 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class SanityUI : MonoBehaviour {
-    public Slider sanitySlider;
+    [SerializeField]
+    private Slider sanitySlider;
 
     private void Start() {
         var sanityManager = SanityManager.Instance;
         sanitySlider.maxValue = sanityManager.MaxSanity;
         sanitySlider.minValue = sanityManager.MinSanity;
-        sanitySlider.value = (float)sanityManager.Sanity;
+        sanitySlider.value = sanityManager.Sanity;
 
         sanityManager.SanityChanged.AddListener(OnSanityChanged);
     }
@@ -23,6 +24,6 @@ public class SanityUI : MonoBehaviour {
     }
 
     private void OnSanityChanged(MetricChangedArgs args) {
-        sanitySlider.value = (float)args.NewValue;
+        sanitySlider.value = args.NewValue;
     }
 }

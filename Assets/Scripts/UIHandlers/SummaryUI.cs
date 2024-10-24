@@ -1,43 +1,46 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
+using UnityEngine;
 
 public class SummaryUI : MonoBehaviour {
-    [SerializeField] private TextMeshProUGUI SummaryText;
-    [SerializeField] private TextMeshProUGUI Title;
+    [SerializeField]
+    private TextMeshProUGUI summaryText;
 
-    private GameObject UIContainer;
+    [SerializeField]
+    private TextMeshProUGUI title;
 
-    void Start() {
-        DontDestroySingleton.TryGetInstance("UIContainer", out UIContainer);
+    [SerializeField]
+    private LocationManager locationManager;
+
+    private GameObject _uiContainer;
+
+    private void Start() {
+        DontDestroySingleton.TryGetInstance("UIContainer", out _uiContainer);
         BuildSummary();
         DisplayTitle();
     }
 
-    void BuildSummary() {
-        if (SummaryText) {
+    private void BuildSummary() {
+        if (summaryText) {
             var expensesManager = ExpensesManager.Instance;
             var expenses = expensesManager.Expenses;
 
-            SummaryText.text = "Expenses:\n";
+            summaryText.text = "Expenses:\n";
             foreach (var expense in expenses) {
-                SummaryText.text += $"{expense.Name}: {expense.Cost:C}\n";
+                summaryText.text += $"{expense.Name}: {expense.Cost:C}\n";
             }
         }
     }
 
-    void DisplayTitle() {
-        Title.text = $"Week " + DateManager.Instance.CurrentDate / 7 + " Summary";
+    private void DisplayTitle() {
+        title.text = $"Week {DateManager.Instance.CurrentDate / 7} Summary";
     }
-
 
     public void ResumeGame() {
         Time.timeScale = 1f;
-        if (UIContainer) {
-            UIContainer.SetActive(true);
+        if (_uiContainer) {
+            _uiContainer.SetActive(true);
         }
-        SceneManager.LoadSceneAsync("LocationMap");
+
+        locationManager.ChangeLocation(Location.Map);
     }
 }

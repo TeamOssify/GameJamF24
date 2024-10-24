@@ -3,7 +3,8 @@ using TMPro;
 using System;
 
 public class DaysUI : MonoBehaviour {
-    [SerializeField] private TextMeshProUGUI dateText;
+    [SerializeField]
+    private TextMeshProUGUI dateText;
 
     private void OnEnable() {
         DateManager.Instance.DayChanged.AddListener(OnDayChanged);

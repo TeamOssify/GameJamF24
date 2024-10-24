@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = nameof(LocationManager), menuName = "Scriptable Objects/Location Manager")]
@@ -20,18 +21,19 @@ public class LocationManager : ScriptableObject {
     }
 
     public void ChangeScene(string sceneName) {
-        var button = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
-        if (button != null) {
+        var button = EventSystem.current.currentSelectedGameObject;
+        if (button) {
             var audioSource = button.GetComponent<AudioSource>();
-            if (audioSource != null) {
+            if (audioSource) {
                 SoundEffectManager.Instance.PlaySoundEffect(audioSource.clip);
             }
         }
+
         SceneManager.LoadSceneAsync(sceneName);
     }
 
-    public void ChangeScene(Location scene) {
-        var sceneName = GetSceneName(scene);
+    public void ChangeLocation(Location location) {
+        var sceneName = GetSceneName(location);
         ChangeScene(sceneName);
     }
 

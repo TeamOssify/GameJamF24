@@ -2,8 +2,11 @@ using UnityEngine;
 using System;
 
 public class ClockUI : MonoBehaviour {
-    [SerializeField] private Transform hourHand;
-    [SerializeField] private Transform minuteHand;
+    [SerializeField]
+    private Transform hourHand;
+
+    [SerializeField]
+    private Transform minuteHand;
 
     private void Start() {
         InvokeRepeating(nameof(IncrementPassiveTime), 0f, 1f); //increment every 1 second
@@ -22,10 +25,11 @@ public class ClockUI : MonoBehaviour {
         float hourAngle = hours * 30f; // 360 degrees / 12 hours
         float minuteAngle = minutes * 6f; // 360 degrees / 60 minutes
 
-        if (hourHand != null) {
+        if (hourHand) {
             hourHand.rotation = Quaternion.Euler(0, 0, -hourAngle);
         }
-        if (minuteHand != null) {
+
+        if (minuteHand) {
             minuteHand.rotation = Quaternion.Euler(0, 0, -minuteAngle);
         }
     }

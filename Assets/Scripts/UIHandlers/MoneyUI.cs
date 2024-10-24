@@ -2,13 +2,14 @@ using TMPro;
 using UnityEngine;
 
 public class MoneyUI : MonoBehaviour {
-    public TextMeshProUGUI moneyText;
+    [SerializeField]
+    private TextMeshProUGUI moneyText;
 
     private void Start() {
-        var Bank = BankAccountManager.Instance;
-        moneyText.text = $"$: {Bank.Balance}";
+        var bank = BankAccountManager.Instance;
+        moneyText.text = $"${bank.Balance}";
 
-        Bank.BalanceChanged.AddListener(OnBalanceChanged);
+        bank.BalanceChanged.AddListener(OnBalanceChanged);
     }
 
     private void OnDestroy() {
@@ -16,6 +17,6 @@ public class MoneyUI : MonoBehaviour {
     }
 
     private void OnBalanceChanged(MetricChangedArgs args) {
-        moneyText.text = $"$: {(float)args.NewValue}";
+        moneyText.text = $"${args.NewValue}";
     }
 }

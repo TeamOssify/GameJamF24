@@ -1,10 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System;
 
 public class WeekSummaryHandler : MonoBehaviour {
-    private GameObject UIContainer;
-    private int daysPassed = 0;
+    private GameObject _uiContainer;
 
     private void OnEnable() {
         DateManager.Instance.DayChanged.AddListener(OnDayChanged);
@@ -15,21 +13,21 @@ public class WeekSummaryHandler : MonoBehaviour {
     }
 
     private void Start() {
-        DontDestroySingleton.TryGetInstance("UIContainer", out UIContainer);
+        DontDestroySingleton.TryGetInstance("UIContainer", out _uiContainer);
     }
 
-    private void OnDayChanged(DateChangedArgs args) {
-        daysPassed++;
-        if (daysPassed % 7 == 0) {
+    private void OnDayChanged(DateChangedArgs e) {
+        if (e.Date % 7 == 0) {
             LoadWeekSummaryScene();
         }
     }
 
     private void LoadWeekSummaryScene() {
         Time.timeScale = 0f; // pause the game
-        if (UIContainer) {
-            UIContainer.SetActive(false);
+        if (_uiContainer) {
+            _uiContainer.SetActive(false);
         }
+
         SceneManager.LoadSceneAsync("WeekSummary");
     }
 }
