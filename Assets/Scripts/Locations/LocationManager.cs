@@ -19,6 +19,13 @@ public class LocationManager : ScriptableObject {
     }
 
     public void ChangeScene(string sceneName) {
+        var button = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
+        if (button != null) {
+            var audioSource = button.GetComponent<AudioSource>();
+            if (audioSource != null) {
+                SoundEffectManager.Instance.PlaySoundEffect(audioSource.clip);
+            }
+        }
         SceneManager.LoadSceneAsync(sceneName);
     }
 
