@@ -1,1 +1,1 @@
-public sealed class WorkLocation : LocationBase { }
+public sealed class WorkLocation : MultiArtLocation { }

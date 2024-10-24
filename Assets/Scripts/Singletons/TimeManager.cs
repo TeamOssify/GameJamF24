@@ -18,13 +18,19 @@ public sealed class TimeManager : Singleton<TimeManager> {
     [NonSerialized]
     public UnityEvent<TimeSpan> TimeChanged;
 
+    [NonSerialized]
+    public UnityEvent<TimeOfDay> TimeOfDayChanged;
+
     private TimeSpan StartingTime => new(startingHour, startingMinute, startingSecond);
 
-    public TimeSpan CurrentTimeOfDay { get; private set; }
+    public TimeSpan CurrentTime { get; private set; }
+
+    public TimeOfDay CurrentTimeOfDay { get; private set; }
 
     private void OnEnable() {
         TimeChanged ??= new UnityEvent<TimeSpan>();
-        CurrentTimeOfDay = StartingTime;
+        TimeOfDayChanged ??= new UnityEvent<TimeOfDay>();
+        CurrentTime = StartingTime;
     }
 
     public void AdvanceTimeOfDay(TimeSpan deltaTime) {
@@ -37,14 +43,16 @@ public sealed class TimeManager : Singleton<TimeManager> {
             return;
         }
 
-        CurrentTimeOfDay += deltaTime;
+        CurrentTime += deltaTime;
 
-        if (CurrentTimeOfDay.Days > 0) {
-            CurrentTimeOfDay -= TimeSpan.FromDays(CurrentTimeOfDay.Days);
+        if (CurrentTime.Days > 0) {
+            CurrentTime -= TimeSpan.FromDays(CurrentTime.Days);
             DateManager.Instance.AdvanceDate();
         }
 
-        OnTimeChanged(CurrentTimeOfDay);
+        OnTimeChanged(CurrentTime);
+
+        CheckTimeOfDay();
     }
 
     public void SetTimeOfDay(TimeSpan time) {
@@ -53,17 +61,38 @@ public sealed class TimeManager : Singleton<TimeManager> {
             return;
         }
 
-        CurrentTimeOfDay = time;
+        CurrentTime = time;
 
-        if (CurrentTimeOfDay.Days > 0) {
-            CurrentTimeOfDay -= TimeSpan.FromDays(CurrentTimeOfDay.Days);
+        if (CurrentTime.Days > 0) {
+            CurrentTime -= TimeSpan.FromDays(CurrentTime.Days);
             DateManager.Instance.AdvanceDate();
         }
 
-        OnTimeChanged(CurrentTimeOfDay);
+        OnTimeChanged(CurrentTime);
+
+        CheckTimeOfDay();
+    }
+
+    private void CheckTimeOfDay() {
+        var oldTimeOfDay = CurrentTimeOfDay;
+        CurrentTimeOfDay = CurrentTime.Hours switch {
+            >= 21 => TimeOfDay.Night,
+            >= 17 => TimeOfDay.Evening,
+            >= 10 => TimeOfDay.Noon,
+            >= 5 => TimeOfDay.Morning,
+            _ => TimeOfDay.Night,
+        };
+
+        OnTimeOfDayChanged(oldTimeOfDay, CurrentTimeOfDay);
     }
 
     private void OnTimeChanged(TimeSpan e) {
         TimeChanged?.Invoke(e);
+    }
+
+    private void OnTimeOfDayChanged(TimeOfDay oldTimeOfDay, TimeOfDay newTimeOfDay) {
+        if (oldTimeOfDay != newTimeOfDay) {
+            TimeOfDayChanged?.Invoke(newTimeOfDay);
+        }
     }
 }

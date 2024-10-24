@@ -776,6 +776,19 @@ MonoBehaviour:
   generalMusic: {fileID: 11400000, guid: 2add742076e92c94e924dc4118f92f02, type: 2}
   musicSaneOverride: {fileID: 8300000, guid: 0bb4fce9c4a675d49b4a82a5333c46b0, type: 3}
   musicAnxiousOverride: {fileID: 8300000, guid: ad3e842eddd22704da9eed2a4faabcc9, type: 3}
+  morningSaneSprite: {fileID: 0}
+  morningAnxiousSprite: {fileID: 0}
+  morningInsaneSprite: {fileID: 0}
+  noonSaneSprite: {fileID: 0}
+  noonAnxiousSprite: {fileID: 0}
+  noonInsaneSprite: {fileID: 0}
+  eveningSaneSprite: {fileID: 0}
+  eveningAnxiousSprite: {fileID: 0}
+  eveningInsaneSprite: {fileID: 0}
+  nightSaneSprite: {fileID: 0}
+  nightAnxiousSprite: {fileID: 0}
+  nightInsaneSprite: {fileID: 0}
+  locationArt: {fileID: 2089661021}
 --- !u!1 &1086649489
 GameObject:
   m_ObjectHideFlags: 0

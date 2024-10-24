@@ -10,3 +10,10 @@ public enum Location {
     Work,
     Club,
 }
+
+public enum TimeOfDay {
+    Morning,
+    Noon,
+    Evening,
+    Night,
+}

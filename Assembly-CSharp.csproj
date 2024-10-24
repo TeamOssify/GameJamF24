@@ -61,7 +61,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Locations\ClubLocation.cs" />
-    <Compile Include="Assets\Scripts\Locations\GeneralMusicScriptableObject.cs" />
     <Compile Include="Assets\Scripts\EventManager.cs" />
     <Compile Include="Assets\Scripts\Locations\WorkLocation.cs" />
     <Compile Include="Assets\Scripts\Singletons\DateManager.cs" />
@@ -82,7 +81,9 @@
     <Compile Include="Assets\Scripts\Singletons\TimeManager.cs" />
     <Compile Include="Assets\Scripts\Extensions\AudioSourceExtensions.cs" />
     <Compile Include="Assets\Scripts\Singletons\Singleton.cs" />
+    <Compile Include="Assets\Scripts\GeneralMusicScriptableObject.cs" />
     <Compile Include="Assets\Scripts\Singletons\FailureStateManager.cs" />
+    <Compile Include="Assets\Scripts\Locations\MultiArtLocation.cs" />
     <Compile Include="Assets\Scripts\Locations\LocationManager.cs" />
     <Compile Include="Assets\Scripts\Locations\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\SanityUI.cs" />

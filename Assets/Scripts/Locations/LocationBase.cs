@@ -11,33 +11,36 @@ public abstract class LocationBase : MonoBehaviour {
     [SerializeField]
     private AudioClip musicAnxiousOverride;
 
-    private void Awake() {
+
+    protected virtual void Awake() {
         MentalStateManager.Instance.MentalStateChanged.AddListener(OnMentalStateChanged);
     }
 
-    private void Start() {
+    protected virtual void Start() {
         UpdateMusic();
     }
 
-    private void OnDestroy() {
+    protected virtual void OnDestroy() {
         MentalStateManager.Instance.MentalStateChanged.RemoveListener(OnMentalStateChanged);
     }
 
-    private void OnMentalStateChanged(MentalStateChangedArgs e) {
+    protected virtual void OnMentalStateChanged(MentalStateChangedArgs e) {
         UpdateMusic();
-    }
-
-    protected AudioClip GetMusicForMentalState() {
-        return MentalStateManager.Instance.CurrentMentalState switch {
-            MentalState.Sane => musicSaneOverride ?? generalMusic.MusicSane,
-            MentalState.Anxious => musicAnxiousOverride ?? generalMusic.MusicAnxious,
-            MentalState.Insane => generalMusic.MusicInsane,
-            _ => throw new ArgumentOutOfRangeException(),
-        };
     }
 
     protected void UpdateMusic() {
         var music = GetMusicForMentalState();
         StartCoroutine(BackgroundMusicManager.Instance.ChangeBgmFade(music));
     }
+
+    protected AudioClip GetMusicForMentalState() {
+        return MentalStateManager.Instance.CurrentMentalState switch {
+            MentalState.Sane => musicSaneOverride ? musicSaneOverride : generalMusic.MusicSane,
+            MentalState.Anxious => musicAnxiousOverride ? musicAnxiousOverride : generalMusic.MusicAnxious,
+            MentalState.Insane => generalMusic.MusicInsane,
+            _ => throw new ArgumentOutOfRangeException(),
+        };
+    }
+
+
 }

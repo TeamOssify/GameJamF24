@@ -1,1 +1,1 @@
-public sealed class HouseLocation : LocationBase { }
+public sealed class HouseLocation : MultiArtLocation { }

@@ -63,7 +63,6 @@ public sealed class BackgroundMusicManager : Singleton<BackgroundMusicManager> {
     /// <summary>
     /// Changes the BGM immediately and resets the playback position
     /// </summary>
-    /// ///
     /// <remarks>
     /// Do not use when the BGM may be fading between tracks.
     /// </remarks>
