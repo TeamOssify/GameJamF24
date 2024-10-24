@@ -1,15 +1,22 @@
-using UnityEngine;
 using System;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class ClockUI : MonoBehaviour {
     [SerializeField]
-    private Transform hourHand;
+    private Transform hourHand, minuteHand;
 
     [SerializeField]
-    private Transform minuteHand;
+    private GameObject clock;
 
     [SerializeField]
-    private GameObject clockNumbers;
+    private Sprite clockSpriteNumbers, clockSpriteNoNumbers;
+
+    private Image _clockImage;
+
+    private void Awake() {
+        _clockImage = clock.GetComponent<Image>();
+    }
 
     private void Start() {
         InvokeRepeating(nameof(IncrementPassiveTime), 0f, 1f); //increment every 1 second
@@ -32,10 +39,10 @@ public class ClockUI : MonoBehaviour {
         switch (mentalState) {
             case MentalState.Sane:
             case MentalState.Anxious:
-                clockNumbers.SetActive(true);
+                _clockImage.sprite = clockSpriteNumbers;
                 break;
             case MentalState.Insane:
-                clockNumbers.SetActive(false);
+                _clockImage.sprite = clockSpriteNoNumbers;
                 break;
         }
     }
