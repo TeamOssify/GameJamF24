@@ -8,8 +8,36 @@ public class ClockUI : MonoBehaviour {
     [SerializeField]
     private Transform minuteHand;
 
+    [SerializeField]
+    private GameObject clockNumbers;
+
     private void Start() {
         InvokeRepeating(nameof(IncrementPassiveTime), 0f, 1f); //increment every 1 second
+        UpdateClockNumbers(MentalStateManager.Instance.CurrentMentalState);
+    }
+
+    private void OnEnable() {
+        MentalStateManager.Instance.MentalStateChanged.AddListener(OnMentalStateChanged);
+    }
+
+    private void OnDisable() {
+        MentalStateManager.Instance.MentalStateChanged.RemoveListener(OnMentalStateChanged);
+    }
+
+    private void OnMentalStateChanged(MentalStateChangedArgs e) {
+        UpdateClockNumbers(e.NewState);
+    }
+
+    private void UpdateClockNumbers(MentalState mentalState) {
+        switch (mentalState) {
+            case MentalState.Sane:
+            case MentalState.Anxious:
+                clockNumbers.SetActive(true);
+                break;
+            case MentalState.Insane:
+                clockNumbers.SetActive(false);
+                break;
+        }
     }
 
     private void IncrementPassiveTime() {

@@ -37,10 +37,10 @@ public class SummaryUI : MonoBehaviour {
 
     public void ResumeGame() {
         Time.timeScale = 1f;
+        locationManager.ChangeLocation(Location.Map);
+
         if (_uiContainer) {
             _uiContainer.SetActive(true);
         }
-
-        locationManager.ChangeLocation(Location.Map);
     }
 }

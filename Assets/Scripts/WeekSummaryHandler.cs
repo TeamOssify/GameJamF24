@@ -24,10 +24,10 @@ public class WeekSummaryHandler : MonoBehaviour {
 
     private void LoadWeekSummaryScene() {
         Time.timeScale = 0f; // pause the game
+        SceneManager.LoadSceneAsync("WeekSummary");
+
         if (_uiContainer) {
             _uiContainer.SetActive(false);
         }
-
-        SceneManager.LoadSceneAsync("WeekSummary");
     }
 }
