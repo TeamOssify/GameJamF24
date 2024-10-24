@@ -95,7 +95,7 @@ public class EventManager : MonoBehaviour {
             //Decides what event hapens
             for (int i = 0; i < randomEvents.Length; i++) {
                   //Current sanity is greater than the requirement for the even   
-                if (SanityManager.Instance.Sanity >= randomEvents[i].SanityReq && rng <= randomEvents[i].Chance && randomEvents[i].Chance < chosen.Chance) {
+                if (SanityManager.Instance.Sanity <= randomEvents[i].SanityReq && rng <= randomEvents[i].Chance && randomEvents[i].Chance < chosen.Chance) {
                     chosen = randomEvents[i];
                 }
             }
