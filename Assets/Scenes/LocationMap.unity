@@ -357,9 +357,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 107b1cceedb04e1595748c7e7a29b8e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalMusic: {fileID: 11400000, guid: 2add742076e92c94e924dc4118f92f02, type: 2}
-  musicSaneOverride: {fileID: 8300000, guid: f5c41d3de7a11ba4291445f3c5821e2e, type: 3}
-  musicAnxiousOverride: {fileID: 8300000, guid: 796465d028e4112418fecaada348ac8c, type: 3}
+  insaneMusicScriptableObject: {fileID: 11400000, guid: 2add742076e92c94e924dc4118f92f02, type: 2}
+  musicSane: {fileID: 8300000, guid: f5c41d3de7a11ba4291445f3c5821e2e, type: 3}
+  musicAnxious: {fileID: 8300000, guid: 796465d028e4112418fecaada348ac8c, type: 3}
 --- !u!4 &185526740
 Transform:
   m_ObjectHideFlags: 0

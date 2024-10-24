@@ -921,9 +921,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad381e33560f1034c8e5345f9e0d5a7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  generalMusic: {fileID: 11400000, guid: 2add742076e92c94e924dc4118f92f02, type: 2}
-  musicSaneOverride: {fileID: 0}
-  musicAnxiousOverride: {fileID: 0}
+  insaneMusicScriptableObject: {fileID: 11400000, guid: 2add742076e92c94e924dc4118f92f02, type: 2}
+  musicSane: {fileID: 0}
+  musicAnxious: {fileID: 0}
   morningSaneSprite: {fileID: 21300000, guid: 1cee4b6ca948e80418bb7ba4ba865ed9, type: 3}
   morningAnxiousSprite: {fileID: 21300000, guid: 4297da25824508849a2c7d5787743843, type: 3}
   morningInsaneSprite: {fileID: 21300000, guid: fcc2ffeea569e7c45bd6adf9c1a645d9, type: 3}
