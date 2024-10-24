@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{8825EC20-0F83-5304-205D-62382DC7A784}</ProjectGuid>
+    <ProjectGuid>{458E9F3D-BB89-5087-58CF-D89303FCE46C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -66,12 +66,12 @@
     <Compile Include="Assets\Scripts\Singletons\DateManager.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\SleepUI.cs" />
     <Compile Include="Assets\Scripts\Locations\HouseLocation.cs" />
+    <Compile Include="Assets\Scripts\WeekSummaryHandler.cs" />
     <Compile Include="Assets\Scripts\Singletons\SleepManager.cs" />
     <Compile Include="Assets\Scripts\Singletons\BankAccountManager.cs" />
     <Compile Include="Assets\Scripts\Singletons\MentalStateManager.cs" />
     <Compile Include="Assets\Scripts\Enums.cs" />
     <Compile Include="Assets\Scripts\Locations\LocationBase.cs" />
-    <Compile Include="Assets\Scripts\UIHandlers\WeekSummaryUI.cs" />
     <Compile Include="Assets\Scripts\Singletons\IncomeManager.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\DaysUI.cs" />
     <Compile Include="Assets\Scripts\Singletons\BackgroundMusicManager.cs" />
@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\Singletons\FailureStateManager.cs" />
     <Compile Include="Assets\Scripts\Locations\MultiArtLocation.cs" />
     <Compile Include="Assets\Scripts\Locations\LocationManager.cs" />
+    <Compile Include="Assets\Scripts\UIHandlers\SummaryUI.cs" />
     <Compile Include="Assets\Scripts\Locations\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\SanityUI.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\ClockUI.cs" />
@@ -96,9 +97,6 @@
     <Compile Include="Assets\Scripts\Singletons\EventArgs\MentalStateChangedArgs.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\MoneyUI.cs" />
     <Compile Include="Assets\Scripts\Singletons\SanityManager.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\Shaders\Unlit.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -488,6 +488,64 @@ RectTransform:
   m_AnchoredPosition: {x: 272.8, y: -41}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &311214938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 311214941}
+  - component: {fileID: 311214940}
+  - component: {fileID: 311214939}
+  m_Layer: 0
+  m_Name: SummaryHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &311214939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311214938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae26b0061a78254ba086ac521924315, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &311214940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311214938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d177a6a3803bd448ae6b4bab63ce6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  instanceKey: SummaryHandler
+--- !u!4 &311214941
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311214938}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1202.7379, y: 814.3967, z: -9.790424}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &371141906
 GameObject:
   m_ObjectHideFlags: 0
@@ -2232,8 +2290,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd075adaa42bf54498137e43cb12d48d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hourHand: {fileID: 809125765}
-  minuteHand: {fileID: 1147555855}
+  hourHand: {fileID: 1147555855}
+  minuteHand: {fileID: 809125765}
 --- !u!114 &1407893229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2380,7 +2438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98d177a6a3803bd448ae6b4bab63ce6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  instanceKey: PermUI
+  instanceKey: UIContainer
 --- !u!114 &1909242595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2845,3 +2903,4 @@ SceneRoots:
   - {fileID: 1100342146}
   - {fileID: 1909242598}
   - {fileID: 185526740}
+  - {fileID: 311214941}

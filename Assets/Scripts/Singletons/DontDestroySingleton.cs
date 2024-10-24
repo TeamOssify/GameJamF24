@@ -23,7 +23,7 @@ public sealed class DontDestroySingleton : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    public bool TryGetInstance(string key, out GameObject instance) {
+    public static bool TryGetInstance(string key, out GameObject instance) {
         return Instances.TryGetValue(key, out instance);
     }
 }
