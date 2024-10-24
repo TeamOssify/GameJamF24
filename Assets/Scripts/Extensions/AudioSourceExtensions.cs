@@ -21,7 +21,7 @@ public static class AudioSourceExtensions {
         source.volume = startVolume;
     }
 
-    public static IEnumerator FadeIn(this AudioSource source, float duration) {
+    public static IEnumerator FadeIn(this AudioSource source, float volume, float duration) {
         if (duration <= 0) {
             if (!source.isPlaying) source.Play();
 
@@ -33,13 +33,13 @@ public static class AudioSourceExtensions {
 
         if (!source.isPlaying) source.Play();
 
-        while (source.volume > startVolume) {
+        while (source.volume > volume) {
             var delta = startVolume * Time.deltaTime / duration;
-            source.volume += Mathf.Clamp(delta, 0, source.volume);
+            source.volume += Mathf.Clamp(delta, 0, volume);
 
             yield return null;
         }
 
-        source.volume = startVolume;
+        source.volume = volume;
     }
 }
