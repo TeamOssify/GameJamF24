@@ -405,7 +405,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fb8640a74fe4866438a8f6ac26a51b0a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f89ea62812e764947b4ec35ba7142de4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -872,42 +872,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1257098018}
-  - component: {fileID: 1257098017}
+  - component: {fileID: 1257098019}
   m_Layer: 0
-  m_Name: WorkLocation
+  m_Name: HospitalLocation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1257098017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1257098016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5035d9ed995248039b30d5b821803653, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  generalMusic: {fileID: 11400000, guid: 2add742076e92c94e924dc4118f92f02, type: 2}
-  musicSaneOverride: {fileID: 0}
-  musicAnxiousOverride: {fileID: 0}
-  morningSaneSprite: {fileID: 21300000, guid: 098c3b0645319da498f218e90a87e6d6, type: 3}
-  morningAnxiousSprite: {fileID: 0}
-  morningInsaneSprite: {fileID: 21300000, guid: 197c2174844ff2346bcd33eb720edfeb, type: 3}
-  noonSaneSprite: {fileID: 21300000, guid: b5e9d0c85a312134fae055857dc6f8d4, type: 3}
-  noonAnxiousSprite: {fileID: 0}
-  noonInsaneSprite: {fileID: 21300000, guid: c7ce01592dbf3ba49b164f617a89b041, type: 3}
-  eveningSaneSprite: {fileID: 21300000, guid: 0f0d3094e2a1be84d99d6ae9b516147d, type: 3}
-  eveningAnxiousSprite: {fileID: 0}
-  eveningInsaneSprite: {fileID: 21300000, guid: 3e32dd6383e555f40bb222733b6a4aa2, type: 3}
-  nightSaneSprite: {fileID: 21300000, guid: 161b07daff449f24988cd07b67a1ab18, type: 3}
-  nightAnxiousSprite: {fileID: 0}
-  nightInsaneSprite: {fileID: 21300000, guid: f8ed1629fe4c39d45ac3499551eb0984, type: 3}
-  locationArt: {fileID: 456839153}
 --- !u!4 &1257098018
 Transform:
   m_ObjectHideFlags: 0
@@ -923,6 +895,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1257098019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257098016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad381e33560f1034c8e5345f9e0d5a7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  generalMusic: {fileID: 11400000, guid: 2add742076e92c94e924dc4118f92f02, type: 2}
+  musicSaneOverride: {fileID: 0}
+  musicAnxiousOverride: {fileID: 0}
+  morningSaneSprite: {fileID: 0}
+  morningAnxiousSprite: {fileID: 0}
+  morningInsaneSprite: {fileID: 0}
+  noonSaneSprite: {fileID: 0}
+  noonAnxiousSprite: {fileID: 0}
+  noonInsaneSprite: {fileID: 0}
+  eveningSaneSprite: {fileID: 0}
+  eveningAnxiousSprite: {fileID: 0}
+  eveningInsaneSprite: {fileID: 0}
+  nightSaneSprite: {fileID: 0}
+  nightAnxiousSprite: {fileID: 0}
+  nightInsaneSprite: {fileID: 0}
+  locationArt: {fileID: 456839153}
 --- !u!1 &2101905729
 GameObject:
   m_ObjectHideFlags: 0
