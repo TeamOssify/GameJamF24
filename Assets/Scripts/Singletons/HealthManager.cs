@@ -4,19 +4,19 @@ using UnityEngine.Events;
 
 public sealed class HealthManager : Singleton<HealthManager> {
     [SerializeField]
-    private int maxHealth = 100000;
+    private float maxHealth = 100;
 
     [SerializeField]
-    private int minHealth;
+    private float minHealth;
 
     [NonSerialized]
     public UnityEvent<MetricChangedArgs> HealthChanged;
 
     //Health damage every frame
-    public int healthDrain = 2;
+    public float healthDrain = 0.002f;
 
-    public int MinHealth => minHealth;
-    public int MaxHealth => maxHealth;
+    public float MinHealth => minHealth;
+    public float MaxHealth => maxHealth;
 
     public float Health { get; private set; }
 

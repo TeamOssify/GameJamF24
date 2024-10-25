@@ -4,19 +4,19 @@ using UnityEngine.Events;
 
 public sealed class SleepManager : Singleton<SleepManager> {
     [SerializeField]
-    private int maxSleep = 100000;
+    private float maxSleep = 100;
 
     [SerializeField]
-    private int minSleep;
+    private float minSleep;
 
     [NonSerialized]
     public UnityEvent<MetricChangedArgs> SleepChanged;
 
     //Sleep drain per frame
-    public int sleepDrain = 2;
+    public float sleepDrain = 0.002f;
 
-    public int MinSleep => minSleep;
-    public int MaxSleep => maxSleep;
+    public float MinSleep => minSleep;
+    public float MaxSleep => maxSleep;
 
     public float Sleep { get; private set; }
 

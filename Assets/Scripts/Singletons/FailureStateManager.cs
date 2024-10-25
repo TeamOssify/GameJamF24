@@ -60,7 +60,7 @@ public sealed class FailureStateManager : Singleton<FailureStateManager> {
 
     public void CheckFailure() {
         var healthManager = HealthManager.Instance;
-        if (healthManager.Health == healthManager.MinHealth) {
+        if (healthManager.Health <= healthManager.MinHealth) {
             OnGameOver("Ran out of health!");
             return;
         }
