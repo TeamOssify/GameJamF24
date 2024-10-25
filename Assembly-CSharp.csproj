@@ -62,6 +62,10 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Locations\ClubLocation.cs" />
     <Compile Include="Assets\Scripts\EventManager.cs" />
+    <Compile Include="Assets\Scripts\Models\DateChangedArgs.cs" />
+    <Compile Include="Assets\Scripts\Models\Enums.cs" />
+    <Compile Include="Assets\Scripts\Models\MentalStateChangedArgs.cs" />
+    <Compile Include="Assets\Scripts\Models\MetricChangedArgs.cs" />
     <Compile Include="Assets\Scripts\Locations\WorkLocation.cs" />
     <Compile Include="Assets\Scripts\Singletons\DateManager.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\SleepUI.cs" />
@@ -70,7 +74,6 @@
     <Compile Include="Assets\Scripts\Singletons\SleepManager.cs" />
     <Compile Include="Assets\Scripts\Singletons\BankAccountManager.cs" />
     <Compile Include="Assets\Scripts\Singletons\MentalStateManager.cs" />
-    <Compile Include="Assets\Scripts\Enums.cs" />
     <Compile Include="Assets\Scripts\InsaneMusicScriptableObject.cs" />
     <Compile Include="Assets\Scripts\ClickSoundComponent.cs" />
     <Compile Include="Assets\Scripts\Locations\LocationBase.cs" />
@@ -96,12 +99,9 @@
     <Compile Include="Assets\Scripts\Locations\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\SanityUI.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\ClockUI.cs" />
-    <Compile Include="Assets\Scripts\Singletons\EventArgs\MetricChangedArgs.cs" />
     <Compile Include="Assets\Scripts\Singletons\SoundEffectManager.cs" />
     <Compile Include="Assets\Scripts\Singletons\ExpensesManager.cs" />
     <Compile Include="Assets\Scripts\Singletons\DontDestroySingleton.cs" />
-    <Compile Include="Assets\Scripts\Singletons\EventArgs\DateChangedArgs.cs" />
-    <Compile Include="Assets\Scripts\Singletons\EventArgs\MentalStateChangedArgs.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\MoneyUI.cs" />
     <Compile Include="Assets\Scripts\Singletons\SanityManager.cs" />
   </ItemGroup>
