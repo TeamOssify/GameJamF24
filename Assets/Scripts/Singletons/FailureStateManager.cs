@@ -61,18 +61,18 @@ public sealed class FailureStateManager : Singleton<FailureStateManager> {
     public void CheckFailure() {
         var healthManager = HealthManager.Instance;
         if (healthManager.Health <= healthManager.MinHealth) {
-            OnGameOver("Ran out of health!");
+            OnGameOver("You were hospitalized due to various health problems");
             return;
         }
 
         var currentDay = DateManager.Instance.CurrentDate;
         if (currentDay - _ranOutOfSanityDay >= lowSanityTooManyDaysFailure) {
-            OnGameOver("Ran out of sanity!");
+            OnGameOver("You can no longer control your actions");
             return;
         }
 
         if (currentDay - _ranOutOfSleepDay >= lowSleepTooManyDaysFailure) {
-            OnGameOver("Ran out of sleep!");
+            OnGameOver("You were hospitalized due to severe lack of sleep");
         }
     }
 
