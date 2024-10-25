@@ -1,5 +1,5 @@
+using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -8,18 +8,36 @@ public class DialogueManager : MonoBehaviour {
     private LocationManager locationManager;
 
     [SerializeField]
-    private TextAsset dialogueFile;
+    private GameObject dialogueBox;
 
     [SerializeField]
-    private GameObject dialogueBox;
+    private DialogueTree dialogue1, dialogue2, dialogue3;
+
+    [SerializeField]
+    private Sprite saneSprite, insaneSprite;
+
+    private DialogueTree[] Dialogue {
+        get {
+            var list = new List<DialogueTree>();
+
+            if (dialogue1) {
+                list.Add(dialogue1);
+            }
+            if (dialogue2) {
+                list.Add(dialogue2);
+            }
+            if (dialogue3) {
+                list.Add(dialogue3);
+            }
+
+            return list.ToArray();
+        }
+    }
 
     private DialogueUI _dialogueUI;
 
-    private DialogueFile _dialogue;
-
     private void Awake() {
-        // _dialogueUI = dialogueBox.GetComponent<DialogueUI>();
-        _dialogue = JsonUtility.FromJson<DialogueFile>(dialogueFile.text);
+        _dialogueUI = dialogueBox.GetComponent<DialogueUI>();
         dialogueBox.SetActive(false);
     }
 
@@ -29,17 +47,10 @@ public class DialogueManager : MonoBehaviour {
 
     private void CheckDialogue()
     {
-        var currentLocation = locationManager.CurrentLocation;
-        var locationDialogue = _dialogue.LocationDialogue.FirstOrDefault(x => x.Location == currentLocation);
-        if (locationDialogue == null) {
-            Debug.LogFormat("No dialogue for the current location was found. ({0})", currentLocation);
-            return;
-        }
-
         var sanityManager = SanityManager.Instance;
         var currentSanityPercent = sanityManager.Sanity / sanityManager.MaxSanity;
-        var availableDialogue = locationDialogue.Dialogue
-            .Where(x => currentSanityPercent <= x.PercentSanityRequired)
+        var availableDialogue = Dialogue
+            .Where(x => currentSanityPercent <= x.percentSanityRequired)
             .ToArray();
 
         if (availableDialogue.Length == 0) {
@@ -47,7 +58,7 @@ public class DialogueManager : MonoBehaviour {
             return;
         }
 
-        var chosen = availableDialogue[Random.Range(0, availableDialogue.Length)].Strings;
+        var chosen = availableDialogue[Random.Range(0, availableDialogue.Length)].strings;
         dialogueBox.SetActive(true);
         _dialogueUI.ShowDialogueStrings(chosen);
     }
