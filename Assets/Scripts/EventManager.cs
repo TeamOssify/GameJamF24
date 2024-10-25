@@ -201,7 +201,7 @@ public sealed class EventManager : MonoBehaviour {
 
         if (input.MoneyChange < 0) {
             BankAccountManager.Instance.RemoveFunds(input.MoneyChange * -1);
-            ExpensesManager.Instance.AddExpense(input.Name, (float)input.MoneyChange);
+            ExpensesManager.Instance.AddExpense(input.Name, (float)input.MoneyChange * -1);
         }
         else if (input.MoneyChange > 0) {
             BankAccountManager.Instance.AddFunds(input.MoneyChange);

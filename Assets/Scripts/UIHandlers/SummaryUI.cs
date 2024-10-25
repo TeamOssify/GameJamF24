@@ -13,8 +13,6 @@ public class SummaryUI : MonoBehaviour {
 
     private GameObject _uiContainer;
 
-    private decimal _expensesDif;
-
     private void Start() {
         DontDestroySingleton.TryGetInstance("UIContainer", out _uiContainer);
         BuildSummary();
@@ -25,7 +23,7 @@ public class SummaryUI : MonoBehaviour {
         if (summaryText) {
             summaryText.text = "Expenses:\n";
             foreach (var expense in ExpensesManager.Instance.Expenses) {
-                summaryText.text += $"{expense.Name}: {expense.Cost:C}\n";
+                summaryText.text += $"{expense.Name}: ${expense.Cost:N2}\n";
             }
         }
     }
@@ -36,15 +34,14 @@ public class SummaryUI : MonoBehaviour {
 
     public void ResumeGame() {
         Time.timeScale = 1f;
+        ExpensesManager.Instance.ClearExpenses();
         locationManager.ChangeLocation(Location.Map);
 
         if (_uiContainer) {
             _uiContainer.SetActive(true);
         }
 
-        _expensesDif = BankAccountManager.Instance.Balance - (decimal)ExpensesManager.Instance.CalculateTotal();
-
-        if (_expensesDif < 0) {
+        if (BankAccountManager.Instance.Balance < 0) {
             FailureStateManager.Instance.GameOver?.Invoke("You couldn't afford to pay rent... living on the street is tough");
         }
     }
