@@ -26,8 +26,7 @@ public class DialogueManager : MonoBehaviour {
         CheckDialogue();
     }
 
-    private void CheckDialogue()
-    {
+    private void CheckDialogue() {
         var sanityManager = SanityManager.Instance;
         var currentSanityPercent = sanityManager.Sanity / sanityManager.MaxSanity;
         var availableDialogue = dialogue
@@ -39,7 +38,18 @@ public class DialogueManager : MonoBehaviour {
             return;
         }
 
-        var chosen = availableDialogue[Random.Range(0, availableDialogue.Length)];
+        DialogueTree chosen = null;
+        foreach (var dialogueTree in availableDialogue) {
+            if (!chosen || chosen.percentSanityRequired > dialogueTree.percentSanityRequired) {
+                chosen = dialogueTree;
+            }
+        }
+
+        if (!chosen) {
+            Debug.Log("No chosen dialogue found.");
+            return;
+        }
+
         speaker.SetActive(true);
         _dialogueUI.ShowDialogueStrings(chosen);
     }
