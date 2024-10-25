@@ -115,9 +115,15 @@ public class EventManager : MonoBehaviour {
     }
 
     public void DoEvent(Event input) {
-        Debug.Log($"" + input.Name + " has happened");
+        Debug.Log($"{input.Name} has happened");
 
-        EventUIManager.Instance.DisplayEvent(input);
+        if (!DontDestroySingleton.TryGetInstance("EventUIManager", out var eventUIManagerObj)) {
+            Debug.LogError("Couldn't get EventUIManager.");
+            return;
+        }
+
+        var eventUIManager = eventUIManagerObj.GetComponent<EventUIManager>();
+        eventUIManager.DisplayEvent(input);
 
         TimeManager.Instance.AdvanceTimeOfDay(TimeSpan.FromMinutes(input.TimeChange));
         if (input.HealthChange < 0) {

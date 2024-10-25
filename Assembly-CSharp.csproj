@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\EventManager.cs" />
     <Compile Include="Assets\Scripts\Locations\WorkLocation.cs" />
     <Compile Include="Assets\Scripts\Singletons\DateManager.cs" />
+    <Compile Include="Assets\Scripts\UIHandlers\EventUIManager.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\SleepUI.cs" />
     <Compile Include="Assets\Scripts\Locations\HouseLocation.cs" />
     <Compile Include="Assets\Scripts\WeekSummaryHandler.cs" />
@@ -74,7 +75,6 @@
     <Compile Include="Assets\Scripts\InsaneMusicScriptableObject.cs" />
     <Compile Include="Assets\Scripts\ClickSoundComponent.cs" />
     <Compile Include="Assets\Scripts\Locations\LocationBase.cs" />
-    <Compile Include="Assets\Scripts\Singletons\EventUIManager.cs" />
     <Compile Include="Assets\Scripts\Singletons\IncomeManager.cs" />
     <Compile Include="Assets\Scripts\Locations\HospitalLocation.cs" />
     <Compile Include="Assets\Scripts\DialogueManager.cs" />

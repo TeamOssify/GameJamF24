@@ -1858,6 +1858,7 @@ GameObject:
   - component: {fileID: 840328740}
   - component: {fileID: 840328739}
   - component: {fileID: 840328738}
+  - component: {fileID: 840328741}
   m_Layer: 5
   m_Name: Hospital
   m_TagString: Untagged
@@ -1990,6 +1991,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 840328735}
   m_CullTransparentMesh: 1
+--- !u!114 &840328741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 840328735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2669b6ed63ef4405aa99286c503f5540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSound: {fileID: 8300000, guid: 552746208fd96df43981d3a77c5f72bd, type: 3}
+  volume: 1
 --- !u!1 &854369709
 GameObject:
   m_ObjectHideFlags: 0
@@ -2020,15 +2035,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e1602a03603e2c4ea0fa45d0d137a71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _eventUI: {fileID: 1614468489}
-  _eventImage: {fileID: 1659407167}
-  _eventTitle: {fileID: 1977313287}
-  _eventSanity: {fileID: 1514973653}
-  _eventHealth: {fileID: 1616230793}
-  _eventMoney: {fileID: 1408207615}
-  _eventDesc: {fileID: 1595717603}
-  _eventClose: {fileID: 1203541014}
-  _eventTimePassed: {fileID: 234073288}
+  eventUI: {fileID: 1614468489}
+  eventImage: {fileID: 1659407167}
+  eventTitle: {fileID: 1977313287}
+  eventSanity: {fileID: 1514973653}
+  eventHealth: {fileID: 1616230793}
+  eventMoney: {fileID: 1408207615}
+  eventDesc: {fileID: 1595717603}
+  eventClose: {fileID: 1203541014}
+  eventTimePassed: {fileID: 234073288}
 --- !u!4 &854369712
 Transform:
   m_ObjectHideFlags: 0
