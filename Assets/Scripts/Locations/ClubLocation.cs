@@ -1,6 +1,6 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 
 public sealed class ClubLocation : LocationBase {
     [SerializeField]
@@ -78,5 +78,4 @@ public sealed class ClubLocation : LocationBase {
             TimeManager.Instance.AdvanceTimeOfDay(TimeSpan.FromMinutes(60));
         }
     }
-
 }

@@ -1,5 +1,6 @@
 using System;
-public sealed class WorkLocation : MultiArtLocation { 
+
+public sealed class WorkLocation : MultiArtLocation {
     public void Work() {
         if (SanityManager.Instance.Sanity > 10 && SleepManager.Instance.Sleep > 15) {
             SanityManager.Instance.ReduceSanity(10);

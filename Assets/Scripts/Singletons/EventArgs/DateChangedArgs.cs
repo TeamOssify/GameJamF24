@@ -1,5 +1,3 @@
-using System;
-
 public sealed record DateChangedArgs {
     public DateChangedArgs(int date, DayOfWeek dayOfWeek) {
         Date = date;

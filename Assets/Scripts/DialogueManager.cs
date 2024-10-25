@@ -1,10 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
-public class DialogueManager : MonoBehaviour
-{
+public class DialogueManager : MonoBehaviour {
     [SerializeField]
     private TMP_Text textField;
 
@@ -15,12 +13,15 @@ public class DialogueManager : MonoBehaviour
     private int lineNum = 1;
 
 
-    void Start()
-    {
+    private void Start() {
         entireText = inputTextFile.text;
         line = new List<string>();
         line.AddRange(entireText.Split("\n"));
         Debug.Log(line[4]);
+
+        if (!textField) {
+            return;
+        }
 
         textField.text = line[0];
     }
@@ -29,7 +30,8 @@ public class DialogueManager : MonoBehaviour
         if (lineNum < line.Count) {
             textField.text = line[lineNum];
             lineNum++;
-        } else {
+        }
+        else {
             textField.text = "";
         }
     }

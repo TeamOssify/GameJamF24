@@ -33,7 +33,7 @@ public sealed class SanityManager : Singleton<SanityManager> {
             return;
         }
 
-        float oldSanity = Sanity;
+        var oldSanity = Sanity;
 
         Sanity -= amount;
         if (Sanity < minSanity) {
@@ -49,7 +49,7 @@ public sealed class SanityManager : Singleton<SanityManager> {
             return;
         }
 
-        float oldSanity = Sanity;
+        var oldSanity = Sanity;
 
         Sanity += amount;
         if (Sanity > maxSanity) {

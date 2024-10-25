@@ -28,7 +28,7 @@ public class LocationManager : ScriptableObject {
             "WorkLocation" => Location.Work,
             "ClubLocation" => Location.Club,
             "HospitalLocation" => Location.Hospital,
-            _ => null
+            _ => null,
         };
     }
 

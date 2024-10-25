@@ -38,18 +38,17 @@ public class SummaryUI : MonoBehaviour {
     }
 
     public void ResumeGame() {
-
         Time.timeScale = 1f;
         locationManager.ChangeLocation(Location.Map);
 
         if (_uiContainer) {
             _uiContainer.SetActive(true);
         }
+
         _expensesDif = BankAccountManager.Instance.Balance - (decimal)ExpensesManager.Instance.CalculateTotal();
-        
+
         if (_expensesDif < 0) {
             FailureStateManager.Instance.GameOver?.Invoke("You couldn't afford to pay rent.. living on the street is tough");
         }
-
     }
 }

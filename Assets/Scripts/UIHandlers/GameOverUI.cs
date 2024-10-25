@@ -1,16 +1,14 @@
 using System;
-using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameOverUI : MonoBehaviour
-{
-    [SerializeField] TextMeshProUGUI _failReasonText;
+public class GameOverUI : MonoBehaviour {
+    [SerializeField]
+    private TextMeshProUGUI _failReasonText;
 
-    void Start() {
+    private void Start() {
         _failReasonText.text = GameOverHandler.FailureReason;
-
     }
 
     public void TryAgainButton() {
@@ -24,9 +22,9 @@ public class GameOverUI : MonoBehaviour
             else
                 BankAccountManager.Instance.RemoveFunds(currentBalance);
         }
+
         TimeManager.Instance.SetTimeOfDay(TimeSpan.FromSeconds(0));
         DateManager.Instance.SetDate(0);
         SceneManager.LoadScene("Menu");
-
     }
 }
