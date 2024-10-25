@@ -72,6 +72,8 @@ public sealed class EventManager : MonoBehaviour {
 
     public readonly Event[] HospitalRandomEvents = {
         // TODO: Write more hospital events
+        new Event("Spooked", 0.3, 80, TimeSpan.FromMinutes(10), -10, -20, 0, ""),
+        new Event("Panic", 0.2, 60, TimeSpan.FromMinutes(30), -20, -30, 0, ""),
         new Event("Heart Attack", 0.1, 10, TimeSpan.FromMinutes(360), -50, -20, 0, "You find yourself struggling to stand up.. Losing vision.. Cant...")
     };
 
