@@ -1117,6 +1117,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locationManager: {fileID: 11400000, guid: 39f98e1879cef184cbcb4b198f8a8384, type: 2}
+  Bartender: {fileID: 21300000, guid: 87bbc6ab20faaab408d61a4b7ce767b5, type: 3}
+  Coworker: {fileID: 21300000, guid: fb8640a74fe4866438a8f6ac26a51b0a, type: 3}
+  Stranger1: {fileID: 21300000, guid: 210dc21f9682ef348a6d446de28fbbb9, type: 3}
+  Stranger2: {fileID: 21300000, guid: 6138fd8ee0583614797a5500b05efaf4, type: 3}
+  Stranger3: {fileID: 21300000, guid: c48dd28012ef1e64995f58b91c4c094b, type: 3}
+  Stranger4: {fileID: 21300000, guid: 131d4432a51e8b94fa7448ebc9beb547, type: 3}
+  Friend: {fileID: 21300000, guid: ffc4bc6cf1569434f9d529d9993ccf0e, type: 3}
+  TruckKun: {fileID: 21300000, guid: b8c9379045ec4aa4b917701470dc0437, type: 3}
+  PlagueDoctor: {fileID: 21300000, guid: eacdecbdb6077964eba5e697e9aec4fb, type: 3}
+  Doctor: {fileID: 21300000, guid: f89ea62812e764947b4ec35ba7142de4, type: 3}
 --- !u!1 &533769178
 GameObject:
   m_ObjectHideFlags: 0
