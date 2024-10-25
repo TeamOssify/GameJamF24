@@ -67,6 +67,8 @@ public sealed class ClubLocation : LocationBase {
             BankAccountManager.Instance.RemoveFunds(15);
             SleepManager.Instance.ReduceSleep(5);
             TimeManager.Instance.AdvanceTimeOfDay(TimeSpan.FromMinutes(60));
+
+            ExpensesManager.Instance.AddExpense("Drink at the club", 15);
         }
     }
 
@@ -76,6 +78,8 @@ public sealed class ClubLocation : LocationBase {
             SanityManager.Instance.IncreaseSanity(5);
             BankAccountManager.Instance.RemoveFunds(10);
             TimeManager.Instance.AdvanceTimeOfDay(TimeSpan.FromMinutes(60));
+
+            ExpensesManager.Instance.AddExpense("Chill at the club", 10);
         }
     }
 }

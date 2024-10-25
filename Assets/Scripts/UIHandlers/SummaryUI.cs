@@ -23,11 +23,8 @@ public class SummaryUI : MonoBehaviour {
 
     private void BuildSummary() {
         if (summaryText) {
-            var expensesManager = ExpensesManager.Instance;
-            var expenses = expensesManager.Expenses;
-
             summaryText.text = "Expenses:\n";
-            foreach (var expense in expenses) {
+            foreach (var expense in ExpensesManager.Instance.Expenses) {
                 summaryText.text += $"{expense.Name}: {expense.Cost:C}\n";
             }
         }
@@ -48,7 +45,7 @@ public class SummaryUI : MonoBehaviour {
         _expensesDif = BankAccountManager.Instance.Balance - (decimal)ExpensesManager.Instance.CalculateTotal();
 
         if (_expensesDif < 0) {
-            FailureStateManager.Instance.GameOver?.Invoke("You couldn't afford to pay rent.. living on the street is tough");
+            FailureStateManager.Instance.GameOver?.Invoke("You couldn't afford to pay rent... living on the street is tough");
         }
     }
 }

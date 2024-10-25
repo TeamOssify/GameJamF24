@@ -788,6 +788,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae26b0061a78254ba086ac521924315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  saneMusic: {fileID: 8300000, guid: d86dde24d34b170408dfe87d6417eff3, type: 3}
+  anxiousMusic: {fileID: 8300000, guid: 0ef55996d410eb64fbbdeca5e5ace045, type: 3}
 --- !u!114 &311214940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1048,7 +1050,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2257,7 +2259,7 @@ RectTransform:
   m_GameObject: {fileID: 951456571}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 985582520}

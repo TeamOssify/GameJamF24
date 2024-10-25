@@ -2,6 +2,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class WeekSummaryHandler : MonoBehaviour {
+    [SerializeField]
+    private AudioClip saneMusic, anxiousMusic;
+
     private GameObject _uiContainer;
 
     private void OnEnable() {
@@ -13,6 +16,14 @@ public class WeekSummaryHandler : MonoBehaviour {
     }
 
     private void Start() {
+        var currentMentalState = MentalStateManager.Instance.CurrentMentalState;
+        if (currentMentalState == MentalState.Sane) {
+            StartCoroutine(BackgroundMusicManager.Instance.ChangeBgmFade(saneMusic));
+        }
+        else if (currentMentalState == MentalState.Anxious) {
+            StartCoroutine(BackgroundMusicManager.Instance.ChangeBgmFade(anxiousMusic));
+        }
+
         DontDestroySingleton.TryGetInstance("UIContainer", out _uiContainer);
     }
 
@@ -25,6 +36,7 @@ public class WeekSummaryHandler : MonoBehaviour {
     private void LoadWeekSummaryScene() {
         Time.timeScale = 0f; // pause the game
         BankAccountManager.Instance.RemoveFunds(400);
+        ExpensesManager.Instance.AddExpense("Rent", 400);
         SceneManager.LoadSceneAsync("WeekSummary");
 
         if (_uiContainer) {

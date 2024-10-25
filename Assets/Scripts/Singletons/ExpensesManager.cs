@@ -5,16 +5,16 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public sealed class ExpensesManager : Singleton<ExpensesManager> {
-    private List<Expense> _expenses;
+    private Dictionary<string, decimal> _expenses;
 
     [NonSerialized]
     public UnityEvent<MetricChangedArgs> TotalExpensesChanged;
 
-    public IReadOnlyList<Expense> Expenses => _expenses;
+    public IEnumerable<Expense> Expenses => _expenses.Select(x => new Expense(x.Key, (float)x.Value));
 
     private void OnEnable() {
         TotalExpensesChanged ??= new UnityEvent<MetricChangedArgs>();
-        _expenses = new List<Expense>();
+        _expenses = new Dictionary<string, decimal>();
     }
 
     public void ClearExpenses() {
@@ -27,14 +27,20 @@ public sealed class ExpensesManager : Singleton<ExpensesManager> {
 
     public void AddExpense(string expenseName, float cost) {
         var oldTotal = CalculateTotal();
-        _expenses.Add(new Expense(expenseName, cost));
+        if (_expenses.TryGetValue(expenseName, out var value)) {
+            _expenses[expenseName] = (decimal)cost + value;
+        }
+        else {
+            _expenses[expenseName] = (decimal)cost;
+        }
+
         var newTotal = CalculateTotal();
 
         OnTotalExpensesChanged(oldTotal, newTotal);
     }
 
     public float CalculateTotal() {
-        return _expenses.Sum(x => x.Cost);
+        return (float)_expenses.Sum(x => x.Value);
     }
 
     private void OnTotalExpensesChanged(float oldTotal, float newTotal) {
