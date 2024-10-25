@@ -46,6 +46,10 @@ public class EventUIManager : MonoBehaviour {
         eventSanity.text = FormatChange(eventData.SanityChange);
         eventHealth.text = FormatChange(eventData.HealthChange);
         eventMoney.text = FormatChange((float)eventData.MoneyChange);
+
+        if (eventData.Speaker) {
+            eventImage.sprite = eventData.Speaker;
+        }
     }
 
     private static string FormatChange(float change) {

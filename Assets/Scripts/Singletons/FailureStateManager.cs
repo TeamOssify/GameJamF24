@@ -22,14 +22,20 @@ public sealed class FailureStateManager : Singleton<FailureStateManager> {
 
     private void OnEnable() {
         GameOver ??= new UnityEvent<string>();
-        TimeManager.Instance.TimeChanged.AddListener(OnTimeChanged);
+        DateManager.Instance.DayChanged.AddListener(OnDateChanged);
+        HealthManager.Instance.HealthChanged.AddListener(OnHealthChanged);
     }
 
     private void OnDisable() {
-        TimeManager.Instance.TimeChanged.RemoveListener(OnTimeChanged);
+        DateManager.Instance.DayChanged.RemoveListener(OnDateChanged);
+        HealthManager.Instance.HealthChanged.RemoveListener(OnHealthChanged);
     }
 
-    private void OnTimeChanged(TimeSpan e) {
+    private void OnHealthChanged(MetricChangedArgs arg0) {
+        CheckFailure();
+    }
+
+    private void OnDateChanged(DateChangedArgs e) {
         UpdateFailureTrackers();
         CheckFailure();
     }
@@ -59,21 +65,31 @@ public sealed class FailureStateManager : Singleton<FailureStateManager> {
     }
 
     public void CheckFailure() {
-        var healthManager = HealthManager.Instance;
-        if (healthManager.Health <= healthManager.MinHealth) {
-            OnGameOver("You were hospitalized due to various health problems");
+        if (CheckHealthFailure()) {
             return;
         }
 
         var currentDay = DateManager.Instance.CurrentDate;
-        if (currentDay - _ranOutOfSanityDay >= lowSanityTooManyDaysFailure) {
+
+        if (_ranOutOfSanityDay != -1 && currentDay - _ranOutOfSanityDay > lowSanityTooManyDaysFailure) {
             OnGameOver("You can no longer control your actions");
             return;
         }
 
-        if (currentDay - _ranOutOfSleepDay >= lowSleepTooManyDaysFailure) {
+        if (_ranOutOfSleepDay != -1 && currentDay - _ranOutOfSleepDay > lowSleepTooManyDaysFailure) {
             OnGameOver("You were hospitalized due to severe lack of sleep");
         }
+    }
+
+    private bool CheckHealthFailure()
+    {
+        var healthManager = HealthManager.Instance;
+        if (healthManager.Health <= healthManager.MinHealth) {
+            OnGameOver("You were hospitalized due to various health problems");
+            return true;
+        }
+
+        return false;
     }
 
     private void OnGameOver(string failureReason) {

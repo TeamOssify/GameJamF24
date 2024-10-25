@@ -13,6 +13,8 @@ public class SummaryUI : MonoBehaviour {
 
     private GameObject _uiContainer;
 
+    private decimal _expensesDif;
+
     private void Start() {
         DontDestroySingleton.TryGetInstance("UIContainer", out _uiContainer);
         BuildSummary();
@@ -41,6 +43,12 @@ public class SummaryUI : MonoBehaviour {
 
         if (_uiContainer) {
             _uiContainer.SetActive(true);
+        }
+
+        _expensesDif = BankAccountManager.Instance.Balance - (decimal)ExpensesManager.Instance.CalculateTotal();
+
+        if (_expensesDif < 0) {
+            FailureStateManager.Instance.GameOver?.Invoke("You couldn't afford to pay rent.. living on the street is tough");
         }
     }
 }

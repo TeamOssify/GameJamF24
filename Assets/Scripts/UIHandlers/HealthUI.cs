@@ -16,7 +16,7 @@ public class HealthUI : MonoBehaviour {
 
     private void Update() {
         var healthManager = HealthManager.Instance;
-        healthManager.Damage(healthManager.healthDrain);
+        healthManager.Damage(healthManager.healthDrain * Time.deltaTime);
     }
 
     private void OnDestroy() {

@@ -1,6 +1,5 @@
-using UnityEngine;
 using TMPro;
-using System;
+using UnityEngine;
 
 public class DaysUI : MonoBehaviour {
     [SerializeField]

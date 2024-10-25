@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{8825EC20-0F83-5304-205D-62382DC7A784}</ProjectGuid>
+    <ProjectGuid>{458E9F3D-BB89-5087-58CF-D89303FCE46C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -60,55 +60,54 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.50f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Locations\ClubLocation.cs" />
-    <Compile Include="Assets\Scripts\EventManager.cs" />
-    <Compile Include="Assets\Scripts\Locations\WorkLocation.cs" />
-    <Compile Include="Assets\Scripts\Singletons\DateManager.cs" />
+    <Compile Include="Assets\Scripts\UIHandlers\DialogueUI.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\SleepUI.cs" />
-    <Compile Include="Assets\Scripts\Locations\HouseLocation.cs" />
     <Compile Include="Assets\Scripts\WeekSummaryHandler.cs" />
     <Compile Include="Assets\Scripts\Singletons\SleepManager.cs" />
-    <Compile Include="Assets\Scripts\Singletons\BankAccountManager.cs" />
-    <Compile Include="Assets\Scripts\Singletons\MentalStateManager.cs" />
-    <Compile Include="Assets\Scripts\Enums.cs" />
     <Compile Include="Assets\Scripts\InsaneMusicScriptableObject.cs" />
-    <Compile Include="Assets\Scripts\ClickSoundComponent.cs" />
-    <Compile Include="Assets\Scripts\Locations\LocationBase.cs" />
     <Compile Include="Assets\Scripts\Singletons\IncomeManager.cs" />
     <Compile Include="Assets\Scripts\Locations\HospitalLocation.cs" />
-    <Compile Include="Assets\Scripts\UIHandlers\EventUIManager.cs" />
-    <Compile Include="Assets\Scripts\DialogueManager.cs" />
-    <Compile Include="Assets\Scripts\UIHandlers\DaysUI.cs" />
     <Compile Include="Assets\Scripts\Singletons\BackgroundMusicManager.cs" />
     <Compile Include="Assets\Scripts\Locations\LocationMap.cs" />
     <Compile Include="Assets\Scripts\Singletons\HealthManager.cs" />
-    <Compile Include="Assets\Scripts\GameOverHandler.cs" />
-    <Compile Include="Assets\Scripts\UIHandlers\HealthUI.cs" />
+    <Compile Include="Assets\Scripts\Models\Dialogue.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\GameOverUI.cs" />
     <Compile Include="Assets\Scripts\Singletons\TimeManager.cs" />
     <Compile Include="Assets\Scripts\Extensions\AudioSourceExtensions.cs" />
     <Compile Include="Assets\Scripts\Singletons\Singleton.cs" />
     <Compile Include="Assets\Scripts\HoverSoundComponent.cs" />
     <Compile Include="Assets\Scripts\Singletons\FailureStateManager.cs" />
-    <Compile Include="Assets\Scripts\Locations\MultiArtLocation.cs" />
     <Compile Include="Assets\Scripts\Locations\LocationManager.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\SummaryUI.cs" />
-    <Compile Include="Assets\Scripts\Locations\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Models\DateChangedArgs.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\SanityUI.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\ClockUI.cs" />
-    <Compile Include="Assets\Scripts\Singletons\EventArgs\MetricChangedArgs.cs" />
+    <Compile Include="Assets\Scripts\Models\MetricChangedArgs.cs" />
     <Compile Include="Assets\Scripts\Singletons\SoundEffectManager.cs" />
-    <Compile Include="Assets\Scripts\Singletons\ExpensesManager.cs" />
     <Compile Include="Assets\Scripts\Singletons\DontDestroySingleton.cs" />
-    <Compile Include="Assets\Scripts\Singletons\EventArgs\DateChangedArgs.cs" />
-    <Compile Include="Assets\Scripts\Singletons\EventArgs\MentalStateChangedArgs.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\MoneyUI.cs" />
     <Compile Include="Assets\Scripts\Singletons\SanityManager.cs" />
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="Assets\Scripts\Locations\ClubLocation.cs" />
+    <Compile Include="Assets\Scripts\EventManager.cs" />
+    <Compile Include="Assets\Scripts\Locations\WorkLocation.cs" />
+    <Compile Include="Assets\Scripts\Models\Enums.cs" />
+    <Compile Include="Assets\Scripts\Singletons\DateManager.cs" />
+    <Compile Include="Assets\Scripts\Locations\HouseLocation.cs" />
+    <Compile Include="Assets\Scripts\Singletons\MentalStateManager.cs" />
+    <Compile Include="Assets\Scripts\Singletons\BankAccountManager.cs" />
+    <Compile Include="Assets\Scripts\ClickSoundComponent.cs" />
+    <Compile Include="Assets\Scripts\Locations\LocationBase.cs" />
+    <Compile Include="Assets\Scripts\UIHandlers\EventUIManager.cs" />
+    <Compile Include="Assets\Scripts\DialogueManager.cs" />
+    <Compile Include="Assets\Scripts\UIHandlers\DaysUI.cs" />
+    <Compile Include="Assets\Scripts\GameOverHandler.cs" />
+    <Compile Include="Assets\Scripts\UIHandlers\HealthUI.cs" />
+    <Compile Include="Assets\Scripts\Locations\MultiArtLocation.cs" />
+    <Compile Include="Assets\Scripts\Locations\MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Models\MentalStateChangedArgs.cs" />
+    <Compile Include="Assets\Scripts\Singletons\ExpensesManager.cs" />
     <None Include="Assets\Dialogue\test_dialogue.txt" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Assets\Dialogue\Dialogue.json" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2022.3.50f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
       <Private>False</Private>

@@ -16,7 +16,7 @@ public class SleepUI : MonoBehaviour {
 
     private void Update() {
         var sleepManager = SleepManager.Instance;
-        sleepManager.ReduceSleep(sleepManager.sleepDrain);
+        sleepManager.ReduceSleep(sleepManager.sleepDrain * Time.deltaTime);
     }
 
     private void OnDestroy() {

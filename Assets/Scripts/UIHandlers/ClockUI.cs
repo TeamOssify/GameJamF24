@@ -48,7 +48,7 @@ public class ClockUI : MonoBehaviour {
     }
 
     private void IncrementPassiveTime() {
-        TimeManager.Instance.AdvanceTimeOfDay(TimeSpan.FromSeconds(60));
+        TimeManager.Instance.AdvanceTimeOfDay(TimeSpan.FromSeconds(120));
     }
 
     private void Update() {

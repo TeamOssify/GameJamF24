@@ -13,7 +13,7 @@ public sealed class SleepManager : Singleton<SleepManager> {
     public UnityEvent<MetricChangedArgs> SleepChanged;
 
     //Sleep drain per frame
-    public float sleepDrain = 1f;
+    public float sleepDrain = 0.5f;
 
     public float MinSleep => minSleep;
     public float MaxSleep => maxSleep;

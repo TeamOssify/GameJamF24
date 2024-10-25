@@ -15,7 +15,7 @@ public sealed class SanityManager : Singleton<SanityManager> {
     public UnityEvent<MetricChangedArgs> SanityChanged;
 
     //How much sanity drains every frame
-    public float sanityDrain = 1f;
+    public float sanityDrain = 0.5f;
 
     public float MinSanity => minSanity;
     public float MaxSanity => maxSanity;
@@ -33,7 +33,7 @@ public sealed class SanityManager : Singleton<SanityManager> {
             return;
         }
 
-        float oldSanity = Sanity;
+        var oldSanity = Sanity;
 
         Sanity -= amount;
         if (Sanity < minSanity) {
@@ -49,7 +49,7 @@ public sealed class SanityManager : Singleton<SanityManager> {
             return;
         }
 
-        float oldSanity = Sanity;
+        var oldSanity = Sanity;
 
         Sanity += amount;
         if (Sanity > maxSanity) {

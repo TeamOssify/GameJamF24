@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -56,5 +57,25 @@ public sealed class ClubLocation : LocationBase {
             1 => lightsSprite2,
             _ => lightsSprite3,
         };
+    }
+
+    public void Drink() {
+        //Yes these are hardcoded its 2am
+        if (BankAccountManager.Instance.Balance > 15 && SleepManager.Instance.Sleep > 5) {
+            HealthManager.Instance.Damage(5);
+            SanityManager.Instance.IncreaseSanity(10);
+            BankAccountManager.Instance.RemoveFunds(15);
+            SleepManager.Instance.ReduceSleep(5);
+            TimeManager.Instance.AdvanceTimeOfDay(TimeSpan.FromMinutes(60));
+        }
+    }
+
+    public void Chill() {
+        if (SleepManager.Instance.Sleep > 5) {
+            SleepManager.Instance.ReduceSleep(5);
+            SanityManager.Instance.IncreaseSanity(5);
+            BankAccountManager.Instance.RemoveFunds(10);
+            TimeManager.Instance.AdvanceTimeOfDay(TimeSpan.FromMinutes(60));
+        }
     }
 }
