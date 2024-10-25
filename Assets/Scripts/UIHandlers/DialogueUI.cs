@@ -7,6 +7,9 @@
         [SerializeField]
         private TMP_Text textField;
 
+        [SerializeField]
+        private GameObject speaker;
+
         private Queue<string> _dialogue;
 
         private bool _dialogueRunning;
@@ -42,6 +45,7 @@
             }
 
             if (!_dialogue.TryDequeue(out var dialogue)) {
+                speaker.SetActive(false);
                 return;
             }
 
