@@ -71,7 +71,7 @@ public sealed class ClubLocation : LocationBase {
     }
 
     public void Chill() {
-        if (SleepManager.Instance.Sleep > 5) {
+        if (SleepManager.Instance.Sleep > 5 && BankAccountManager.Instance.Balance > 10) {
             SleepManager.Instance.ReduceSleep(5);
             SanityManager.Instance.IncreaseSanity(5);
             BankAccountManager.Instance.RemoveFunds(10);
