@@ -1,7 +1,5 @@
-using System;
-using System.Collections;
 using System.Linq;
-using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -10,15 +8,19 @@ public class DialogueManager : MonoBehaviour {
     private LocationManager locationManager;
 
     [SerializeField]
-    private TMP_Text textField;
+    private TextAsset dialogueFile;
 
     [SerializeField]
-    private TextAsset dialogueFile;
+    private GameObject dialogueBox;
+
+    private DialogueUI _dialogueUI;
 
     private DialogueFile _dialogue;
 
     private void Awake() {
+        // _dialogueUI = dialogueBox.GetComponent<DialogueUI>();
         _dialogue = JsonUtility.FromJson<DialogueFile>(dialogueFile.text);
+        dialogueBox.SetActive(false);
     }
 
     private void Start() {
@@ -46,23 +48,7 @@ public class DialogueManager : MonoBehaviour {
         }
 
         var chosen = availableDialogue[Random.Range(0, availableDialogue.Length)].Strings;
-        StartCoroutine(ShowDialogueStrings(chosen));
-    }
-
-    private IEnumerator ShowDialogueStrings(string[] dialogue) {
-        foreach (var s in dialogue) {
-            yield return ShowDialogueString(s);
-
-
-        }
-    }
-
-    private IEnumerator ShowDialogueString(string dialogue) {
-        textField.text = "";
-
-        foreach (var c in dialogue) {
-            textField.text += c;
-            yield return null;
-        }
+        dialogueBox.SetActive(true);
+        _dialogueUI.ShowDialogueStrings(chosen);
     }
 }

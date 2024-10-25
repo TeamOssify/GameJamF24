@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 68456413}
   - component: {fileID: 68456416}
   - component: {fileID: 68456417}
-  - component: {fileID: 68456418}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -284,21 +283,6 @@ MonoBehaviour:
   TruckKun: {fileID: 21300000, guid: b8c9379045ec4aa4b917701470dc0437, type: 3}
   PlagueDoctor: {fileID: 21300000, guid: eacdecbdb6077964eba5e697e9aec4fb, type: 3}
   Doctor: {fileID: 21300000, guid: f89ea62812e764947b4ec35ba7142de4, type: 3}
---- !u!114 &68456418
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 68456412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6d612adf1b69554bb180a8b32508600, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  locationManager: {fileID: 11400000, guid: 39f98e1879cef184cbcb4b198f8a8384, type: 2}
-  textField: {fileID: 0}
-  dialogueFile: {fileID: 0}
 --- !u!1 &399340336
 GameObject:
   m_ObjectHideFlags: 0
