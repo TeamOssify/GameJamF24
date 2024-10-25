@@ -11,28 +11,10 @@ public class DialogueManager : MonoBehaviour {
     private GameObject dialogueBox;
 
     [SerializeField]
-    private DialogueTree dialogue1, dialogue2, dialogue3;
-
-    [SerializeField]
     private Sprite saneSprite, insaneSprite;
 
-    private DialogueTree[] Dialogue {
-        get {
-            var list = new List<DialogueTree>();
-
-            if (dialogue1) {
-                list.Add(dialogue1);
-            }
-            if (dialogue2) {
-                list.Add(dialogue2);
-            }
-            if (dialogue3) {
-                list.Add(dialogue3);
-            }
-
-            return list.ToArray();
-        }
-    }
+    [SerializeField]
+    private DialogueTree[] dialogue;
 
     private DialogueUI _dialogueUI;
 
@@ -49,7 +31,7 @@ public class DialogueManager : MonoBehaviour {
     {
         var sanityManager = SanityManager.Instance;
         var currentSanityPercent = sanityManager.Sanity / sanityManager.MaxSanity;
-        var availableDialogue = Dialogue
+        var availableDialogue = dialogue
             .Where(x => currentSanityPercent <= x.percentSanityRequired)
             .ToArray();
 
