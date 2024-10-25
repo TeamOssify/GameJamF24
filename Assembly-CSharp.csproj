@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\Enums.cs" />
     <Compile Include="Assets\Scripts\InsaneMusicScriptableObject.cs" />
     <Compile Include="Assets\Scripts\Locations\LocationBase.cs" />
+    <Compile Include="Assets\Scripts\ClickSoundComponent.cs" />
     <Compile Include="Assets\Scripts\Singletons\IncomeManager.cs" />
     <Compile Include="Assets\Scripts\Locations\HospitalLocation.cs" />
     <Compile Include="Assets\Scripts\DialogueManager.cs" />
@@ -84,6 +85,7 @@
     <Compile Include="Assets\Scripts\Singletons\TimeManager.cs" />
     <Compile Include="Assets\Scripts\Extensions\AudioSourceExtensions.cs" />
     <Compile Include="Assets\Scripts\Singletons\Singleton.cs" />
+    <Compile Include="Assets\Scripts\HoverSoundComponent.cs" />
     <Compile Include="Assets\Scripts\Singletons\FailureStateManager.cs" />
     <Compile Include="Assets\Scripts\Locations\MultiArtLocation.cs" />
     <Compile Include="Assets\Scripts\Locations\LocationManager.cs" />

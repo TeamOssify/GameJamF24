@@ -11,6 +11,10 @@ public sealed class SoundEffectManager : Singleton<SoundEffectManager> {
         _audioSource.PlayOneShot(clip);
     }
 
+    public void PlaySoundEffect(AudioClip clip, float volume) {
+        _audioSource.PlayOneShot(clip, volume);
+    }
+
     public void StopAllSoundEffects() {
         _audioSource.Stop();
     }
