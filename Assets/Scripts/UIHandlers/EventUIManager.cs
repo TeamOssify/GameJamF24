@@ -41,20 +41,20 @@ public class EventUIManager : MonoBehaviour {
 
         eventTitle.text = eventData.Name;
         eventDesc.text = eventData.Description;
-        eventTimePassed.text = $"{eventData.TimeChange} minutes have passed";
+        eventTimePassed.text = $"{eventData.TimeChange.TotalMinutes} minutes have passed.";
 
-        eventSanity.text = FormatChange("Sanity", eventData.SanityChange);
-        eventHealth.text = FormatChange("Health", eventData.HealthChange);
-        eventMoney.text = FormatChange("Money", eventData.MoneyChange);
+        eventSanity.text = FormatChange(eventData.SanityChange);
+        eventHealth.text = FormatChange(eventData.HealthChange);
+        eventMoney.text = FormatChange((float)eventData.MoneyChange);
     }
 
-    private string FormatChange(string stat, int change) {
-        if (change == 0) {
-            return "0";
+    private static string FormatChange(float change) {
+        if (Mathf.Approximately(change, 0)) {
+            return "=";
         }
 
-        string sign = change > 0 ? "+" : "-";
-        return $"{sign}";
+        var sign = change > 0 ? "+" : "-";
+        return sign;
     }
 
     private void CloseEventUI() {

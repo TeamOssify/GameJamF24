@@ -10,14 +10,14 @@ public sealed class BankAccountManager : Singleton<BankAccountManager> {
     [NonSerialized]
     public UnityEvent<MetricChangedArgs> BalanceChanged;
 
-    public float Balance { get; private set; }
+    public decimal Balance { get; private set; }
 
     private void OnEnable() {
         BalanceChanged ??= new UnityEvent<MetricChangedArgs>();
-        Balance = initialBalance;
+        Balance = (decimal)initialBalance;
     }
 
-    public void AddFunds(float amount) {
+    public void AddFunds(decimal amount) {
         if (amount < 0) {
             Debug.LogWarningFormat("Tried to add negative funds! ({0})", amount);
             return;
@@ -26,10 +26,10 @@ public sealed class BankAccountManager : Singleton<BankAccountManager> {
         var oldBalance = Balance;
         Balance += amount;
 
-        OnBalanceChanged(oldBalance, Balance);
+        OnBalanceChanged((float)oldBalance, (float)Balance);
     }
 
-    public void RemoveFunds(float amount) {
+    public void RemoveFunds(decimal amount) {
         if (amount < 0) {
             Debug.LogWarningFormat("Tried to remove negative funds! ({0})", amount);
             return;
@@ -38,7 +38,7 @@ public sealed class BankAccountManager : Singleton<BankAccountManager> {
         var oldBalance = Balance;
         Balance -= amount;
 
-        OnBalanceChanged(oldBalance, Balance);
+        OnBalanceChanged((float)oldBalance, (float)Balance);
     }
 
     public void OnBalanceChanged(float oldBalance, float newBalance) {
