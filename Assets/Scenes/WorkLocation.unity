@@ -301,8 +301,6 @@ MonoBehaviour:
   locationManager: {fileID: 11400000, guid: 39f98e1879cef184cbcb4b198f8a8384, type: 2}
   dialogueBox: {fileID: 1821588659}
   speaker: {fileID: 612735786}
-  saneSprite: {fileID: 21300000, guid: fb8640a74fe4866438a8f6ac26a51b0a, type: 3}
-  insaneSprite: {fileID: 21300000, guid: 1f8f0912c8c384d45892ffeda6bef352, type: 3}
   dialogue:
   - {fileID: 68456421}
   - {fileID: 68456420}
@@ -321,6 +319,7 @@ MonoBehaviour:
   percentSanityRequired: 0.15
   strings:
   - Get to work.
+  sprite: {fileID: 21300000, guid: 1f8f0912c8c384d45892ffeda6bef352, type: 3}
 --- !u!114 &68456421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,6 +335,7 @@ MonoBehaviour:
   percentSanityRequired: 1
   strings:
   - Good job on your last project.
+  sprite: {fileID: 21300000, guid: fb8640a74fe4866438a8f6ac26a51b0a, type: 3}
 --- !u!1 &218423499
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,6 +1538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textField: {fileID: 1524426983}
   speaker: {fileID: 612735786}
+  image: {fileID: 0}
 --- !u!1 &2101905729
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,7 +1,9 @@
+    using System;
     using System.Collections;
     using System.Collections.Generic;
     using TMPro;
     using UnityEngine;
+    using UnityEngine.UI;
 
     public sealed class DialogueUI : MonoBehaviour {
         [SerializeField]
@@ -10,16 +12,23 @@
         [SerializeField]
         private GameObject speaker;
 
+        private Image _image;
+
         private Queue<string> _dialogue;
 
         private bool _dialogueRunning;
 
-        public void ShowDialogueStrings(string[] dialogue) {
-            if (dialogue.Length == 0) {
+        private void Awake() {
+            _image = speaker.GetComponent<Image>();
+        }
+
+        public void ShowDialogueStrings(DialogueTree dialogue) {
+            if (dialogue.strings.Length == 0) {
                 return;
             }
 
-            _dialogue = new Queue<string>(dialogue);
+            _image.sprite = dialogue.sprite;
+            _dialogue = new Queue<string>(dialogue.strings);
             StartCoroutine(ShowDialogueString(_dialogue.Dequeue()));
         }
 

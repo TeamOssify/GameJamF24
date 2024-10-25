@@ -270,6 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textField: {fileID: 1547462087}
   speaker: {fileID: 612735786}
+  image: {fileID: 0}
 --- !u!1 &68456412
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,8 +450,6 @@ MonoBehaviour:
   locationManager: {fileID: 11400000, guid: 39f98e1879cef184cbcb4b198f8a8384, type: 2}
   dialogueBox: {fileID: 63221665}
   speaker: {fileID: 612735786}
-  saneSprite: {fileID: 21300000, guid: f89ea62812e764947b4ec35ba7142de4, type: 3}
-  insaneSprite: {fileID: 21300000, guid: eacdecbdb6077964eba5e697e9aec4fb, type: 3}
   dialogue:
   - {fileID: 68456421}
   - {fileID: 68456420}
@@ -469,6 +468,7 @@ MonoBehaviour:
   percentSanityRequired: 0.15
   strings:
   - Pestilence.
+  sprite: {fileID: 21300000, guid: eacdecbdb6077964eba5e697e9aec4fb, type: 3}
 --- !u!114 &68456421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,6 +484,7 @@ MonoBehaviour:
   percentSanityRequired: 1
   strings:
   - Welcome to the hospital!
+  sprite: {fileID: 21300000, guid: f89ea62812e764947b4ec35ba7142de4, type: 3}
 --- !u!1 &386809402
 GameObject:
   m_ObjectHideFlags: 0

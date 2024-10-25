@@ -13,9 +13,6 @@ public class DialogueManager : MonoBehaviour {
     private GameObject speaker;
 
     [SerializeField]
-    private Sprite saneSprite, insaneSprite;
-
-    [SerializeField]
     private DialogueTree[] dialogue;
 
     private DialogueUI _dialogueUI;
@@ -42,7 +39,7 @@ public class DialogueManager : MonoBehaviour {
             return;
         }
 
-        var chosen = availableDialogue[Random.Range(0, availableDialogue.Length)].strings;
+        var chosen = availableDialogue[Random.Range(0, availableDialogue.Length)];
         speaker.SetActive(true);
         _dialogueUI.ShowDialogueStrings(chosen);
     }

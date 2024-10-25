@@ -8,4 +8,7 @@ public sealed class DialogueTree : MonoBehaviour {
 
     [SerializeField]
     public string[] strings;
+
+    [SerializeField]
+    public Sprite sprite;
 }

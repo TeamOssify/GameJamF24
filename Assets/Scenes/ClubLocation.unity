@@ -301,8 +301,6 @@ MonoBehaviour:
   locationManager: {fileID: 11400000, guid: 39f98e1879cef184cbcb4b198f8a8384, type: 2}
   dialogueBox: {fileID: 865372636}
   speaker: {fileID: 1770549094}
-  saneSprite: {fileID: 21300000, guid: 87bbc6ab20faaab408d61a4b7ce767b5, type: 3}
-  insaneSprite: {fileID: 21300000, guid: 9aa6623e024702e4885723dda3373ddb, type: 3}
   dialogue:
   - {fileID: 68456421}
   - {fileID: 68456420}
@@ -321,6 +319,7 @@ MonoBehaviour:
   percentSanityRequired: 0.3
   strings:
   - Dance 'til you're dead.
+  sprite: {fileID: 21300000, guid: 9aa6623e024702e4885723dda3373ddb, type: 3}
 --- !u!114 &68456421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,6 +335,7 @@ MonoBehaviour:
   percentSanityRequired: 1
   strings:
   - Welcome to the Nebula!
+  sprite: {fileID: 21300000, guid: 87bbc6ab20faaab408d61a4b7ce767b5, type: 3}
 --- !u!1 &251874012
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,6 +751,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textField: {fileID: 1578625073}
   speaker: {fileID: 1770549094}
+  image: {fileID: 0}
 --- !u!1 &973906492
 GameObject:
   m_ObjectHideFlags: 0
