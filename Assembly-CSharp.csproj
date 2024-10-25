@@ -60,11 +60,11 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.50f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\UIHandlers\DialogueUI.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\SleepUI.cs" />
     <Compile Include="Assets\Scripts\WeekSummaryHandler.cs" />
     <Compile Include="Assets\Scripts\Singletons\SleepManager.cs" />
     <Compile Include="Assets\Scripts\InsaneMusicScriptableObject.cs" />
-    <Compile Include="Assets\Scripts\ClickSoundComponent.cs" />
     <Compile Include="Assets\Scripts\Singletons\IncomeManager.cs" />
     <Compile Include="Assets\Scripts\Locations\HospitalLocation.cs" />
     <Compile Include="Assets\Scripts\Singletons\BackgroundMusicManager.cs" />
@@ -87,8 +87,6 @@
     <Compile Include="Assets\Scripts\Singletons\DontDestroySingleton.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\MoneyUI.cs" />
     <Compile Include="Assets\Scripts\Singletons\SanityManager.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Assets\Scripts\Locations\ClubLocation.cs" />
     <Compile Include="Assets\Scripts\EventManager.cs" />
     <Compile Include="Assets\Scripts\Locations\WorkLocation.cs" />
