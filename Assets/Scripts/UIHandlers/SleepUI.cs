@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class SleepUI : MonoBehaviour {
     [SerializeField]
@@ -16,7 +17,7 @@ public class SleepUI : MonoBehaviour {
 
     private void Update() {
         var sleepManager = SleepManager.Instance;
-        sleepManager.ReduceSleep(sleepManager.sleepDrain);
+        sleepManager.ReduceSleep(sleepManager.sleepDrain * Time.deltaTime);
     }
 
     private void OnDestroy() {

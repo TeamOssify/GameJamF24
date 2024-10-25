@@ -16,7 +16,7 @@ public class SanityUI : MonoBehaviour {
 
     private void Update() {
         var sanityManager = SanityManager.Instance;
-        sanityManager.ReduceSanity(sanityManager.sanityDrain);
+        sanityManager.ReduceSanity(sanityManager.sanityDrain * Time.deltaTime);
     }
 
     private void OnDestroy() {
