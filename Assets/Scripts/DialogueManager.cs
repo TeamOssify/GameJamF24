@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -11,6 +10,9 @@ public class DialogueManager : MonoBehaviour {
     private GameObject dialogueBox;
 
     [SerializeField]
+    private GameObject speaker;
+
+    [SerializeField]
     private Sprite saneSprite, insaneSprite;
 
     [SerializeField]
@@ -20,7 +22,7 @@ public class DialogueManager : MonoBehaviour {
 
     private void Awake() {
         _dialogueUI = dialogueBox.GetComponent<DialogueUI>();
-        dialogueBox.SetActive(false);
+        speaker.SetActive(false);
     }
 
     private void Start() {
@@ -41,7 +43,7 @@ public class DialogueManager : MonoBehaviour {
         }
 
         var chosen = availableDialogue[Random.Range(0, availableDialogue.Length)].strings;
-        dialogueBox.SetActive(true);
+        speaker.SetActive(true);
         _dialogueUI.ShowDialogueStrings(chosen);
     }
 }
