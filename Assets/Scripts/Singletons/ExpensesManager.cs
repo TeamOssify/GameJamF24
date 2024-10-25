@@ -12,6 +12,7 @@ public sealed class ExpensesManager : Singleton<ExpensesManager> {
 
     public IEnumerable<Expense> Expenses => _expenses.Select(x => new Expense(x.Key, (float)x.Value));
 
+
     private void OnEnable() {
         TotalExpensesChanged ??= new UnityEvent<MetricChangedArgs>();
         _expenses = new Dictionary<string, decimal>();

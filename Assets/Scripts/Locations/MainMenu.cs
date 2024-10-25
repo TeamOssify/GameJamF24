@@ -123,5 +123,6 @@ public sealed class MainMenu : MonoBehaviour {
 
         locationManager.ChangeScene(sceneName);
         Time.timeScale = 1f;
+        ExpensesManager.Instance.AddExpense("Rent", 400);
     }
 }

@@ -22,7 +22,8 @@ public class GameOverUI : MonoBehaviour {
             else
                 BankAccountManager.Instance.RemoveFunds(currentBalance);
         }
-
+        ExpensesManager.Instance.ClearExpenses();
+        
         TimeManager.Instance.SetTimeOfDay(TimeSpan.FromSeconds(0));
         DateManager.Instance.SetDate(0);
         SceneManager.LoadScene("Menu");

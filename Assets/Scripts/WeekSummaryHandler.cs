@@ -35,8 +35,8 @@ public class WeekSummaryHandler : MonoBehaviour {
 
     private void LoadWeekSummaryScene() {
         Time.timeScale = 0f; // pause the game
-        BankAccountManager.Instance.RemoveFunds(400);
-        ExpensesManager.Instance.AddExpense("Rent", 400);
+        
+        
         SceneManager.LoadSceneAsync("WeekSummary");
 
         if (_uiContainer) {

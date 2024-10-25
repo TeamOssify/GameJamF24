@@ -33,16 +33,17 @@ public class SummaryUI : MonoBehaviour {
     }
 
     public void ResumeGame() {
+        BankAccountManager.Instance.RemoveFunds(400);
+        if (BankAccountManager.Instance.Balance < 0) {
+            FailureStateManager.Instance.GameOver?.Invoke("You couldn't afford to pay rent... living on the street is tough");
+            ExpensesManager.Instance.ClearExpenses();
+            return;
+        }
         Time.timeScale = 1f;
-        ExpensesManager.Instance.ClearExpenses();
         locationManager.ChangeLocation(Location.Map);
 
         if (_uiContainer) {
             _uiContainer.SetActive(true);
-        }
-
-        if (BankAccountManager.Instance.Balance < 0) {
-            FailureStateManager.Instance.GameOver?.Invoke("You couldn't afford to pay rent... living on the street is tough");
         }
     }
 }
