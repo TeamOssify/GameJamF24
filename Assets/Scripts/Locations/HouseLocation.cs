@@ -2,6 +2,7 @@ using System;
 
 public sealed class HouseLocation : MultiArtLocation {
     public void Sleep() {
+        SanityManager.Instance.IncreaseSanity(4);
         SleepManager.Instance.IncreaseSleep(50);
         TimeManager.Instance.AdvanceTimeOfDay(TimeSpan.FromMinutes(360));
     }
