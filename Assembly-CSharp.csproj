@@ -72,8 +72,8 @@
     <Compile Include="Assets\Scripts\Singletons\MentalStateManager.cs" />
     <Compile Include="Assets\Scripts\Enums.cs" />
     <Compile Include="Assets\Scripts\InsaneMusicScriptableObject.cs" />
-    <Compile Include="Assets\Scripts\Locations\LocationBase.cs" />
     <Compile Include="Assets\Scripts\ClickSoundComponent.cs" />
+    <Compile Include="Assets\Scripts\Locations\LocationBase.cs" />
     <Compile Include="Assets\Scripts\Singletons\EventUIManager.cs" />
     <Compile Include="Assets\Scripts\Singletons\IncomeManager.cs" />
     <Compile Include="Assets\Scripts\Locations\HospitalLocation.cs" />
