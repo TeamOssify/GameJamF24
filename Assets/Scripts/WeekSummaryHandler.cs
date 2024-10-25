@@ -13,6 +13,7 @@ public class WeekSummaryHandler : MonoBehaviour {
     }
 
     private void Start() {
+        ExpensesManager.Instance.AddExpense("Rent", 400);
         DontDestroySingleton.TryGetInstance("UIContainer", out _uiContainer);
     }
 

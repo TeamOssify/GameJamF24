@@ -21,12 +21,5 @@ public class GameOverHandler : MonoBehaviour {
         DontDestroySingleton.TryGetInstance("UIContainer", out _uiContainer);
         if (_uiContainer)
             _uiContainer.SetActive(false);
-        SanityManager.Instance.IncreaseSanity(SanityManager.Instance.MaxSanity);
-        SleepManager.Instance.IncreaseSleep(SleepManager.Instance.MaxSleep);
-        HealthManager.Instance.Heal(HealthManager.Instance.MaxHealth);
-        if (BankAccountManager.Instance.Balance < 0)
-            BankAccountManager.Instance.RemoveFunds(BankAccountManager.Instance.Balance);
-        if (BankAccountManager.Instance.Balance > 0)
-            BankAccountManager.Instance.AddFunds(BankAccountManager.Instance.Balance);
     }
 }
