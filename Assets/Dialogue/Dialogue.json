@@ -1,0 +1,21 @@
+{
+  "LocationDialogue": [
+    {
+      "Location": "Hospital",
+      "Dialogue": [
+        {
+          "PercentSanityRequired": 1,
+          "Strings": [
+            "Welcome to the hospital!"
+          ]
+        },
+        {
+          "PercentSanityRequired": 0.15,
+          "Strings": [
+            "Pestilence."
+          ]
+        }
+      ]
+    }
+  ]
+}

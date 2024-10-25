@@ -1,38 +1,68 @@
-using System.Collections.Generic;
+using System;
+using System.Collections;
+using System.Linq;
 using TMPro;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class DialogueManager : MonoBehaviour {
     [SerializeField]
+    private LocationManager locationManager;
+
+    [SerializeField]
     private TMP_Text textField;
 
-    public TextAsset inputTextFile;
+    [SerializeField]
+    private TextAsset dialogueFile;
 
-    private string entireText;
-    private List<string> line;
-    private int lineNum = 1;
+    private DialogueFile _dialogue;
 
+    private void Awake() {
+        _dialogue = JsonUtility.FromJson<DialogueFile>(dialogueFile.text);
+    }
 
     private void Start() {
-        entireText = inputTextFile.text;
-        line = new List<string>();
-        line.AddRange(entireText.Split("\n"));
-        Debug.Log(line[4]);
+        CheckDialogue();
+    }
 
-        if (!textField) {
+    private void CheckDialogue()
+    {
+        var currentLocation = locationManager.CurrentLocation;
+        var locationDialogue = _dialogue.LocationDialogue.FirstOrDefault(x => x.Location == currentLocation);
+        if (locationDialogue == null) {
+            Debug.LogFormat("No dialogue for the current location was found. ({0})", currentLocation);
             return;
         }
 
-        textField.text = line[0];
+        var sanityManager = SanityManager.Instance;
+        var currentSanityPercent = sanityManager.Sanity / sanityManager.MaxSanity;
+        var availableDialogue = locationDialogue.Dialogue
+            .Where(x => currentSanityPercent <= x.PercentSanityRequired)
+            .ToArray();
+
+        if (availableDialogue.Length == 0) {
+            Debug.LogFormat("No available dialogue found for current sanity. ({0})", currentSanityPercent);
+            return;
+        }
+
+        var chosen = availableDialogue[Random.Range(0, availableDialogue.Length)].Strings;
+        StartCoroutine(ShowDialogueStrings(chosen));
     }
 
-    public void nextText() {
-        if (lineNum < line.Count) {
-            textField.text = line[lineNum];
-            lineNum++;
+    private IEnumerator ShowDialogueStrings(string[] dialogue) {
+        foreach (var s in dialogue) {
+            yield return ShowDialogueString(s);
+
+
         }
-        else {
-            textField.text = "";
+    }
+
+    private IEnumerator ShowDialogueString(string dialogue) {
+        textField.text = "";
+
+        foreach (var c in dialogue) {
+            textField.text += c;
+            yield return null;
         }
     }
 }
