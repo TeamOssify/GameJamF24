@@ -22,7 +22,7 @@ public sealed class IncomeManager : Singleton<IncomeManager> {
 
     private void OnDateChanged(DateChangedArgs e) {
         var income = CheckIncomeSources(e.Date);
-        BankAccountManager.Instance.AddFunds(income);
+        BankAccountManager.Instance.AddFunds((decimal)income);
     }
 
     private float CheckIncomeSources(int date) {

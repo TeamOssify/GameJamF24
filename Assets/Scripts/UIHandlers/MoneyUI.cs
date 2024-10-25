@@ -7,7 +7,7 @@ public class MoneyUI : MonoBehaviour {
 
     private void Start() {
         var bank = BankAccountManager.Instance;
-        moneyText.text = $"${bank.Balance}";
+        moneyText.text = $"${bank.Balance:N2}";
 
         bank.BalanceChanged.AddListener(OnBalanceChanged);
     }
