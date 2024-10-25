@@ -23,10 +23,16 @@ public sealed class FailureStateManager : Singleton<FailureStateManager> {
     private void OnEnable() {
         GameOver ??= new UnityEvent<string>();
         DateManager.Instance.DayChanged.AddListener(OnDateChanged);
+        HealthManager.Instance.HealthChanged.AddListener(OnHealthChanged);
     }
 
     private void OnDisable() {
         DateManager.Instance.DayChanged.RemoveListener(OnDateChanged);
+        HealthManager.Instance.HealthChanged.RemoveListener(OnHealthChanged);
+    }
+
+    private void OnHealthChanged(MetricChangedArgs arg0) {
+        CheckFailure();
     }
 
     private void OnDateChanged(DateChangedArgs e) {
@@ -59,9 +65,7 @@ public sealed class FailureStateManager : Singleton<FailureStateManager> {
     }
 
     public void CheckFailure() {
-        var healthManager = HealthManager.Instance;
-        if (healthManager.Health <= healthManager.MinHealth) {
-            OnGameOver("You were hospitalized due to various health problems");
+        if (CheckHealthFailure()) {
             return;
         }
 
@@ -75,6 +79,17 @@ public sealed class FailureStateManager : Singleton<FailureStateManager> {
         if (_ranOutOfSleepDay != -1 && currentDay - _ranOutOfSleepDay > lowSleepTooManyDaysFailure) {
             OnGameOver("You were hospitalized due to severe lack of sleep");
         }
+    }
+
+    private bool CheckHealthFailure()
+    {
+        var healthManager = HealthManager.Instance;
+        if (healthManager.Health <= healthManager.MinHealth) {
+            OnGameOver("You were hospitalized due to various health problems");
+            return true;
+        }
+
+        return false;
     }
 
     private void OnGameOver(string failureReason) {
