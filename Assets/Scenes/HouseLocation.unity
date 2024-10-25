@@ -859,7 +859,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.85
+  m_fontSize: 34.1
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -954,8 +954,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   insaneMusicScriptableObject: {fileID: 11400000, guid: 2add742076e92c94e924dc4118f92f02, type: 2}
-  musicSane: {fileID: 0}
-  musicAnxious: {fileID: 0}
+  musicSane: {fileID: 8300000, guid: 8bb7df76c9c043147aeb7f18f35f8be6, type: 3}
+  musicAnxious: {fileID: 8300000, guid: d0357ce282bd64046a5621b5534e7424, type: 3}
   morningSaneSprite: {fileID: 21300000, guid: f9d02aa5d10e04f499b9b733f37ffde9, type: 3}
   morningAnxiousSprite: {fileID: 0}
   morningInsaneSprite: {fileID: 0}

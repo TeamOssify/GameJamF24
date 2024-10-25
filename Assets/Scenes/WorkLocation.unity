@@ -774,8 +774,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   insaneMusicScriptableObject: {fileID: 11400000, guid: 2add742076e92c94e924dc4118f92f02, type: 2}
-  musicSane: {fileID: 0}
-  musicAnxious: {fileID: 0}
+  musicSane: {fileID: 8300000, guid: 9f5e2f6fd1902c147a301b1cd8a89bbf, type: 3}
+  musicAnxious: {fileID: 8300000, guid: caacd0a333369e644844eff62f3c210e, type: 3}
   morningSaneSprite: {fileID: 21300000, guid: 098c3b0645319da498f218e90a87e6d6, type: 3}
   morningAnxiousSprite: {fileID: 0}
   morningInsaneSprite: {fileID: 21300000, guid: 197c2174844ff2346bcd33eb720edfeb, type: 3}
