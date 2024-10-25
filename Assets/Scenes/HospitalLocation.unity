@@ -407,6 +407,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locationManager: {fileID: 11400000, guid: 39f98e1879cef184cbcb4b198f8a8384, type: 2}
+  Bartender: {fileID: 0}
+  Coworker: {fileID: 0}
+  Stranger1: {fileID: 0}
+  Stranger2: {fileID: 0}
+  Stranger3: {fileID: 0}
+  Stranger4: {fileID: 0}
+  Friend: {fileID: 0}
+  TruckKun: {fileID: 0}
+  PlagueDoctor: {fileID: 0}
+  Doctor: {fileID: 0}
 --- !u!114 &68456419
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,8 +429,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6d612adf1b69554bb180a8b32508600, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  locationManager: {fileID: 11400000, guid: 39f98e1879cef184cbcb4b198f8a8384, type: 2}
   textField: {fileID: 1547462087}
-  inputTextFile: {fileID: 4900000, guid: 9a8bb7db0b0f24944be84f5eab1fcafa, type: 3}
+  dialogueFile: {fileID: 4900000, guid: 7d877c0b03472614c9b427a2baef739d, type: 3}
 --- !u!1 &386809402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1292,7 +1303,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1257098019}
         m_TargetAssemblyTypeName: HospitalLocation, Assembly-CSharp
-        m_MethodName: RecieveTreatment
+        m_MethodName: ReceiveTreatment
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
