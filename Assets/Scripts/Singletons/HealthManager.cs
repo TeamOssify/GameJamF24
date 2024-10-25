@@ -13,7 +13,7 @@ public sealed class HealthManager : Singleton<HealthManager> {
     public UnityEvent<MetricChangedArgs> HealthChanged;
 
     //Health damage every frame
-    public float healthDrain = 0.002f;
+    public float healthDrain = 1f;
 
     public float MinHealth => minHealth;
     public float MaxHealth => maxHealth;

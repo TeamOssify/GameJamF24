@@ -22,14 +22,14 @@ public sealed class FailureStateManager : Singleton<FailureStateManager> {
 
     private void OnEnable() {
         GameOver ??= new UnityEvent<string>();
-        DateManager.Instance.DayChanged.AddListener(OnDateChanged);
+        TimeManager.Instance.TimeChanged.AddListener(OnTimeChanged);
     }
 
     private void OnDisable() {
-        DateManager.Instance.DayChanged.RemoveListener(OnDateChanged);
+        TimeManager.Instance.TimeChanged.RemoveListener(OnTimeChanged);
     }
 
-    private void OnDateChanged(DateChangedArgs e) {
+    private void OnTimeChanged(TimeSpan e) {
         UpdateFailureTrackers();
         CheckFailure();
     }

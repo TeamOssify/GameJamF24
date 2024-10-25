@@ -82,7 +82,9 @@
     <Compile Include="Assets\Scripts\Singletons\BackgroundMusicManager.cs" />
     <Compile Include="Assets\Scripts\Locations\LocationMap.cs" />
     <Compile Include="Assets\Scripts\Singletons\HealthManager.cs" />
+    <Compile Include="Assets\Scripts\GameOverHandler.cs" />
     <Compile Include="Assets\Scripts\UIHandlers\HealthUI.cs" />
+    <Compile Include="Assets\Scripts\UIHandlers\GameOverUI.cs" />
     <Compile Include="Assets\Scripts\Singletons\TimeManager.cs" />
     <Compile Include="Assets\Scripts\Extensions\AudioSourceExtensions.cs" />
     <Compile Include="Assets\Scripts\Singletons\Singleton.cs" />

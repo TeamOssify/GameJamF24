@@ -15,7 +15,7 @@ public sealed class SanityManager : Singleton<SanityManager> {
     public UnityEvent<MetricChangedArgs> SanityChanged;
 
     //How much sanity drains every frame
-    public float sanityDrain = 0.002f;
+    public float sanityDrain = 1f;
 
     public float MinSanity => minSanity;
     public float MaxSanity => maxSanity;

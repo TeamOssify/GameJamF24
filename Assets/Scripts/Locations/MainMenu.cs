@@ -45,6 +45,8 @@ public sealed class MainMenu : MonoBehaviour {
 
     private Image _layoutArtImage;
 
+    private GameObject _uiContainer;
+
     private void Awake() {
         InitManagers();
         _layoutArtImage = layoutArt.GetComponent<Image>();
@@ -115,6 +117,11 @@ public sealed class MainMenu : MonoBehaviour {
     }
 
     public void StartGame(string sceneName) {
+        DontDestroySingleton.TryGetInstance("UIContainer", out _uiContainer);
+        if (_uiContainer)
+            _uiContainer.gameObject.SetActive(true);
+
         locationManager.ChangeScene(sceneName);
+        Time.timeScale = 1f;
     }
 }
