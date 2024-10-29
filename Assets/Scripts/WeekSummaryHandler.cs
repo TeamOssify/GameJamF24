@@ -38,7 +38,7 @@ public class WeekSummaryHandler : MonoBehaviour {
         
         
         SceneManager.LoadSceneAsync("WeekSummary");
-
+        
         if (_uiContainer) {
             _uiContainer.SetActive(false);
         }

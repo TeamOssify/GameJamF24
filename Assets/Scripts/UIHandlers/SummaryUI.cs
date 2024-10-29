@@ -15,6 +15,7 @@ public class SummaryUI : MonoBehaviour {
 
     private void Start() {
         DontDestroySingleton.TryGetInstance("UIContainer", out _uiContainer);
+        ExpensesManager.Instance.AddExpense("Rent", 400);
         BuildSummary();
         DisplayTitle();
     }
@@ -33,12 +34,14 @@ public class SummaryUI : MonoBehaviour {
     }
 
     public void ResumeGame() {
+        
         BankAccountManager.Instance.RemoveFunds(400);
         if (BankAccountManager.Instance.Balance < 0) {
-            FailureStateManager.Instance.GameOver?.Invoke("You couldn't afford to pay rent... living on the street is tough");
             ExpensesManager.Instance.ClearExpenses();
+            FailureStateManager.Instance.GameOver?.Invoke("You couldn't afford to pay rent... living on the street is tough"); 
             return;
         }
+        ExpensesManager.Instance.ClearExpenses();
         Time.timeScale = 1f;
         locationManager.ChangeLocation(Location.Map);
 
